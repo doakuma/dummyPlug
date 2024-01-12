@@ -22,14 +22,18 @@
           <!-- 진행상태 범례 -->
           <div class="box-status-legend">
             <strong class="reported-date"></strong>
-            <h2 class="tit-status">상태 종류</h2>
+            <h2 class="tit-status">위험도</h2>
             <ul class="list-status">
-              <li class="item-status todo">진행 대기</li>
-              <li class="item-status on-track">진행중</li>
-              <li class="item-status at-risk">완료일 임박</li>
+              <li class="item-status on-track">정상</li>
               <li class="item-status high-risk">지연</li>
               <li class="item-status done">완료</li>
             </ul>
+            <!-- <h2 class="tit-status">진행상태</h2>
+            <ul class="list-status">
+              <li class="item-status todo">진행 대기</li>
+              <li class="item-status on-track">진행중</li>
+              <li class="item-status done">완료</li>
+            </ul> -->
           </div>
           <!-- 진행상태 범례 -->
 
@@ -44,6 +48,8 @@
               </select>
             </div>
             <!--// 메뉴별 필터 -->
+
+            <!-- 상태별 필터 -->
             <div class="status-checkbox">
               <ul class="filter-status">
                 <li>
@@ -52,10 +58,10 @@
                     name="filterStatus"
                     id="filterDueTo01"
                     class="checkbox status-check"
-                    value="todo"
+                    value="on-track"
                     checked
                   />
-                  <label for="filterDueTo01" class="item-status todo"
+                  <label for="filterDueTo01" class="label-checkbox on-track"
                     >정상</label
                   >
                 </li>
@@ -68,7 +74,7 @@
                     value="at-risk"
                     checked
                   />
-                  <label for="filterDueTo02" class="item-status at-risk"
+                  <label for="filterDueTo02" class="label-checkbox at-risk"
                     >완료일 임박</label
                   >
                 </li>
@@ -81,7 +87,7 @@
                     value="high-risk"
                     checked
                   />
-                  <label for="filterDueTo03" class="item-status high-risk"
+                  <label for="filterDueTo03" class="label-checkbox high-risk"
                     >지연</label
                   >
                 </li>
@@ -93,10 +99,10 @@
                     name="filterStatus"
                     id="filterProgress01"
                     class="checkbox progress-check"
-                    value="todo"
+                    value="0"
                     checked
                   />
-                  <label for="filterProgress01" class="item-status todo"
+                  <label for="filterProgress01" class="label-checkbox"
                     >진행 대기</label
                   >
                 </li>
@@ -106,10 +112,10 @@
                     name="filterStatus"
                     id="filterProgress02"
                     class="checkbox progress-check"
-                    value="on-track"
+                    value="1"
                     checked
                   />
-                  <label for="filterProgress02" class="item-status on-track"
+                  <label for="filterProgress02" class="label-checkbox"
                     >진행중</label
                   >
                 </li>
@@ -119,27 +125,30 @@
                     name="filterStatus"
                     id="filterProgress05"
                     class="checkbox progress-check"
-                    value="done"
+                    value="2"
                     checked
                   />
-                  <label for="filterProgress05" class="item-status done"
+                  <label for="filterProgress05" class="label-checkbox"
                     >완료</label
                   >
                 </li>
               </ul>
             </div>
+            <!--// 상태별 필터 -->
           </div>
           <!--// 필터 영역 -->
           <table class="table">
             <colgroup>
-              <col style="width: 15%" />
+              <!-- <col style="width: 15%" />
               <col style="width: 15%" />
               <col style="width: 20%" />
               <col style="width: 10%" />
               <col style="width: 10%" />
               <col style="width: 10%" />
               <col style="width: 10%" />
-              <col style="width: 15%" />
+              <col style="width: 10%" />
+              <col style="width: 10%" />
+              <col style="width: 15%" /> -->
             </colgroup>
             <thead>
               <tr>
@@ -147,6 +156,7 @@
                 <th>페이지명</th>
                 <th>페이지 url</th>
                 <th>담당자</th>
+                <th>위험도</th>
                 <th>진행상태</th>
                 <th>완료예정일</th>
                 <th>완료일</th>
@@ -160,265 +170,15 @@
       <!--// content -->
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    <script src="resources/js/dashboard/pageListData.js"></script>
+    <script src="resources/js/dashboard/dashboard.js"></script>
     <script>
-      /**
-       * TODO: [X] 메뉴명으로 분류하여 보기 -> select
-       * TODO: [ ] 진행상태 / 일정 기준 별로 분류하여 보기 -> checkbox
-       * TODO: [ ] 메뉴마다 따로 진척도 확인 가능하도록 진행해보기
-       *
-       * TODO: [ ] 각 영역 웹 컴포넌트로 구현 가능한 지 검토
-       */
-      var isTemplate = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
-      var today = isTemplate ? new Date("2024-01-11") : new Date();
-
-      // page list array
-      var pageList = [
-        {
-          menuNm: "메뉴명1",
-          menuCode: "MENU_CD001",
-          pageNm: "페이지명_1",
-          fileFolder: "temp",
-          fileName: "temp.html",
-          author: "",
-          isComplete: 2,
-          completeDate: "2024-01-09",
-          dueToDate: "2024-01-11",
-          comments: "",
-        },
-        {
-          menuNm: "메뉴명1",
-          menuCode: "MENU_CD001",
-          pageNm: "페이지명_2",
-          fileFolder: "temp",
-          fileName: "temp.html",
-          author: "",
-          isComplete: 1,
-          completeDate: "",
-          dueToDate: "2024-01-10",
-          comments: "",
-        },
-        {
-          menuNm: "메뉴명2",
-          menuCode: "MENU_CD002",
-          pageNm: "페이지명_2_2",
-          fileFolder: "temp",
-          fileName: "temp.html",
-          author: "",
-          isComplete: 1,
-          completeDate: "",
-          dueToDate: "2024-01-16",
-          comments: "",
-        },
-        {
-          menuNm: "메뉴명2",
-          menuCode: "MENU_CD002",
-          pageNm: "페이지명_3",
-          fileFolder: "temp",
-          fileName: "temp.html",
-          author: "",
-          isComplete: 0,
-          completeDate: "",
-          dueToDate: "2024-01-13",
-          comments: "",
-        },
-      ];
       $(function () {
         drawList(pageList);
-        drwaStatusInfo(pageList);
-        handleChangeSelect();
-        handleChangeCheck();
+        drawStatusInfo(pageList);
+        initializeFilters(pageList);
       });
-
-      // draw list table
-      function drawList(arr) {
-        var listCont = $(".page-list").find("tbody");
-        var drawItem = "";
-        $.each(arr, function (index, item) {
-          var menuNm = item.menuNm;
-          var pageNm = item.pageNm;
-          var fileFolder = item.fileFolder;
-          var fileName = item.fileName;
-          var fileLink = fileName
-            ? `<a href="${fileFolder}/${fileName}" target='_blank'>${fileName}</a>`
-            : "";
-          var author = item.author !== "" ? item.author : "인스플래닛";
-          var isComplete =
-            item.isComplete === 0
-              ? "진행대기"
-              : item.isComplete === 1
-              ? "진행중"
-              : "완료";
-          var completeDate = item.completeDate;
-          var dueToDate = item.dueToDate;
-          var comments = item.comments;
-          var isOver =
-            item.isComplete === 2 || new Date(item.dueToDate) >= today
-              ? ""
-              : "isOver";
-          var status = curStatus(dueToDate, item.isComplete);
-          var isStatus = { status: status };
-          Object.assign(item, isStatus); // list item update with status
-
-          // draw table
-          drawItem += `<tr>`;
-          drawItem += `<td>${menuNm}</td>`;
-          drawItem += `<td class="txt-left">${pageNm}</td>`;
-          item.isComplete === 2
-            ? (drawItem += `<td class="txt-left">${fileLink}</td>`)
-            : (drawItem += `<td class="txt-left">${fileName}</td>`);
-          drawItem += `<td>${author}</td>`;
-          drawItem += `<td><div class="status-cell"><span class="status ${status}"></span>${isComplete}</div></td>`;
-          drawItem += `<td>${dueToDate}</td>`;
-          drawItem += `<td>${completeDate}</td>`;
-          drawItem += `<td class='txt-left'>${comments}</td>`;
-          drawItem += "</tr>";
-        });
-        listCont.html(drawItem);
-      }
-
-      // draw status info
-      function drwaStatusInfo(arr) {
-        // isComplete 0 : 진행대기 | 1 : 진행중 | 2 : 완료
-        var statusCont = $(".status-info");
-        var statusItem = "";
-        var total,
-          dueTo = 0,
-          onGoing = 0,
-          complete = 0,
-          dueToPer,
-          onGoingPer,
-          completePer;
-        total = arr.length;
-        $.each(arr, function (index, item) {
-          if (item.isComplete === 0) {
-            dueTo++;
-          } else if (item.isComplete === 1) {
-            onGoing++;
-          } else {
-            complete++;
-          }
-        });
-        dueToPer = ((dueTo / total) * 100).toFixed(2);
-        onGoingPer = ((onGoing / total) * 100).toFixed(2);
-        completePer = ((complete / total) * 100).toFixed(2);
-        statusItem = `
-                <li>진척도:
-                  <span class="status-bar"><span class="status-bar-inner" style="width: ${completePer}px"></span></span>
-                  <strong>${completePer}</strong>%</li>
-                <li>전체: <strong>${total}</strong>건</li>
-                <li>진행대기: <strong>${dueTo}</strong>건(${dueToPer}%)</li>
-                <li>진행중: <strong>${onGoing}</strong>건(${onGoingPer}%)</li>
-                <li>완료: <strong>${complete}</strong>건</li>
-              `;
-        statusCont.html(statusItem);
-        // reportdate
-        var reportedDateWrapper = $(".reported-date");
-        var reportedDate = toStringByFormatting(today);
-        reportedDateWrapper.html(`기준일: ${reportedDate}`);
-      }
-
-      /**
-       * current status 종류
-       * 기준은 오늘 날짜
-       * 비교 대상은 dueToDate, isComplete
-       * isComplete - 0 : 진행대기 | 1 : 진행중 | 2 : 완료
-       */
-      function curStatus(dueToDate, isComplete) {
-        var isOver = today > new Date(dueToDate);
-        var isRisky = isCloseDueDate(new Date(dueToDate));
-        var status = ""; // todo | on-track | at-risk | high-risk | done
-        if (isComplete === 0) {
-          status = "todo";
-        }
-        if (isComplete === 2) {
-          status = "done";
-        }
-        if (isComplete === 1 && !isRisky) {
-          status = "on-track";
-        }
-        if (isRisky && isComplete !== 2) {
-          status = "at-risk";
-        }
-        if (isOver && isComplete !== 2) {
-          status = "high-risk";
-        }
-
-        return status;
-      }
-
-      // 완료 예정일 임박 계산
-      function isCloseDueDate(dueToDate) {
-        var chkClose =
-          (dueToDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
-        return chkClose <= 3; // 3일 전
-      }
-
-      // 날짜 변경
-      function leftPad(value) {
-        if (value >= 10) {
-          return value;
-        }
-
-        return `0${value}`;
-      }
-      function toStringByFormatting(source, delimiter = "-") {
-        const year = source.getFullYear();
-        const month = leftPad(source.getMonth() + 1);
-        const day = leftPad(source.getDate());
-
-        return [year, month, day].join(delimiter);
-      }
-
-      // 메뉴 선택
-      function handleChangeSelect() {
-        var select = document.querySelector(".status-select select");
-        var selectedArr = [];
-        select.addEventListener("change", function (event) {
-          var selectedVal = event.target.value;
-          if (selectedVal === "all") {
-            selectedArr = pageList;
-          } else {
-            var filterdArr = pageList.filter(function (item) {
-              return item.menuCode === selectedVal;
-            });
-            selectedArr = filterdArr;
-          }
-          drawList(selectedArr);
-          drwaStatusInfo(selectedArr);
-        });
-      }
-
-      // 상태 선택
-      var checkedValue = [];
-      var checkedArr = [];
-      var chekStatus = document.querySelectorAll(".status-check");
-      function initCheckValue() {
-        chekStatus.forEach(function (status) {
-          console.debug("initCheckValue", status.checked);
-          status.checked
-            ? checkedValue.push(status.value)
-            : checkedValue.splice(checkedValue.indexOf(status.value), 1);
-        });
-      }
-      function handleChangeCheck() {
-        initCheckValue();
-        chekStatus.forEach(function (status) {
-          status.addEventListener("change", function () {
-            status.checked
-              ? checkedValue.push(status.value)
-              : checkedValue.splice(checkedValue.indexOf(status.value), 1);
-
-            var filteredArr = pageList.filter(function (item) {
-              console.debug("item", checkedValue, item.status);
-              return checkedValue.includes(item.status);
-            });
-
-            drawList(filteredArr);
-            drwaStatusInfo(filteredArr);
-            console.debug("checkedValue", filteredArr);
-          });
-        });
-      }
     </script>
+    <script></script>
   </body>
 </html>
