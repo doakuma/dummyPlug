@@ -56,22 +56,40 @@
   display: none;
 }
 
+.header .status-info li {
+  margin-top: auto;
+}
+.status-bar-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 150px;
+  row-gap: 8px;
+  align-items: flex-end;
+}
+.status-bar-wrapper strong {
+  margin-top: auto;
+}
+.status-bar-tit {
+  font-size: 20px;
+}
 .status-bar {
   overflow: hidden;
   position: relative;
   width: 150px;
   height: 10px;
-  border-radius: 10px;
-  background: var(--black);
+  border-radius: var(--bdrmd);
+  background: var(--gray40);
+  box-shadow: inset 0 5px 5px var(--gray60);
 }
 .status-bar .status-bar-inner {
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  background: var(--white);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: var(--enabled);
+  border-top-right-radius: var(--bdrxs);
+  border-bottom-right-radius: var(--bdrxs);
   transition: width 0.15s 0.35s;
 }
 
@@ -127,6 +145,7 @@
   display: flex;
   align-items: center;
   column-gap: 8px;
+  margin-top: 16px;
 }
 .status-checkbox {
   display: flex;
@@ -202,4 +221,8 @@
   width: 10px;
   height: 10px;
   border-radius: var(--bdrfull);
+}
+
+.page-list {
+  margin-top: 16px;
 }

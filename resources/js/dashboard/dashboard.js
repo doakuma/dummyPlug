@@ -78,9 +78,13 @@ function drawStatusInfo(arr) {
   onGoingPer = ((onGoing / total) * 100).toFixed(2);
   completePer = ((complete / total) * 100).toFixed(2);
   statusItem = `
-          <li>진척도:
-            <span class="status-bar"><span class="status-bar-inner" style="width: ${completePer}px"></span></span>
-            <strong>${completePer}</strong>%</li>
+          <li class="status-bar-wrapper">
+            <strong class="status-bar-tit">진행률</strong>
+            <strong>${completePer}%</strong>
+            <span class="status-bar">
+              <span class="status-bar-inner" style="width: ${completePer}px"></span>
+            </span>
+          </li>
           <li>전체: <strong>${total}</strong>건</li>
           <li>진행대기: <strong>${dueTo}</strong>건(${dueToPer}%)</li>
           <li>진행중: <strong>${onGoing}</strong>건(${onGoingPer}%)</li>
@@ -90,7 +94,7 @@ function drawStatusInfo(arr) {
   // reportdate
   var reportedDateWrapper = $(".reported-date");
   var reportedDate = toStringByFormatting(today);
-  reportedDateWrapper.html(`기준일: ${reportedDate}`);
+  reportedDateWrapper.html(`TODAY: ${reportedDate}`);
 }
 
 /**
@@ -222,6 +226,9 @@ function handleChangeCheckProgress(data) {
  * 2. 각 필터링 조건에 맞는 데이터를 필터링하는 함수를 만듭니다.
  * 3. 모든 필터링 조건을 적용하여 최종 데이터를 구하는 함수를 작성합니다.
  * 4. 이벤트 핸들러에서 해당 필터 상태를 업데이트하고, 최종 필터링 된 데이터로 화면을 업데이트합니다.
+ *
+ * TODO: 일정 상태 / 진행 상태 구분하여 적용 필요
+ * TODO: 테이블 NODATA 구현
  */
 
 // 필터링 상태 저장
