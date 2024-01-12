@@ -1,0 +1,12 @@
+@import url(normalize.css);
+@import url(variable.css);
+@import url(components.css);
+.wrapper {
+  background: var(--white);
+}
+.content {
+  padding: 10px;
+}
+.txt-left {
+  text-align: left;
+}
