@@ -1,0 +1,29 @@
+:root {
+  /* basic colors */
+  --white: #ffffff;
+  --black: #000000;
+  --pointColor: #44265f;
+
+  /* gray colors */
+  --gray20: #e6e6e6;
+  --gray40: #b5b5b5;
+  --gray60: #868686;
+  --gray80: #5b5b5b;
+  --gray100: #323232;
+
+  /* status color */
+  --critical: #ff3838;
+  --warning: #ffb302;
+  --caution: #fce83a;
+  --normal: #56f000;
+  --enabled: #2dccff;
+  --disabled: #a4abb6;
+
+  /* font size */
+
+  /* border-radius */
+  --bdrxs: 5px;
+  --bdrmd: 10px;
+  --bdrlg: 15px;
+  --bdrfull: 50%;
+}
