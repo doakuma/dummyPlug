@@ -11,7 +11,7 @@
     <div class="wrapper">
       <!-- header -->
       <header class="header">
-        <h1 class="header-title">[Project명] Publishing List</h1>
+        <h1 class="header-title">Publishing List</h1>
         <ul class="header-info status-info"></ul>
       </header>
       <!--// header -->
@@ -28,111 +28,24 @@
               <li class="item-status high-risk">지연</li>
               <li class="item-status done">완료</li>
             </ul>
-            <!-- <h2 class="tit-status">진행상태</h2>
-            <ul class="list-status">
-              <li class="item-status todo">진행 대기</li>
-              <li class="item-status on-track">진행중</li>
-              <li class="item-status done">완료</li>
-            </ul> -->
           </div>
           <!-- 진행상태 범례 -->
 
           <!-- 필터 영역 -->
           <div class="box-status-util">
             <!-- 메뉴별 필터 -->
-            <div class="box-select status-select">
-              <select>
-                <option value="all">전체메뉴</option>
-                <option value="MENU_CD001">메뉴명1</option>
-                <option value="MENU_CD002">메뉴명2</option>
-              </select>
-            </div>
+            <div class="box-select status-select"></div>
             <!--// 메뉴별 필터 -->
 
             <!-- 상태별 필터 -->
             <div class="status-checkbox">
-              <ul class="filter-status">
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterDueTo01"
-                    class="checkbox status-check"
-                    value="on-track"
-                    checked
-                  />
-                  <label for="filterDueTo01" class="label-checkbox on-track"
-                    >정상</label
-                  >
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterDueTo02"
-                    class="checkbox status-check"
-                    value="at-risk"
-                    checked
-                  />
-                  <label for="filterDueTo02" class="label-checkbox at-risk"
-                    >완료일 임박</label
-                  >
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterDueTo03"
-                    class="checkbox status-check"
-                    value="high-risk"
-                    checked
-                  />
-                  <label for="filterDueTo03" class="label-checkbox high-risk"
-                    >지연</label
-                  >
-                </li>
-              </ul>
-              <ul class="filter-status">
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterProgress01"
-                    class="checkbox progress-check"
-                    value="0"
-                    checked
-                  />
-                  <label for="filterProgress01" class="label-checkbox"
-                    >진행 대기</label
-                  >
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterProgress02"
-                    class="checkbox progress-check"
-                    value="1"
-                    checked
-                  />
-                  <label for="filterProgress02" class="label-checkbox"
-                    >진행중</label
-                  >
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="filterStatus"
-                    id="filterProgress05"
-                    class="checkbox progress-check"
-                    value="2"
-                    checked
-                  />
-                  <label for="filterProgress05" class="label-checkbox"
-                    >완료</label
-                  >
-                </li>
-              </ul>
+              <!-- 위험도 필터 -->
+              <div class="filter-status status-risk"></div>
+              <!--// 위험도 필터 -->
+
+              <!-- 진행상황 필터 -->
+              <div class="filter-status status-progress"></div>
+              <!-- 진행상황 필터 -->
             </div>
             <!--// 상태별 필터 -->
           </div>
@@ -175,8 +88,8 @@
       $(function () {
         drawList(pageList);
         drawStatusInfo(pageList);
+        initUtilities(utilsInfo);
         initializeFilters(pageList);
-        initUtilities(utilsData);
       });
     </script>
     <script></script>

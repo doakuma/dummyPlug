@@ -16,6 +16,12 @@ document.write(
 var isTemplate = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
 var today = isTemplate ? new Date("2024-01-11") : new Date();
 
+// draw title
+function drawTitle(title) {
+  var titleBox = document.querySelector(".header-title");
+  titleBox.insertAdjacentHTML("afterbegin", `[${title}]`);
+}
+
 // draw list table
 function drawList(arr) {
   var listCont = $(".page-list").find("tbody");
@@ -105,6 +111,25 @@ function drawStatusInfo(arr) {
   reportedDateWrapper.html(`TODAY: ${reportedDate}`);
 }
 
+// draw filters
+function drawFilters(data, target, type) {
+  // filter wrapper 지정
+  var wrapper = document.querySelector(target);
+
+  // 요소 생성
+  var filter = document.createElement(type);
+  var filterItem, filterContent;
+  data.forEach(function (item) {
+    if (type === "select") {
+      drawFilterSelect(item, filter, filterItem, filterContent);
+    }
+    if (type === "ul") {
+      drawFilterCheckBox(item, filter, filterItem, filterContent);
+    }
+  });
+  wrapper.append(filter);
+}
+
 /**
  * current status 종류
  * 기준은 오늘 날짜
@@ -154,80 +179,6 @@ function toStringByFormatting(source, delimiter = "-") {
   return [year, month, day].join(delimiter);
 }
 
-// 메뉴 선택
-function handleChangeSelect(data) {
-  var select = document.querySelector(".status-select select");
-  var selectedArr = [];
-  select.addEventListener("change", function (event) {
-    var selectedVal = event.target.value;
-    if (selectedVal === "all") {
-      selectedArr = data;
-    } else {
-      var filterdArr = data.filter(function (item) {
-        return item.menuCode === selectedVal;
-      });
-      selectedArr = filterdArr;
-    }
-    drawList(selectedArr);
-    drawStatusInfo(selectedArr);
-  });
-}
-
-// 위험도 선택
-var checkedValue = [];
-var chekStatus = document.querySelectorAll(".status-check");
-function initCheckValue() {
-  chekStatus.forEach(function (status) {
-    status.checked
-      ? checkedValue.push(status.value)
-      : checkedValue.splice(checkedValue.indexOf(status.value), 1);
-  });
-}
-function handleChangeCheck(data) {
-  initCheckValue();
-  chekStatus.forEach(function (status) {
-    status.addEventListener("change", function () {
-      status.checked
-        ? checkedValue.push(status.value)
-        : checkedValue.splice(checkedValue.indexOf(status.value), 1);
-
-      var filteredArr = data.filter(function (item) {
-        console.debug("item", checkedValue, item.status);
-        return checkedValue.includes(item.status);
-      });
-
-      drawList(filteredArr);
-    });
-  });
-}
-
-// 진행상태 선택
-var checkedProgress = [];
-var chekSProgress = document.querySelectorAll(".progress-check");
-function initCheckValueProgress() {
-  chekSProgress.forEach(function (status) {
-    status.checked
-      ? checkedProgress.push(status.value)
-      : checkedProgress.splice(checkedProgress.indexOf(status.value), 1);
-  });
-}
-function handleChangeCheckProgress(data) {
-  initCheckValueProgress();
-  chekSProgress.forEach(function (status) {
-    status.addEventListener("change", function () {
-      status.checked
-        ? checkedProgress.push(status.value)
-        : checkedProgress.splice(checkedProgress.indexOf(status.value), 1);
-
-      var filteredArr = data.filter(function (item) {
-        return checkedProgress.includes(item.isComplete.toString());
-      });
-
-      drawList(filteredArr);
-    });
-  });
-}
-
 /**
  * page list utilitiew
  * TODO: status lists
@@ -243,7 +194,10 @@ function initUtilities(data) {
   var filterProgress = data.filterProgress;
   console.debug("utilsData", data);
 
-  // drawTitle(projectTitle)
+  drawTitle(projectTitle);
+  drawFilters(filterSelect, ".box-select", "select");
+  drawFilters(filterRisk, ".status-risk", "ul");
+  drawFilters(filterProgress, ".status-progress", "ul");
   // drawSelect(filterSelect)
   // drawCheckRisk(filterRisk)
   // drawCheckProgress(filterProgress)

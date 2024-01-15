@@ -91,3 +91,44 @@ function initializeFilters(data) {
   handleCheckboxChange(data, ".status-check", "status");
   handleCheckboxChange(data, ".progress-check", "isComplete");
 }
+
+// filter is select
+function drawFilterSelect(item, parent, curr, currCnt) {
+  curr = document.createElement("option");
+  curr.setAttribute("value", item.value);
+  currCnt = document.createTextNode(item.label);
+  curr.appendChild(currCnt);
+  parent.append(curr);
+}
+
+// filter is Checkbox
+function drawFilterCheckBox(item, parent, curr, currCnt) {
+  curr = document.createElement("li");
+  var currInput = document.createElement("input");
+  var currLabel = document.createElement("label");
+  var inputOption = {
+    value: item.value,
+    type: "checkbox",
+    id: item.riskId,
+    checked: item.isChecked,
+    class: item.statusClassname,
+  };
+  var labelOption = {
+    for: item.riskId,
+    class: `label-checkbox ${item.labelClassName}`,
+  };
+  createElement(currInput, inputOption);
+  createElement(currLabel, labelOption);
+  currCnt = document.createTextNode(item.label);
+  currLabel.appendChild(currCnt);
+  curr.append(currInput);
+  curr.append(currLabel);
+  parent.append(curr);
+
+  // create Element
+  function createElement(target, option) {
+    Object.entries(option).forEach(function ([key, value]) {
+      target.setAttribute(key, value);
+    });
+  }
+}
