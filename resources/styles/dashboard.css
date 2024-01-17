@@ -226,3 +226,23 @@
 .page-list {
   margin-top: 16px;
 }
+
+/* comment style */
+.comment-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.comment-list li:before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: var(--bdrxs);
+  background: var(--gray80);
+}
+.comment-list li.nodata {
+  justify-content: center;
+}
+.comment-list li.nodata::before {
+  display: none;
+}

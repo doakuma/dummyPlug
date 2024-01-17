@@ -67,4 +67,5 @@ var utilsInfo = {
     },
   ],
   statusList: [],
+  pageListHeaderInfo: [],
 };

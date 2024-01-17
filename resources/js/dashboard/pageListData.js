@@ -10,7 +10,8 @@ var pageList = [
     isComplete: 2,
     completeDate: "2024-01-09",
     dueToDate: "2024-01-11",
-    comments: "",
+    comments:
+      "*줄바꿈 되나요* first|줄바꿈 *되나요* second|*줄바꿈* 되나요 *third*",
   },
   {
     menuNm: "메뉴명1",

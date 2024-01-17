@@ -8,7 +8,7 @@ document.write(
 
 /**
  * TODO: [X] 메뉴명으로 분류하여 보기 -> select
- * TODO: [ ] 진행상태 / 일정 기준 별로 분류하여 보기 -> checkbox
+ * TODO: [X] 진행상태 / 일정 기준 별로 분류하여 보기 -> checkbox
  * TODO: [ ] 메뉴마다 따로 진척도 확인 가능하도록 진행해보기
  *
  * TODO: [ ] 각 영역 웹 컴포넌트로 구현 가능한 지 검토
@@ -43,11 +43,14 @@ function drawList(arr) {
         : "완료";
     var completeDate = item.completeDate;
     var dueToDate = item.dueToDate;
-    var comments = item.comments;
+    var comments = item.comments.split("|");
     var status = curStatus(dueToDate, item.isComplete);
+
+    //
     var isStatus = { status: status };
     Object.assign(item, isStatus); // list item update with status
 
+    var cmtList = commentData(comments);
     // draw table
     drawItem += `<tr>`;
     drawItem += `<td>${menuNm}</td>`;
@@ -60,10 +63,40 @@ function drawList(arr) {
     drawItem += `<td><div class="status-cell">${isComplete}</div></td>`;
     drawItem += `<td>${dueToDate}</td>`;
     drawItem += `<td>${completeDate}</td>`;
-    drawItem += `<td class='txt-left'>${comments}</td>`;
+    drawItem += `<td class='txt-left'><ul class="comment-list">${cmtList}</ul></td>`;
     drawItem += "</tr>";
   });
   listCont.html(drawItem);
+}
+
+function drawPageList(arr) {
+  // drawPageListHeader()
+  // drawPageListBody()
+  // drawPageListFooter()
+}
+
+// comment renderer
+function commentData(cmtArr) {
+  return cmtArr
+    .map(function (item) {
+      var cmtItem = document.createElement("li");
+      var formattedText = replaceWithTags(item); // 문자열을 직접 전달
+      cmtItem.innerHTML = formattedText; // innerHTML을 사용하여 문자열 삽입
+      if (!item) {
+        cmtItem.setAttribute("class", "nodata");
+      }
+      return cmtItem.outerHTML; // li 요소의 HTML을 반환
+    })
+    .join(""); // 배열을 하나의 문자열로 결합
+}
+
+// 비고 항목 내 특수문자 사용하여 강조 구문 만들기
+function replaceWithTags(str) {
+  var count = 0;
+  return str.replace(/\*/g, function () {
+    count++;
+    return count % 2 === 0 ? "</strong>" : "<strong>";
+  });
 }
 
 // draw status info
@@ -179,26 +212,15 @@ function toStringByFormatting(source, delimiter = "-") {
   return [year, month, day].join(delimiter);
 }
 
-/**
- * page list utilitiew
- * TODO: status lists
- * TODO: select
- * TODO: check risk
- * TODO: check progress
- */
-
 function initUtilities(data) {
   var projectTitle = data.projectTitle;
   var filterSelect = data.filterSelect;
   var filterRisk = data.filterRisk;
   var filterProgress = data.filterProgress;
-  console.debug("utilsData", data);
+  // console.debug("utilsData", data);
 
   drawTitle(projectTitle);
   drawFilters(filterSelect, ".box-select", "select");
   drawFilters(filterRisk, ".status-risk", "ul");
   drawFilters(filterProgress, ".status-progress", "ul");
-  // drawSelect(filterSelect)
-  // drawCheckRisk(filterRisk)
-  // drawCheckProgress(filterProgress)
 }
