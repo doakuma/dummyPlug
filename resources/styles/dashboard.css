@@ -267,7 +267,7 @@
   border-style: solid;
   border-width: 2px;
   border-radius: var(--bdrxs);
-  height: 16px;
+  height: 12px;
   width: calc(100% - 10px);
   background: var(--white);
 }
@@ -275,12 +275,12 @@
   height: calc(100% - 2px);
 }
 .wrap-priority .item-priority:nth-child(1) {
-  border-top-left-radius: var(--bdrxs);
-  border-bottom-left-radius: var(--bdrxs);
+  border-top-left-radius: var(--bdrxxs);
+  border-bottom-left-radius: var(--bdrxxs);
 }
 .wrap-priority .item-priority:nth-child(5) {
-  border-top-right-radius: var(--bdrxs);
-  border-bottom-right-radius: var(--bdrxs);
+  border-top-right-radius: var(--bdrxxs);
+  border-bottom-right-radius: var(--bdrxxs);
 }
 .wrap-priority.lv-1 {
   border-color: var(--enabled);
@@ -311,4 +311,36 @@
 }
 .wrap-priority.lv-5 .item-priority {
   background: var(--critical);
+}
+
+/* 기능명세 */
+.wrap-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wrap-specs .item-specs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  font-size: 12px;
+}
+
+/* 수정사항 */
+.modify-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 2px;
+  border-radius: var(--bdrxs);
+}
+.modify-status.status-pending {
+  background: var(--disabled);
+}
+.modify-status.status-ongoing {
+  background: var(--normal);
+}
+.modify-status.status-done {
+  background: var(--enabled);
 }

@@ -11,6 +11,18 @@ var pageList = [
     completeDate: "2024-01-09",
     dueToDate: "2024-01-11",
     priority: 3,
+    // pageType: , // 페이지 형식 고민 후 재정의
+    modifyInfo: {
+      requestDate: "2024-01-15",
+      completeDate: "",
+      requestContent: "수정요청 사항입니다",
+      requestStatus: 0,
+    },
+    functionSpec: [
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+    ],
     comments:
       "*줄바꿈 되나요* first|줄바꿈 *되나요* second|*줄바꿈* 되나요 *third*",
   },
@@ -25,6 +37,14 @@ var pageList = [
     completeDate: "",
     dueToDate: "2024-01-10",
     priority: 2,
+    // pageType: ,
+    modifyInfo: {
+      requestDate: "2024-01-15",
+      completeDate: "",
+      requestContent: "수정요청 사항입니다",
+      requestStatus: 1,
+    },
+    functionSpec: [],
     comments: "",
   },
   {
@@ -38,6 +58,18 @@ var pageList = [
     completeDate: "2024-01-10",
     dueToDate: "2024-01-10",
     priority: 1,
+    // pageType: ,
+    modifyInfo: {
+      requestDate: "2024-01-15",
+      completeDate: "",
+      requestContent: "수정요청 사항입니다",
+      requestStatus: 2,
+    },
+    functionSpec: [
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+    ],
     comments: "",
   },
   {
@@ -51,6 +83,18 @@ var pageList = [
     completeDate: "",
     dueToDate: "2024-01-16",
     priority: 4,
+    // pageType: ,
+    modifyInfo: {
+      requestDate: "",
+      completeDate: "",
+      requestContent: "",
+      requestStatus: 2,
+    },
+    functionSpec: [
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+    ],
     comments: "",
   },
   {
@@ -64,6 +108,18 @@ var pageList = [
     completeDate: "",
     dueToDate: "2024-01-13",
     priority: 5,
+    // pageType: ,
+    modifyInfo: {
+      requestDate: "",
+      completeDate: "",
+      requestContent: "",
+      requestStatus: 2,
+    },
+    functionSpec: [
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+      "기능을 나열합니다",
+    ],
     comments: "",
   },
 ];

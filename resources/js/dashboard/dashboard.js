@@ -59,7 +59,13 @@ function drawList(arr) {
 
     // 우선순위
     var priority = drawPriority(item.priority);
-    console.debug("priority", priority);
+
+    // 기능명세
+    var specs = drawSpecs(item.functionSpec);
+
+    // 수정사항
+    var modifyInfo = drawModifyInfo(item.modifyInfo);
+    console.debug("drawModifyinfo", modifyInfo);
 
     // draw table
     drawItem += `<tr>`;
@@ -70,11 +76,13 @@ function drawList(arr) {
       : (drawItem += `<td class="txt-left">${fileName}</td>`);
     drawItem += `<td>${author}</td>`;
     drawItem += `<td>${priority}</td>`;
+    drawItem += `<td>${specs}</td>`;
     drawItem += `<td><span class="status ${status}"></span></td>`;
     drawItem += `<td><div class="status-cell">${isComplete}</div></td>`;
     drawItem += `<td>${dueToDate}</td>`;
     drawItem += `<td>${completeDate}</td>`;
     drawItem += `<td class='txt-left'><ul class="comment-list">${cmtList}</ul></td>`;
+    drawItem += modifyInfo;
     drawItem += "</tr>";
   });
   listCont.innerHTML = drawItem;
@@ -84,6 +92,43 @@ function drawPageList(arr) {
   // drawPageListHeader()
   // drawPageListBody()
   // drawPageListFooter()
+}
+// modify info rendrer
+function drawModifyInfo(data) {
+  var wrapper = document.createDocumentFragment(); // fragment 생성
+  Object.entries(data).forEach(function ([key, value]) {
+    var item = document.createElement("td");
+    if (key === "requestStatus" && data.requestDate !== "") {
+      var status = document.createElement("span");
+      var indicator =
+        value === 0 ? "pending" : value === 1 ? "ongoing" : "done";
+      var indicatorText =
+        value === 0 ? "접수" : value === 1 ? "수정중" : "완료";
+      status.setAttribute("class", `modify-status status-${indicator}`);
+      status.textContent = indicatorText;
+      item.appendChild(status);
+    } else {
+      item.textContent = data.requestDate !== "" ? value : ""; // 보안상 더 안전
+    }
+    wrapper.appendChild(item);
+  });
+  var tempDiv = document.createElement("div"); // 임시 div 요소 생성
+  tempDiv.appendChild(wrapper.cloneNode(true)); // fragment를 복제하여 div에 추가
+
+  return tempDiv.innerHTML;
+}
+
+// function spec rendrer
+function drawSpecs(specs) {
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", "wrap-specs");
+  specs.forEach(function (spec) {
+    var item = document.createElement("p");
+    item.setAttribute("class", "item-specs");
+    item.innerHTML = spec;
+    wrapper.append(item);
+  });
+  return wrapper.outerHTML;
 }
 
 // comment renderer
