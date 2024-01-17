@@ -13,8 +13,9 @@ document.write(
  *
  * TODO: [ ] 각 영역 웹 컴포넌트로 구현 가능한 지 검토
  */
-var isTemplate = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
-var today = isTemplate ? new Date("2024-01-11") : new Date();
+var IS_TEMPLATE = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
+var TODAY = IS_TEMPLATE ? new Date("2024-01-11") : new Date();
+var NEW_MEASURE = 2; // 신규 파일 생성일 기준 일자
 
 // draw title
 function drawTitle(title) {
@@ -24,9 +25,9 @@ function drawTitle(title) {
 
 // draw list table
 function drawList(arr) {
-  var listCont = $(".page-list").find("tbody");
+  var listCont = document.querySelector(".page-list tbody");
   var drawItem = "";
-  $.each(arr, function (index, item) {
+  arr.forEach(function (item) {
     var menuNm = item.menuNm;
     var pageNm = item.pageNm;
     var fileFolder = item.fileFolder;
@@ -43,22 +44,32 @@ function drawList(arr) {
         : "완료";
     var completeDate = item.completeDate;
     var dueToDate = item.dueToDate;
-    var comments = item.comments.split("|");
     var status = curStatus(dueToDate, item.isComplete);
 
-    //
+    // new Icon
+    var isNew = drawNewIcon(item);
+
+    // 위험도 체크
     var isStatus = { status: status };
     Object.assign(item, isStatus); // list item update with status
 
+    // 비고란 텍스트 치환
+    var comments = item.comments.split("|");
     var cmtList = commentData(comments);
+
+    // 우선순위
+    var priority = drawPriority(item.priority);
+    console.debug("priority", priority);
+
     // draw table
     drawItem += `<tr>`;
     drawItem += `<td>${menuNm}</td>`;
-    drawItem += `<td class="txt-left">${pageNm}</td>`;
+    drawItem += `<td class="txt-left">${isNew}${pageNm}</td>`;
     item.isComplete === 2
       ? (drawItem += `<td class="txt-left">${fileLink}</td>`)
       : (drawItem += `<td class="txt-left">${fileName}</td>`);
     drawItem += `<td>${author}</td>`;
+    drawItem += `<td>${priority}</td>`;
     drawItem += `<td><span class="status ${status}"></span></td>`;
     drawItem += `<td><div class="status-cell">${isComplete}</div></td>`;
     drawItem += `<td>${dueToDate}</td>`;
@@ -66,7 +77,7 @@ function drawList(arr) {
     drawItem += `<td class='txt-left'><ul class="comment-list">${cmtList}</ul></td>`;
     drawItem += "</tr>";
   });
-  listCont.html(drawItem);
+  listCont.innerHTML = drawItem;
 }
 
 function drawPageList(arr) {
@@ -88,6 +99,30 @@ function commentData(cmtArr) {
       return cmtItem.outerHTML; // li 요소의 HTML을 반환
     })
     .join(""); // 배열을 하나의 문자열로 결합
+}
+
+// new icon renderer
+function drawNewIcon(item) {
+  if (item.isComplete !== 2) return "";
+  var cmpDate = new Date(item.completeDate);
+  var isNew = (TODAY.getTime() - cmpDate.getTime()) / (60 * 60 * 24 * 1000);
+  var newIcon = document.createElement("i");
+  newIcon.setAttribute("class", "icon-new");
+  var iconText = document.createTextNode("NEW");
+  newIcon.appendChild(iconText);
+  return isNew <= NEW_MEASURE ? newIcon.outerHTML : "";
+}
+
+// priority renderer
+function drawPriority(value) {
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", `wrap-priority lv-${value}`);
+  for (i = 0; i < value; i++) {
+    var item = document.createElement("span");
+    item.setAttribute("class", "item-priority");
+    wrapper.appendChild(item);
+  }
+  return wrapper.outerHTML;
 }
 
 // 비고 항목 내 특수문자 사용하여 강조 구문 만들기
@@ -112,7 +147,7 @@ function drawStatusInfo(arr) {
     onGoingPer,
     completePer;
   total = arr.length;
-  $.each(arr, function (index, item) {
+  arr.forEach(function (item) {
     if (item.isComplete === 0) {
       dueTo++;
     } else if (item.isComplete === 1) {
@@ -139,9 +174,9 @@ function drawStatusInfo(arr) {
         `;
   statusCont.html(statusItem);
   // reportdate
-  var reportedDateWrapper = $(".reported-date");
-  var reportedDate = toStringByFormatting(today);
-  reportedDateWrapper.html(`TODAY: ${reportedDate}`);
+  var reportedDateWrapper = document.querySelector(".reported-date");
+  var reportedDate = toStringByFormatting(TODAY);
+  reportedDateWrapper.append(`TODAY: ${reportedDate}`);
 }
 
 // draw filters
@@ -170,7 +205,7 @@ function drawFilters(data, target, type) {
  * isComplete - 0 : 진행대기 | 1 : 진행중 | 2 : 완료
  */
 function curStatus(dueToDate, isComplete) {
-  var isOver = today > new Date(dueToDate); // 완료 예정일 지난 일정
+  var isOver = TODAY > new Date(dueToDate); // 완료 예정일 지난 일정
   var isRisky = isCloseDueDate(new Date(dueToDate)); // 완료 예정일 임박한 일정 : 3일전
   var status = ""; // todo | on-track | at-risk | high-risk | done
   // if (isComplete === 0) {
@@ -192,7 +227,7 @@ function curStatus(dueToDate, isComplete) {
 // 완료 예정일 임박 계산
 function isCloseDueDate(dueToDate) {
   var chkClose =
-    (dueToDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
+    (dueToDate.getTime() - TODAY.getTime()) / (1000 * 60 * 60 * 24);
   return chkClose <= 3; // 3일 전
 }
 

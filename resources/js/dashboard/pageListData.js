@@ -10,6 +10,7 @@ var pageList = [
     isComplete: 2,
     completeDate: "2024-01-09",
     dueToDate: "2024-01-11",
+    priority: 3,
     comments:
       "*줄바꿈 되나요* first|줄바꿈 *되나요* second|*줄바꿈* 되나요 *third*",
   },
@@ -23,6 +24,20 @@ var pageList = [
     isComplete: 1,
     completeDate: "",
     dueToDate: "2024-01-10",
+    priority: 2,
+    comments: "",
+  },
+  {
+    menuNm: "메뉴명1",
+    menuCode: "MENU_CD001",
+    pageNm: "페이지명_3",
+    fileFolder: "temp",
+    fileName: "temp.html",
+    author: "",
+    isComplete: 2,
+    completeDate: "2024-01-10",
+    dueToDate: "2024-01-10",
+    priority: 1,
     comments: "",
   },
   {
@@ -35,6 +50,7 @@ var pageList = [
     isComplete: 1,
     completeDate: "",
     dueToDate: "2024-01-16",
+    priority: 4,
     comments: "",
   },
   {
@@ -47,6 +63,7 @@ var pageList = [
     isComplete: 0,
     completeDate: "",
     dueToDate: "2024-01-13",
+    priority: 5,
     comments: "",
   },
 ];

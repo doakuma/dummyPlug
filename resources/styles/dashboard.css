@@ -189,7 +189,6 @@
 
 .table td {
   padding: 8px;
-  text-align: left;
   border-bottom: 1px solid var(--gray40);
   text-align: center;
 }
@@ -245,4 +244,71 @@
 }
 .comment-list li.nodata::before {
   display: none;
+}
+
+.icon-new {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 4px;
+  font-size: 6px;
+  color: var(--white);
+  font-style: normal;
+  border-radius: var(--bdrxs);
+  background: var(--pointColor);
+}
+
+/* 우선순위 */
+.wrap-priority {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  padding: 0 2px;
+  column-gap: 2px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: var(--bdrxs);
+  height: 16px;
+  width: calc(100% - 10px);
+  background: var(--white);
+}
+.wrap-priority .item-priority {
+  height: calc(100% - 2px);
+}
+.wrap-priority .item-priority:nth-child(1) {
+  border-top-left-radius: var(--bdrxs);
+  border-bottom-left-radius: var(--bdrxs);
+}
+.wrap-priority .item-priority:nth-child(5) {
+  border-top-right-radius: var(--bdrxs);
+  border-bottom-right-radius: var(--bdrxs);
+}
+.wrap-priority.lv-1 {
+  border-color: var(--enabled);
+}
+.wrap-priority.lv-1 .item-priority {
+  background: var(--enabled);
+}
+.wrap-priority.lv-2 {
+  border-color: var(--normal);
+}
+.wrap-priority.lv-2 .item-priority {
+  background: var(--normal);
+}
+.wrap-priority.lv-3 {
+  border-color: var(--caution);
+}
+.wrap-priority.lv-3 .item-priority {
+  background: var(--caution);
+}
+.wrap-priority.lv-4 {
+  border-color: var(--warning);
+}
+.wrap-priority.lv-4 .item-priority {
+  background: var(--warning);
+}
+.wrap-priority.lv-5 {
+  border-color: var(--critical);
+}
+.wrap-priority.lv-5 .item-priority {
+  background: var(--critical);
 }
