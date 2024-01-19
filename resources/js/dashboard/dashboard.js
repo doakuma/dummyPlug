@@ -1,11 +1,3 @@
-document.write(
-  '<script src="resources/js/dashboard/pageListData.js"></script>'
-);
-document.write('<script src="resources/js/dashboard/utilsData.js"></script>');
-document.write(
-  '<script src="resources/js/dashboard/module.function.js"></script>'
-);
-
 /**
  * TODO: [X] 메뉴명으로 분류하여 보기 -> select
  * TODO: [X] 진행상태 / 일정 기준 별로 분류하여 보기 -> checkbox

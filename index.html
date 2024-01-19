@@ -49,45 +49,6 @@
           <!--// 상태별 필터 -->
         </div>
         <!--// 필터 영역 -->
-        <!-- <div class="page-list" style="display: none">
-          <table class="table page-list">
-            <colgroup>
-              <col style="width: 15%" />
-              <col style="width: 15%" />
-              <col style="width: 20%" />
-              <col style="width: 10%" />
-              <col style="width: 10%" />
-              <col style="width: 10%" />
-              <col style="width: 10%" />
-              <col style="width: 10%" />
-              <col style="width: 10%" />
-              <col style="width: 15%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th rowspan="2">메뉴명</th>
-                <th rowspan="2">페이지명</th>
-                <th rowspan="2">페이지 url</th>
-                <th rowspan="2">담당자</th>
-                <th rowspan="2">우선순위</th>
-                <th rowspan="2">기능명세</th>
-                <th rowspan="2">위험도</th>
-                <th rowspan="2">진행상태</th>
-                <th rowspan="2">완료예정일</th>
-                <th rowspan="2">완료일</th>
-                <th rowspan="2">비고</th>
-                <th colspan="4">수정사항</th>
-              </tr>
-              <tr>
-                <th>요청일</th>
-                <th>완료일</th>
-                <th>내용</th>
-                <th>진행상태</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div> -->
 
         <!-- page list -->
         <div class="page-list-wrapper"></div>
@@ -96,7 +57,9 @@
       <!--// content -->
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="resources/js/dashboard/pageListData.js"></script>
+    <script src="resources/js/dashboard/utilsData.js"></script>
+    <script src="resources/js/dashboard/module.function.js"></script>
     <script src="resources/js/dashboard/dashboard.js"></script>
     <script>
       $(function () {
@@ -106,7 +69,6 @@
         drawStatusInfo(rows);
         initUtilities(utilsInfo);
         initializeFilters(rows);
-        // drawList(rows);
       });
     </script>
     <script></script>
