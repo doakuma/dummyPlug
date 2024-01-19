@@ -145,9 +145,9 @@ function drawFilterCheckBox(item, parent, curr, currCnt) {
  * TODO: [X] comment parser
  * TODO: [X] emphasis parser
  * TODO: [X] priority parser
- * TODO: [ ] specs parser
- * TODO: [ ] modify parser
+ * TODO: [X] specs parser
  * TODO: [ ] new icon parser
+ * TODO: [ ] modify parser
  */
 function drawTable(columns, rows) {
   var wrapper = document.querySelector(".page-list-wrapper");
@@ -214,6 +214,10 @@ function createCell(data, type) {
       var _priority = creatPriority(data);
       _td.appendChild(_priority);
       return _td;
+    case "functionSpec":
+      var _specs = createSpecs(data);
+      _td.appendChild(_specs);
+      return _td;
     default:
       _td.textContent = data[type];
       return _td;
@@ -267,7 +271,7 @@ function createComment(data) {
     wrapper.setAttribute("class", "comment-list");
     comments.split("|").map(function (item) {
       var list = document.createElement("li");
-      var _text = replaceWithTag(item, "*", "strong");
+      var _text = replaceWithTag(item);
       list.innerHTML = _text;
       wrapper.appendChild(list);
     });
@@ -288,6 +292,21 @@ function creatPriority(data) {
   return wrapper;
 }
 
+// specs parser
+function createSpecs(data) {
+  var { functionSpec } = data;
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", "wrap-specs");
+  functionSpec.forEach(function (spec) {
+    var item = document.createElement("p");
+    item.setAttribute("class", "item-specs");
+    var _text = replaceWithTag(spec);
+    item.innerHTML = _text;
+    wrapper.append(item);
+  });
+  return wrapper;
+}
+
 /**
  * features
  * isCloseDueDate : 완료 예정일 임박 계산
@@ -304,16 +323,45 @@ function isCloseDueDate(dueToDate) {
 /**
  * 특수문자 치환
  * @param {*} str : target string
- * @param {*} indicator : 치환 대상 문자열
- * @param {*} tags : 치환할 태그명
- * markdown 문법 사용 : **(강조) | *(기울임) | ~~(취소선)
+ * markdown 문법 사용 : *(강조) | ~(취소선)
  */
-function replaceWithTag(str, indicator, tags) {
-  var count = 0;
-  var regex = new RegExp(`\\${indicator}`, "g"); // indicator 변수를 사용
-  return str.replace(regex, function (item) {
-    console.debug("item", str, count, item);
-    count++;
-    return count % 2 === 0 ? `</${tags}>` : `<${tags}>`;
+function replaceWithTag(str) {
+  // 태그 변환을 위한 토큰 저장 객체
+  var tokens = {};
+
+  // 지시자와 해당 HTML 태그 매핑
+  var indicators = {
+    "*": "strong",
+    "~": "del",
+  };
+
+  // 모든 지시자를 고유한 토큰으로 대체
+  Object.keys(indicators).forEach((indicator, index) => {
+    // 고유 토큰 생성
+    var token = `__TOKEN${index}__`;
+    tokens[token] = indicators[indicator];
+
+    // 지시자에 해당하는 정규식 생성
+    let regex = new RegExp(`\\${indicator}`, "g");
+
+    // 문자열 내의 지시자를 토큰으로 대체
+    str = str.replace(regex, () => token);
   });
+
+  // 토큰을 해당 태그로 변환
+  Object.keys(tokens).forEach((token) => {
+    // 태그 삽입을 위한 카운터
+    let count = 0;
+    // 토큰에 해당하는 정규식 생성
+    let regex = new RegExp(`${token}`, "g");
+
+    // 문자열 내의 토큰을 태그로 변환
+    str = str.replace(regex, () => {
+      count++;
+      // 짝수번째일 때 종료 태그, 홀수번째일 때 시작 태그 삽입
+      return count % 2 === 0 ? `</${tokens[token]}>` : `<${tokens[token]}>`;
+    });
+  });
+
+  return str;
 }

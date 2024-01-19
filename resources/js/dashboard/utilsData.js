@@ -145,12 +145,12 @@ var utilsInfo = {
           requestStatus: 0,
         },
         functionSpec: [
-          "기능을 나열합니다",
-          "기능을 나열합니다",
+          "~기능을 나열합니다~",
+          "기능을 *나열*합니다",
           "기능을 나열합니다",
         ],
         comments:
-          "*줄바꿈 되나요* first|줄바꿈 *되나요* second|*줄바꿈* 되나요 *third*",
+          "*줄바꿈 되나요* first|줄바꿈 *~되나요~* second|*줄바꿈* 되나요 *third*",
       },
       {
         menuNm: "메뉴명1",
