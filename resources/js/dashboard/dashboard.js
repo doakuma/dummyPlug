@@ -16,6 +16,7 @@ document.write(
 var IS_TEMPLATE = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
 var TODAY = IS_TEMPLATE ? new Date("2024-01-11") : new Date();
 var NEW_MEASURE = 2; // 신규 파일 생성일 기준 일자
+var COLUMNS = [];
 
 // draw title
 function drawTitle(title) {
@@ -23,7 +24,7 @@ function drawTitle(title) {
   titleBox.insertAdjacentHTML("afterbegin", `[${title}]`);
 }
 
-// draw list table
+// draw list table 삭제 예정
 function drawList(arr) {
   var listCont = document.querySelector(".page-list tbody");
   var drawItem = "";
@@ -87,11 +88,6 @@ function drawList(arr) {
   listCont.innerHTML = drawItem;
 }
 
-function drawPageList(arr) {
-  // drawPageListHeader()
-  // drawPageListBody()
-  // drawPageListFooter()
-}
 // modify info rendrer
 function drawModifyInfo(data) {
   var wrapper = document.createDocumentFragment(); // fragment 생성
@@ -116,8 +112,8 @@ function drawModifyInfo(data) {
 
   return tempDiv.innerHTML;
 }
-
-// function spec rendrer
+/** 삭제 예정 */
+// function spec rendrer 삭제 예정
 function drawSpecs(specs) {
   var wrapper = document.createElement("div");
   wrapper.setAttribute("class", "wrap-specs");
@@ -130,7 +126,7 @@ function drawSpecs(specs) {
   return wrapper.outerHTML;
 }
 
-// comment renderer
+// comment renderer 삭제 예정
 function commentData(cmtArr) {
   return cmtArr
     .map(function (item) {
@@ -145,7 +141,7 @@ function commentData(cmtArr) {
     .join(""); // 배열을 하나의 문자열로 결합
 }
 
-// new icon renderer
+// new icon renderer 삭제 예정
 function drawNewIcon(item) {
   if (item.isComplete !== 2) return "";
   var cmpDate = new Date(item.completeDate);
@@ -157,7 +153,7 @@ function drawNewIcon(item) {
   return isNew <= NEW_MEASURE ? newIcon.outerHTML : "";
 }
 
-// priority renderer
+// priority renderer 삭제 예정
 function drawPriority(value) {
   var wrapper = document.createElement("div");
   wrapper.setAttribute("class", `wrap-priority lv-${value}`);
@@ -169,7 +165,7 @@ function drawPriority(value) {
   return wrapper.outerHTML;
 }
 
-// 비고 항목 내 특수문자 사용하여 강조 구문 만들기
+// 비고 항목 내 특수문자 사용하여 강조 구문 만들기 삭제 예정
 function replaceWithTags(str) {
   var count = 0;
   return str.replace(/\*/g, function () {
@@ -217,10 +213,6 @@ function drawStatusInfo(arr) {
           <li>완료: <strong>${complete}</strong>건</li>
         `;
   statusCont.html(statusItem);
-  // reportdate
-  var reportedDateWrapper = document.querySelector(".reported-date");
-  var reportedDate = toStringByFormatting(TODAY);
-  reportedDateWrapper.append(`TODAY: ${reportedDate}`);
 }
 
 // draw filters
@@ -297,13 +289,14 @@ function initUtilities(data) {
   var filterRisk = data.filterRisk;
   var filterProgress = data.filterProgress;
 
-  // test
-  var { columns, rows } = data.pageListData;
-  // console.debug("utilsData", data);
+  // reportdate
+  var reportedDateWrapper = document.querySelector(".reported-date");
+  var reportedDate = toStringByFormatting(TODAY);
+  reportedDateWrapper.append(`TODAY: ${reportedDate}`);
 
   drawTitle(projectTitle);
   drawFilters(filterSelect, ".box-select", "select");
   drawFilters(filterRisk, ".status-risk", "ul");
   drawFilters(filterProgress, ".status-progress", "ul");
-  drawTable(columns, rows);
+  // drawTable(columns, rows);
 }

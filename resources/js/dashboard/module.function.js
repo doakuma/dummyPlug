@@ -21,7 +21,7 @@ function updateDisplay(filteredArr, isSelectFilter) {
   if (isSelectFilter) {
     drawStatusInfo(filteredArr);
   }
-  drawList(filteredArr);
+  drawTable(COLUMNS, filteredArr);
 }
 
 // 데이터 필터링 함수
@@ -35,7 +35,7 @@ function filterData(data) {
     .filter(
       (item) =>
         currentFilter.checkedRisk.length === 0 ||
-        currentFilter.checkedRisk.includes(item.status)
+        currentFilter.checkedRisk.includes(item.riskStatus)
     )
     .filter(
       (item) =>
@@ -73,7 +73,7 @@ function handleCheckboxChange(data, className, filterProperty) {
       var checkedValues = Array.from(checks)
         .filter((check) => check.checked)
         .map((check) => check.value);
-      if (filterProperty === "status") {
+      if (filterProperty === "riskStatus") {
         handleRiskChange(data, checkedValues);
       } else if (filterProperty === "isComplete") {
         handleProgressChange(data, checkedValues);
@@ -88,7 +88,7 @@ function initializeFilters(data) {
   select.addEventListener("change", (event) =>
     handleMenuChange(data, event.target.value)
   );
-  handleCheckboxChange(data, ".status-check", "status");
+  handleCheckboxChange(data, ".status-check", "riskStatus");
   handleCheckboxChange(data, ".progress-check", "isComplete");
 }
 
@@ -146,11 +146,15 @@ function drawFilterCheckBox(item, parent, curr, currCnt) {
  * TODO: [X] emphasis parser
  * TODO: [X] priority parser
  * TODO: [X] specs parser
- * TODO: [ ] new icon parser
+ * TODO: [X] new icon parser
  * TODO: [ ] modify parser
  */
 function drawTable(columns, rows) {
+  COLUMNS = columns;
   var wrapper = document.querySelector(".page-list-wrapper");
+  while (wrapper.firstChild) {
+    wrapper.removeChild(wrapper.firstChild);
+  }
   var _table = document.createElement("table");
   var _thead = document.createElement("thead");
   var _tbody = document.createElement("tbody");
@@ -158,7 +162,7 @@ function drawTable(columns, rows) {
   var _tr = document.createElement("tr");
 
   // thead
-  columns.forEach(function (column) {
+  COLUMNS.forEach(function (column) {
     var _th = document.createElement("th");
     _th.textContent = column.label;
     _tr.appendChild(_th);
@@ -172,7 +176,7 @@ function drawTable(columns, rows) {
     Object.assign(row, {
       riskStatus,
     });
-    columns.forEach(function (column) {
+    COLUMNS.forEach(function (column) {
       _trBody.appendChild(createCell(row, column.key));
     });
     _tbody.appendChild(_trBody);
@@ -186,9 +190,10 @@ function drawTable(columns, rows) {
 function createCell(data, type) {
   var _td = document.createElement("td");
   var _text = document.createDocumentFragment();
+  var isNew = createNewIcon(data);
   switch (type) {
     case "fileName":
-      _td.appendChild(createLink(data));
+      _td.appendChild(createLink(data)).appendChild(isNew);
       return _td;
     case "author":
       _td.textContent = data.author !== "" ? data.author : "인스플래닛";
@@ -305,6 +310,20 @@ function createSpecs(data) {
     wrapper.append(item);
   });
   return wrapper;
+}
+
+// new icon parser
+function createNewIcon(data, where) {
+  var { isComplete, completeDate } = data;
+  var empty = document.createDocumentFragment();
+  if (isComplete !== 2) return empty;
+  var cmpDate = new Date(completeDate);
+  var isNew = (TODAY.getTime() - cmpDate.getTime()) / (60 * 60 * 24 * 1000);
+  var newIcon = document.createElement("i");
+  newIcon.setAttribute("class", "icon-new");
+  var iconText = document.createTextNode("NEW");
+  newIcon.appendChild(iconText);
+  return isNew <= NEW_MEASURE ? newIcon : empty;
 }
 
 /**

@@ -18,41 +18,41 @@
 
       <!-- content -->
       <main class="content">
-        <div class="page-list">
-          <!-- 진행상태 범례 -->
-          <div class="box-status-legend">
-            <strong class="reported-date"></strong>
-            <h2 class="tit-status">위험도</h2>
-            <ul class="list-status">
-              <li class="item-status on-track">정상</li>
-              <li class="item-status high-risk">지연</li>
-              <li class="item-status done">완료</li>
-            </ul>
+        <!-- 진행상태 범례 -->
+        <div class="box-status-legend">
+          <strong class="reported-date"></strong>
+          <h2 class="tit-status">위험도</h2>
+          <ul class="list-status">
+            <li class="item-status on-track">정상</li>
+            <li class="item-status high-risk">지연</li>
+            <li class="item-status done">완료</li>
+          </ul>
+        </div>
+        <!-- 진행상태 범례 -->
+
+        <!-- 필터 영역 -->
+        <div class="box-status-util">
+          <!-- 메뉴별 필터 -->
+          <div class="box-select status-select"></div>
+          <!--// 메뉴별 필터 -->
+
+          <!-- 상태별 필터 -->
+          <div class="status-checkbox">
+            <!-- 위험도 필터 -->
+            <div class="filter-status status-risk"></div>
+            <!--// 위험도 필터 -->
+
+            <!-- 진행상황 필터 -->
+            <div class="filter-status status-progress"></div>
+            <!-- 진행상황 필터 -->
           </div>
-          <!-- 진행상태 범례 -->
-
-          <!-- 필터 영역 -->
-          <div class="box-status-util">
-            <!-- 메뉴별 필터 -->
-            <div class="box-select status-select"></div>
-            <!--// 메뉴별 필터 -->
-
-            <!-- 상태별 필터 -->
-            <div class="status-checkbox">
-              <!-- 위험도 필터 -->
-              <div class="filter-status status-risk"></div>
-              <!--// 위험도 필터 -->
-
-              <!-- 진행상황 필터 -->
-              <div class="filter-status status-progress"></div>
-              <!-- 진행상황 필터 -->
-            </div>
-            <!--// 상태별 필터 -->
-          </div>
-          <!--// 필터 영역 -->
+          <!--// 상태별 필터 -->
+        </div>
+        <!--// 필터 영역 -->
+        <!-- <div class="page-list" style="display: none">
           <table class="table page-list">
             <colgroup>
-              <!-- <col style="width: 15%" />
+              <col style="width: 15%" />
               <col style="width: 15%" />
               <col style="width: 20%" />
               <col style="width: 10%" />
@@ -61,7 +61,7 @@
               <col style="width: 10%" />
               <col style="width: 10%" />
               <col style="width: 10%" />
-              <col style="width: 15%" /> -->
+              <col style="width: 15%" />
             </colgroup>
             <thead>
               <tr>
@@ -87,7 +87,7 @@
             </thead>
             <tbody></tbody>
           </table>
-        </div>
+        </div> -->
 
         <!-- page list -->
         <div class="page-list-wrapper"></div>
@@ -100,10 +100,13 @@
     <script src="resources/js/dashboard/dashboard.js"></script>
     <script>
       $(function () {
-        drawList(pageList);
-        drawStatusInfo(pageList);
+        var { columns, rows } = pageList;
+        var COLUMNS = columns;
+        drawTable(COLUMNS, rows);
+        drawStatusInfo(rows);
         initUtilities(utilsInfo);
-        initializeFilters(pageList);
+        initializeFilters(rows);
+        // drawList(rows);
       });
     </script>
     <script></script>
