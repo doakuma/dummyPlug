@@ -144,9 +144,9 @@ function drawFilterCheckBox(item, parent, curr, currCnt) {
  * TODO: [X] risk status parser
  * TODO: [X] comment parser
  * TODO: [X] emphasis parser
- * TODO: [ ] priority parser
+ * TODO: [X] priority parser
  * TODO: [ ] specs parser
- * TODO: [ ] modfy parser
+ * TODO: [ ] modify parser
  * TODO: [ ] new icon parser
  */
 function drawTable(columns, rows) {
@@ -208,8 +208,11 @@ function createCell(data, type) {
       return _td;
     case "comments":
       var _comment = createComment(data);
-      console.debug("_comment", _comment);
       _td.appendChild(_comment);
+      return _td;
+    case "priority":
+      var _priority = creatPriority(data);
+      _td.appendChild(_priority);
       return _td;
     default:
       _td.textContent = data[type];
@@ -264,13 +267,25 @@ function createComment(data) {
     wrapper.setAttribute("class", "comment-list");
     comments.split("|").map(function (item) {
       var list = document.createElement("li");
-      console.debug("createComment", item);
-      var _text = replaceWithTag(item, "strong");
+      var _text = replaceWithTag(item, "*", "strong");
       list.innerHTML = _text;
       wrapper.appendChild(list);
     });
     return wrapper;
   }
+}
+
+// priority parser
+function creatPriority(data) {
+  var { priority } = data;
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", `wrap-priority lv-${priority}`);
+  for (i = 0; i < priority; i++) {
+    var item = document.createElement("span");
+    item.setAttribute("class", "item-priority");
+    wrapper.appendChild(item);
+  }
+  return wrapper;
 }
 
 /**
@@ -289,16 +304,16 @@ function isCloseDueDate(dueToDate) {
 /**
  * 특수문자 치환
  * @param {*} str : target string
- * @param {*} tags :replace tag name
- * TODO: [ ] 특수 문자 치환 종류 파악 후 활용
+ * @param {*} indicator : 치환 대상 문자열
+ * @param {*} tags : 치환할 태그명
+ * markdown 문법 사용 : **(강조) | *(기울임) | ~~(취소선)
  */
-function replaceWithTag(str, tags) {
-  switch (tags) {
-    case "strong":
-      var count = 0;
-      return str.replace(/\*/g, function () {
-        count++;
-        return count % 2 === 0 ? `</${tags}>` : `<${tags}>`;
-      });
-  }
+function replaceWithTag(str, indicator, tags) {
+  var count = 0;
+  var regex = new RegExp(`\\${indicator}`, "g"); // indicator 변수를 사용
+  return str.replace(regex, function (item) {
+    console.debug("item", str, count, item);
+    count++;
+    return count % 2 === 0 ? `</${tags}>` : `<${tags}>`;
+  });
 }
