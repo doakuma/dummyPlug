@@ -65,7 +65,6 @@ function drawList(arr) {
 
     // 수정사항
     var modifyInfo = drawModifyInfo(item.modifyInfo);
-    console.debug("drawModifyinfo", modifyInfo);
 
     // draw table
     drawItem += `<tr>`;
@@ -297,10 +296,14 @@ function initUtilities(data) {
   var filterSelect = data.filterSelect;
   var filterRisk = data.filterRisk;
   var filterProgress = data.filterProgress;
+
+  // test
+  var { columns, rows } = data.pageListData;
   // console.debug("utilsData", data);
 
   drawTitle(projectTitle);
   drawFilters(filterSelect, ".box-select", "select");
   drawFilters(filterRisk, ".status-risk", "ul");
   drawFilters(filterProgress, ".status-progress", "ul");
+  drawTable(columns, rows);
 }

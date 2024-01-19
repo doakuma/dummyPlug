@@ -23,7 +23,7 @@ html 파일 페이지를 확인할 수 있는 파일 구조도입니다
 
 #### 사용 방법
 
-- resources/js/dashboard/pageListData.js 정보 사용
+- resources/js/dashboard/pageListData.js에 프로젝트 정보 기입
 - ```javascript
   var pageList = [
     ...,
@@ -55,4 +55,53 @@ html 파일 페이지를 확인할 수 있는 파일 구조도입니다
       },
   ]
   ```
--
+
+### Page Style Guide(Todo)
+
+각 페이지에서 사용할 스타일 가이드입니다
+
+#### Features
+
+- Foundation
+  - Color
+  - Typography
+  - Layout/Gird
+  - Spacing
+  - Icons
+  - Shadows
+- Core components
+  - Accordion
+  - Alert - Sticky
+  - Avatar
+  - Badge
+  - Border/Divder
+  - Button
+  - ButtonGroup
+  - Callout
+  - CheckBox / Radio
+  - Chip
+  - Date Picker
+  - Input text
+  - InputGroup
+  - Iniput Dropdown / Dropdown
+  - Link
+  - List / DataGrid
+  - Modal
+  - Notification - inline
+  - Overlay
+  - Popover
+  - Progress - Bar / Circle
+  - Slider
+  - Status
+  - Tab
+  - DropdownMenu
+  - Textarea
+  - Toast
+  - Toggle
+  - Tooltip
+  - FileUpload
+  - Pagination
+  - ProgrressSteps
+  - SkeletonLoader
+  - Table
+  - Templates
