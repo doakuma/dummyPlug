@@ -24,70 +24,6 @@ function drawTitle(title) {
   titleBox.insertAdjacentHTML("afterbegin", `[${title}]`);
 }
 
-// draw list table 삭제 예정
-function drawList(arr) {
-  var listCont = document.querySelector(".page-list tbody");
-  var drawItem = "";
-  arr.forEach(function (item) {
-    var menuNm = item.menuNm;
-    var pageNm = item.pageNm;
-    var fileFolder = item.fileFolder;
-    var fileName = item.fileName;
-    var fileLink = fileName
-      ? `<a href="${fileFolder}/${fileName}" target='_blank'>${fileName}</a>`
-      : "";
-    var author = item.author !== "" ? item.author : "인스플래닛";
-    var isComplete =
-      item.isComplete === 0
-        ? "진행대기"
-        : item.isComplete === 1
-        ? "진행중"
-        : "완료";
-    var completeDate = item.completeDate;
-    var dueToDate = item.dueToDate;
-    var status = curStatus(dueToDate, item.isComplete);
-
-    // new Icon
-    var isNew = drawNewIcon(item);
-
-    // 위험도 체크
-    var isStatus = { status: status };
-    Object.assign(item, isStatus); // list item update with status
-
-    // 비고란 텍스트 치환
-    var comments = item.comments.split("|");
-    var cmtList = commentData(comments);
-
-    // 우선순위
-    var priority = drawPriority(item.priority);
-
-    // 기능명세
-    var specs = drawSpecs(item.functionSpec);
-
-    // 수정사항
-    var modifyInfo = drawModifyInfo(item.modifyInfo);
-
-    // draw table
-    drawItem += `<tr>`;
-    drawItem += `<td>${menuNm}</td>`;
-    drawItem += `<td class="txt-left">${isNew}${pageNm}</td>`;
-    item.isComplete === 2
-      ? (drawItem += `<td class="txt-left">${fileLink}</td>`)
-      : (drawItem += `<td class="txt-left">${fileName}</td>`);
-    drawItem += `<td>${author}</td>`;
-    drawItem += `<td>${priority}</td>`;
-    drawItem += `<td>${specs}</td>`;
-    drawItem += `<td><span class="status ${status}"></span></td>`;
-    drawItem += `<td><div class="status-cell">${isComplete}</div></td>`;
-    drawItem += `<td>${dueToDate}</td>`;
-    drawItem += `<td>${completeDate}</td>`;
-    drawItem += `<td class='txt-left'><ul class="comment-list">${cmtList}</ul></td>`;
-    drawItem += modifyInfo;
-    drawItem += "</tr>";
-  });
-  listCont.innerHTML = drawItem;
-}
-
 // modify info rendrer
 function drawModifyInfo(data) {
   var wrapper = document.createDocumentFragment(); // fragment 생성
@@ -111,67 +47,6 @@ function drawModifyInfo(data) {
   tempDiv.appendChild(wrapper.cloneNode(true)); // fragment를 복제하여 div에 추가
 
   return tempDiv.innerHTML;
-}
-/** 삭제 예정 */
-// function spec rendrer 삭제 예정
-function drawSpecs(specs) {
-  var wrapper = document.createElement("div");
-  wrapper.setAttribute("class", "wrap-specs");
-  specs.forEach(function (spec) {
-    var item = document.createElement("p");
-    item.setAttribute("class", "item-specs");
-    item.innerHTML = spec;
-    wrapper.append(item);
-  });
-  return wrapper.outerHTML;
-}
-
-// comment renderer 삭제 예정
-function commentData(cmtArr) {
-  return cmtArr
-    .map(function (item) {
-      var cmtItem = document.createElement("li");
-      var formattedText = replaceWithTags(item); // 문자열을 직접 전달
-      cmtItem.innerHTML = formattedText; // innerHTML을 사용하여 문자열 삽입
-      if (!item) {
-        cmtItem.setAttribute("class", "nodata");
-      }
-      return cmtItem.outerHTML; // li 요소의 HTML을 반환
-    })
-    .join(""); // 배열을 하나의 문자열로 결합
-}
-
-// new icon renderer 삭제 예정
-function drawNewIcon(item) {
-  if (item.isComplete !== 2) return "";
-  var cmpDate = new Date(item.completeDate);
-  var isNew = (TODAY.getTime() - cmpDate.getTime()) / (60 * 60 * 24 * 1000);
-  var newIcon = document.createElement("i");
-  newIcon.setAttribute("class", "icon-new");
-  var iconText = document.createTextNode("NEW");
-  newIcon.appendChild(iconText);
-  return isNew <= NEW_MEASURE ? newIcon.outerHTML : "";
-}
-
-// priority renderer 삭제 예정
-function drawPriority(value) {
-  var wrapper = document.createElement("div");
-  wrapper.setAttribute("class", `wrap-priority lv-${value}`);
-  for (i = 0; i < value; i++) {
-    var item = document.createElement("span");
-    item.setAttribute("class", "item-priority");
-    wrapper.appendChild(item);
-  }
-  return wrapper.outerHTML;
-}
-
-// 비고 항목 내 특수문자 사용하여 강조 구문 만들기 삭제 예정
-function replaceWithTags(str) {
-  var count = 0;
-  return str.replace(/\*/g, function () {
-    count++;
-    return count % 2 === 0 ? "</strong>" : "<strong>";
-  });
 }
 
 // draw status info
@@ -260,29 +135,6 @@ function curStatus(dueToDate, isComplete) {
   return status;
 }
 
-// 완료 예정일 임박 계산
-function isCloseDueDate(dueToDate) {
-  var chkClose =
-    (dueToDate.getTime() - TODAY.getTime()) / (1000 * 60 * 60 * 24);
-  return chkClose <= 3; // 3일 전
-}
-
-// 날짜 변경
-function leftPad(value) {
-  if (value >= 10) {
-    return value;
-  }
-
-  return `0${value}`;
-}
-function toStringByFormatting(source, delimiter = "-") {
-  const year = source.getFullYear();
-  const month = leftPad(source.getMonth() + 1);
-  const day = leftPad(source.getDate());
-
-  return [year, month, day].join(delimiter);
-}
-
 function initUtilities(data) {
   var projectTitle = data.projectTitle;
   var filterSelect = data.filterSelect;
@@ -298,5 +150,4 @@ function initUtilities(data) {
   drawFilters(filterSelect, ".box-select", "select");
   drawFilters(filterRisk, ".status-risk", "ul");
   drawFilters(filterProgress, ".status-progress", "ul");
-  // drawTable(columns, rows);
 }

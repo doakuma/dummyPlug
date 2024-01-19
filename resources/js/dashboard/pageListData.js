@@ -3,57 +3,68 @@ var pageList = {
     {
       key: "menuNm",
       label: "메뉴명",
-      isLink: false,
     },
     {
       key: "pageNm",
       label: "페이지명",
-      isLink: false,
     },
     {
       key: "fileName",
       label: "페이지 url",
-      isLink: false,
     },
     {
       key: "author",
       label: "담당자",
-      isLink: false,
     },
     {
       key: "priority",
       label: "우선순위",
-      isLink: false,
     },
     {
       key: "functionSpec",
       label: "기능명세",
-      isLink: false,
     },
     {
       key: "riskStatus",
       label: "위험도",
-      isLink: false,
     },
     {
       key: "isComplete",
       label: "진행상태",
-      isLink: false,
     },
     {
       key: "dueToDate",
       label: "완료예정일",
-      isLink: false,
     },
     {
       key: "completeDate",
       label: "완료일",
-      isLink: false,
     },
     {
       key: "comments",
       label: "비고",
-      isLink: false,
+    },
+    {
+      key: "modifyInfo",
+      label: "수정사항",
+      child: [
+        {
+          key: "requestDate",
+          label: "요청일",
+        },
+        {
+          key: "completeDate",
+          label: "완료일",
+        },
+        {
+          key: "requestContent",
+          label: "내용",
+        },
+        {
+          key: "requestStatus",
+          label: "진행상태",
+        },
+      ],
     },
   ],
   rows: [

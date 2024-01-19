@@ -159,15 +159,39 @@ function drawTable(columns, rows) {
   var _thead = document.createElement("thead");
   var _tbody = document.createElement("tbody");
   _table.setAttribute("class", "table page-list");
+
   var _tr = document.createElement("tr");
+  var _trChild = null;
 
   // thead
   COLUMNS.forEach(function (column) {
     var _th = document.createElement("th");
     _th.textContent = column.label;
+
+    if (column.child && column.child.length) {
+      // child가 있는 경우 colspan 적용
+      _th.setAttribute("colspan", column.child.length);
+      // child 행 생성
+      if (!_trChild) {
+        _trChild = document.createElement("tr");
+      }
+      column.child.forEach(function (childColumn) {
+        var _thChild = document.createElement("th");
+        _thChild.textContent = childColumn.label;
+        _trChild.appendChild(_thChild);
+      });
+    } else {
+      // child가 없는 경우 rowspan 적용
+      _th.setAttribute("rowspan", 2);
+    }
+
     _tr.appendChild(_th);
   });
+
   _thead.appendChild(_tr);
+  if (_trChild) {
+    _thead.appendChild(_trChild);
+  }
 
   // tbody
   rows.forEach(function (row) {
@@ -177,10 +201,21 @@ function drawTable(columns, rows) {
       riskStatus,
     });
     COLUMNS.forEach(function (column) {
-      _trBody.appendChild(createCell(row, column.key));
+      // child가 있는 경우 각 child에 대한 셀을 생성
+      if (column.child && column.child.length) {
+        column.child.forEach(function (childColumn) {
+          var _td = createCell(row, childColumn.key); // createCell 함수를 사용하여 셀 생성
+          _trBody.appendChild(_td);
+        });
+      } else {
+        // child가 없는 경우 단일 셀을 생성
+        var _td = createCell(row, column.key); // createCell 함수를 사용하여 셀 생성
+        _trBody.appendChild(_td);
+      }
     });
     _tbody.appendChild(_trBody);
   });
+
   _table.appendChild(_thead);
   _table.appendChild(_tbody);
   wrapper.appendChild(_table);
@@ -383,4 +418,20 @@ function replaceWithTag(str) {
   });
 
   return str;
+}
+
+// 날짜 변경
+function leftPad(value) {
+  if (value >= 10) {
+    return value;
+  }
+
+  return `0${value}`;
+}
+function toStringByFormatting(source, delimiter = "-") {
+  const year = source.getFullYear();
+  const month = leftPad(source.getMonth() + 1);
+  const day = leftPad(source.getDate());
+
+  return [year, month, day].join(delimiter);
 }
