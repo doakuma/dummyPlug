@@ -147,7 +147,8 @@ function drawFilterCheckBox(item, parent, curr, currCnt) {
  * TODO: [X] priority parser
  * TODO: [X] specs parser
  * TODO: [X] new icon parser
- * TODO: [ ] modify parser
+ * TODO: [ ] modify content parser
+ * TODO: [ ] modify status parser
  */
 function drawTable(columns, rows) {
   COLUMNS = columns;
