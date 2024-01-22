@@ -1,8 +1,106 @@
+@import url(colors.css);
 :root {
+  /** Core Units
+  ================================================== */
+  --base-unit: 0.25rem;
+  --base-half-unit: calc(var(--base-unit) / 2);
+
+  /** Typography
+  ================================================== */
+  /** Fonts */
+  --font-family-primary: "Noto Sans KR", sans-serif;
+  --font-base-unit: var(--base-unit);
+  --line-height-base-unit: 1;
+
+  /** Font Sizes  */
+  --font-size-4: calc(var(--font-base-unit) * 1);
+  --font-size-8: calc(var(--font-base-unit) * 2);
+  --font-size-12: calc(var(--font-base-unit) * 3);
+  --font-size-16: calc(var(--font-base-unit) * 4);
+  --font-size-20: calc(var(--font-base-unit) * 5);
+  --font-size-24: calc(var(--font-base-unit) * 6);
+  --font-size-40: calc(var(--font-base-unit) * 10);
+  --font-size-48: calc(var(--font-base-unit) * 12);
+  --font-size-64: calc(var(--font-base-unit) * 16);
+
+  /** Line Heights */
+  --line-height-small: calc(var(--line-height-base-unit) * 1.1);
+  --line-height-medium: calc(var(--line-height-base-unit) * 1.3);
+  --line-height-large: calc(var(--line-height-base-unit) * 1.5);
+
+  /** Font Weights */
+  --font-weight-lighter: 100;
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-bolder: 900;
+
+  /** Space
+  ================================================== */
+  --space-base-unit: var(--base-unit);
+  /* Margin, Padding, Gap - 4x4 grid */
+  --space-4: calc(var(--space-base-unit) * 1);
+  --space-8: calc(var(--space-base-unit) * 2);
+  --space-12: calc(var(--space-base-unit) * 3);
+  --space-16: calc(var(--space-base-unit) * 4);
+  --space-20: calc(var(--space-base-unit) * 4);
+  --space-24: calc(var(--space-base-unit) * 6);
+  --space-28: calc(var(--space-base-unit) * 5);
+  --space-32: calc(var(--space-base-unit) * 8);
+  --space-36: calc(var(--space-base-unit) * 9);
+  --space-40: calc(var(--space-base-unit) * 10);
+  --space-44: calc(var(--space-base-unit) * 11);
+  --space-48: calc(var(--space-base-unit) * 12);
+  --space-52: calc(var(--space-base-unit) * 13);
+  --space-56: calc(var(--space-base-unit) * 14);
+  --space-60: calc(var(--space-base-unit) * 15);
+  --space-64: calc(var(--space-base-unit) * 16);
+
+  /** Size
+  ================================================== */
+
+  /** elevation
+  ================================================== */
+
+  /** Break Points
+  ================================================== */
+  --breakpoint-small: 544px;
+  --breakpoint-medium: 768px;
+  --breakpoint-large: 1012px;
+
+  /** Color
+  ================================================== */
+
+  /** shadow
+  ================================================== */
+
+  /** Border
+  ================================================== */
+  /* Border color */
+  --border-color-lighter: var(--gray-2);
+  --border-color-light: var(--gray-3);
+  --border-color: var(--gray-5);
+  --border-color-dark: var(--gray-7);
+  --border-color-darker: var(--gray-9);
+
+  /* Border radius */
+  --border-radius-small: calc(var(--base-unit) * 1);
+  --border-radius-medium: calc(var(--base-unit) * 2);
+  --border-radius-large: calc(var(--base-unit) * 2);
+
+  /** Transition
+  ================================================== */
+
   /* basic colors */
   --white: #ffffff;
   --black: #000000;
   --pointColor: #44265f;
+
+  /* main colors */
+  --primary: #6366f1;
+  --text-primary: #111927;
+  --text-sceondary: #6c737f;
+  --divider: #f2f4f7;
 
   /* gray colors */
   --gray20: #e6e6e6;
@@ -28,3 +126,73 @@
   --bdrlg: 15px;
   --bdrfull: 50%;
 }
+/* import { alpha } from '@mui/material/styles';
+
+const withAlphas = (color) => {
+  return {
+    ...color,
+    alpha4: alpha(color.main, 0.04),
+    alpha8: alpha(color.main, 0.08),
+    alpha12: alpha(color.main, 0.12),
+    alpha30: alpha(color.main, 0.30),
+    alpha50: alpha(color.main, 0.50)
+  };
+};
+
+export const neutral = {
+  50: '#F8F9FA',
+  100: '#F3F4F6',
+  200: '#E5E7EB',
+  300: '#D2D6DB',
+  400: '#9DA4AE',
+  500: '#6C737F',
+  600: '#4D5761',
+  700: '#2F3746',
+  800: '#1C2536',
+  900: '#111927'
+};
+
+export const indigo = withAlphas({
+  lightest: '#F5F7FF',
+  light: '#EBEEFE',
+  main: '#6366F1',
+  dark: '#4338CA',
+  darkest: '#312E81',
+  contrastText: '#FFFFFF'
+});
+
+export const success = withAlphas({
+  lightest: '#F0FDF9',
+  light: '#3FC79A',
+  main: '#10B981',
+  dark: '#0B815A',
+  darkest: '#134E48',
+  contrastText: '#FFFFFF'
+});
+
+export const info = withAlphas({
+  lightest: '#ECFDFF',
+  light: '#CFF9FE',
+  main: '#06AED4',
+  dark: '#0E7090',
+  darkest: '#164C63',
+  contrastText: '#FFFFFF'
+});
+
+export const warning = withAlphas({
+  lightest: '#FFFAEB',
+  light: '#FEF0C7',
+  main: '#F79009',
+  dark: '#B54708',
+  darkest: '#7A2E0E',
+  contrastText: '#FFFFFF'
+});
+
+export const error = withAlphas({
+  lightest: '#FEF3F2',
+  light: '#FEE4E2',
+  main: '#F04438',
+  dark: '#B42318',
+  darkest: '#7A271A',
+  contrastText: '#FFFFFF'
+}); */

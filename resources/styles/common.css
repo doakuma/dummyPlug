@@ -1,5 +1,6 @@
 @import url(normalize.css);
 @import url(variable.css);
+@import url(fonts.css);
 @import url(components.css);
 .wrapper {
   background: var(--white);

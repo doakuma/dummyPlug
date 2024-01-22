@@ -364,7 +364,6 @@ function createNewIcon(data, where) {
 
 // progress status parser
 function createProgress(data, key) {
-  console.debug("data, key", data, key);
   var _data = data[key];
   var wrapper = document.createElement("span");
   var status = _data === 2 ? "done" : _data === 1 ? "ongoing" : "pending";
