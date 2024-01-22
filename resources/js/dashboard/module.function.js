@@ -147,7 +147,7 @@ function drawFilterCheckBox(item, parent, curr, currCnt) {
  * TODO: [X] priority parser
  * TODO: [X] specs parser
  * TODO: [X] new icon parser
- * TODO: [ ] modify content parser
+ * TODO: [X] modify content parser
  * TODO: [ ] modify status parser
  */
 function drawTable(columns, rows) {
@@ -205,7 +205,9 @@ function drawTable(columns, rows) {
       // child가 있는 경우 각 child에 대한 셀을 생성
       if (column.child && column.child.length) {
         column.child.forEach(function (childColumn) {
-          var _td = createCell(row, childColumn.key); // createCell 함수를 사용하여 셀 생성
+          var childColKey = childColumn.key;
+          var childData = row[column.key] ? row[column.key] : "";
+          var _td = createCell(childData, childColKey); // createCell 함수를 사용하여 셀 생성
           _trBody.appendChild(_td);
         });
       } else {
@@ -247,8 +249,9 @@ function createCell(data, type) {
       _status.setAttribute("class", `status ${data.riskStatus}`);
       _td.appendChild(_status);
       return _td;
+    case "requestContent":
     case "comments":
-      var _comment = createComment(data);
+      var _comment = createComment(data, type);
       _td.appendChild(_comment);
       return _td;
     case "priority":
@@ -301,16 +304,16 @@ function curRiskStatus(data) {
   return status;
 }
 
-// comment parser
-function createComment(data) {
-  var { comments } = data;
-  if (!comments) {
+// comment parser : 비고, 수정사항(내용)에서 사용
+function createComment(data, key) {
+  var commentData = data[key];
+  if (!commentData) {
     var _empty = document.createDocumentFragment();
     return _empty;
   } else {
     var wrapper = document.createElement("ul");
     wrapper.setAttribute("class", "comment-list");
-    comments.split("|").map(function (item) {
+    commentData.split("|").map(function (item) {
       var list = document.createElement("li");
       var _text = replaceWithTag(item);
       list.innerHTML = _text;

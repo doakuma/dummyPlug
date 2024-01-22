@@ -109,7 +109,8 @@ var pageList = {
       modifyInfo: {
         requestDate: "2024-01-15",
         completeDate: "",
-        requestContent: "수정요청 사항입니다",
+        requestContent:
+          "~수정요청 사항입니다~|수정요청 사항입니다|수정요청 사항입니다",
         requestStatus: 1,
       },
       functionSpec: [],
