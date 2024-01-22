@@ -8,7 +8,7 @@
 var IS_TEMPLATE = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
 var TODAY = IS_TEMPLATE ? new Date("2024-01-11") : new Date();
 var NEW_MEASURE = 2; // 신규 파일 생성일 기준 일자
-var COLUMNS = [];
+var COLUMNS = []; // 테이블 컬럽 전역 설정
 
 // draw title
 function drawTitle(title) {

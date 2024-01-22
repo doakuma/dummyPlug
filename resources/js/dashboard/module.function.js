@@ -5,8 +5,8 @@
  * 3. 모든 필터링 조건을 적용하여 최종 데이터를 구하는 함수를 작성합니다.
  * 4. 이벤트 핸들러에서 해당 필터 상태를 업데이트하고, 최종 필터링 된 데이터로 화면을 업데이트합니다.
  *
- * TODO: 일정 상태 / 진행 상태 구분하여 적용 필요
- * TODO: 테이블 NODATA 구현
+ * TODO: [X]일정 상태 / 진행 상태 구분하여 적용 필요
+ * TODO: [ ]테이블 NODATA 구현
  */
 
 // 필터링 상태 저장
@@ -230,35 +230,32 @@ function createCell(data, type) {
   var _text = document.createDocumentFragment();
   var isNew = createNewIcon(data);
   switch (type) {
-    case "fileName":
+    case "fileName": // 파일명
       _td.appendChild(createLink(data)).appendChild(isNew);
       return _td;
-    case "author":
+    case "author": // 담당자
       _td.textContent = data.author !== "" ? data.author : "인스플래닛";
       return _td;
-    case "isComplete":
-      _td.textContent =
-        data.isComplete === 0
-          ? "진행대기"
-          : data.isComplete === 1
-          ? "진행중"
-          : "완료";
-      return _td;
-    case "riskStatus":
+    case "riskStatus": // 위험도
       var _status = document.createElement("span");
       _status.setAttribute("class", `status ${data.riskStatus}`);
       _td.appendChild(_status);
       return _td;
-    case "requestContent":
-    case "comments":
+    case "requestContent": // 수정 요청 사항
+    case "comments": // 비고
       var _comment = createComment(data, type);
       _td.appendChild(_comment);
       return _td;
-    case "priority":
+    case "requestStatus": // 수정 진행 상태
+    case "isComplete": // 작업 진행 상태
+      var _comment = createProgress(data, type);
+      _td.appendChild(_comment);
+      return _td;
+    case "priority": // 우선순위
       var _priority = creatPriority(data);
       _td.appendChild(_priority);
       return _td;
-    case "functionSpec":
+    case "functionSpec": // 기능 명세
       var _specs = createSpecs(data);
       _td.appendChild(_specs);
       return _td;
@@ -363,6 +360,18 @@ function createNewIcon(data, where) {
   var iconText = document.createTextNode("NEW");
   newIcon.appendChild(iconText);
   return isNew <= NEW_MEASURE ? newIcon : empty;
+}
+
+// progress status parser
+function createProgress(data, key) {
+  console.debug("data, key", data, key);
+  var _data = data[key];
+  var wrapper = document.createElement("span");
+  var status = _data === 2 ? "done" : _data === 1 ? "ongoing" : "pending";
+  var progressText = _data === 2 ? "완료" : _data === 1 ? "진행중" : "진행대기";
+  wrapper.setAttribute("class", `progress status-${status}`);
+  wrapper.textContent = progressText;
+  return wrapper;
 }
 
 /**

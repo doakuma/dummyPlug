@@ -328,7 +328,7 @@
 }
 
 /* 수정사항 */
-.modify-status {
+.progress {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,12 +336,12 @@
   border-radius: var(--bdrxs);
   color: var(--white);
 }
-.modify-status.status-pending {
+.progress.status-pending {
   background: var(--disabled);
 }
-.modify-status.status-ongoing {
+.progress.status-ongoing {
   background: var(--normal);
 }
-.modify-status.status-done {
+.progress.status-done {
   background: var(--enabled);
 }
