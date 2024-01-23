@@ -8,6 +8,8 @@
 
 /* TODO: import layouts */
 .wrapper {
+  overflow: hidden;
+  overflow-y: auto;
   height: 100dvh;
   background: var(--suface-primary);
 }

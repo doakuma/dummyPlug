@@ -48,8 +48,8 @@
   .accordion-content {
     padding: 0 var(--space-16);
     max-height: 0;
-    transition: max-height, padding-top, padding-bottom var(--trs-md);
-    transition-behavior: allow-discrete;
+    transition: max-height var(--trs-md), padding-top var(--trs-lg),
+      padding-bottom var(--trs-lg);
   }
 
   /* accordion type flat */

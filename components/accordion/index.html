@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../resources/styles/common.css" />
-    <link rel="stylesheet" href="../../resources/styles/dashboard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +17,7 @@
       <!-- content -->
       <main class="content">
         <h1 class="text-x4l">Accordions</h1>
-        <div class="box-wrapper" grid-xs="2">
+        <div class="box-wrapper" grid-xs="4">
           <section class="box-section">
             <h2 class="text-x4l box-section-title">Accordion Default</h2>
             <div class="box-section-cont">
@@ -135,15 +134,79 @@
             </div>
             <!--// accordion -->
           </section>
+          <!-- wep component -->
+          <section class="sec-boxtion">
+            <h2 class="text-x4l box-section-title">Accordion Web Component</h2>
+            <dp-accordion
+              acc-title="DP Accordion"
+              acc-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ipsum, expedita neque. Voluptatem inventore cumque nam veniam
+            quod, beatae eaque aut ducimus repellat nobis officiis atque
+            omnis voluptatum velit ipsa eligendi! Ex eveniet laudantium
+            autem quas. In, ratione officiis sint quas quia quis facere ea
+            ducimus id, totam praesentium impedit, aperiam voluptate
+            asperiores amet! Excepturi aut libero ex culpa, repudiandae
+            provident?"
+            />
+          </section>
+          <section class="sec-boxtion">
+            <h2 class="text-x4l box-section-title">
+              Accordion Flast Web Component
+            </h2>
+            <dp-accordion
+              acc-title="DP Accordion"
+              acc-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ipsum, expedita neque. Voluptatem inventore cumque nam veniam
+            quod, beatae eaque aut ducimus repellat nobis officiis atque
+            omnis voluptatum velit ipsa eligendi! Ex eveniet laudantium
+            autem quas. In, ratione officiis sint quas quia quis facere ea
+            ducimus id, totam praesentium impedit, aperiam voluptate
+            asperiores amet! Excepturi aut libero ex culpa, repudiandae
+            provident?"
+              acc-isflat="true"
+            />
+          </section>
+          <section class="sec-boxtion">
+            <h2 class="text-x4l box-section-title">Accordion Web Component</h2>
+            <dp-accordion
+              acc-title="DP Accordion"
+              acc-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ipsum, expedita neque. Voluptatem inventore cumque nam veniam
+            quod, beatae eaque aut ducimus repellat nobis officiis atque
+            omnis voluptatum velit ipsa eligendi! Ex eveniet laudantium
+            autem quas. In, ratione officiis sint quas quia quis facere ea
+            ducimus id, totam praesentium impedit, aperiam voluptate
+            asperiores amet! Excepturi aut libero ex culpa, repudiandae
+            provident?"
+              acc-isDisable="true"
+            />
+          </section>
+          <section class="sec-boxtion">
+            <h2 class="text-x4l box-section-title">
+              Accordion Flast Web Component
+            </h2>
+            <dp-accordion
+              acc-title="DP Accordion"
+              acc-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ipsum, expedita neque. Voluptatem inventore cumque nam veniam
+            quod, beatae eaque aut ducimus repellat nobis officiis atque
+            omnis voluptatum velit ipsa eligendi! Ex eveniet laudantium
+            autem quas. In, ratione officiis sint quas quia quis facere ea
+            ducimus id, totam praesentium impedit, aperiam voluptate
+            asperiores amet! Excepturi aut libero ex culpa, repudiandae
+            provident?"
+              acc-isflat="true"
+              acc-isDisable="true"
+              acc-isExpand="true"
+            />
+          </section>
+          <!-- wep component -->
         </div>
       </main>
       <!--// content -->
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
-    <script src="../../resources/js/dashboard/pageListData.js"></script>
-    <script src="../../resources/js/dashboard/utilsData.js"></script>
-    <script src="../../resources/js/dashboard/module.function.js"></script>
-    <script src="../../resources/js/dashboard/dashboard.js"></script>
+    <script src="../../resources/js/components/accordion.js"></script>
     <script>
       $(function () {
         handleAccordion();
