@@ -71,7 +71,7 @@ function drawStatusInfo(arr) {
             <strong class="status-bar-tit">진행률</strong>
             <strong>${completePer}%</strong>
             <span class="status-bar">
-              <span class="status-bar-inner" style="width: ${completePer}px"></span>
+              <span class="status-bar-inner" style="width: ${completePer}%"></span>
             </span>
           </li>
           <li>전체: <strong>${total}</strong>건</li>
