@@ -5,7 +5,7 @@
  *
  * TODO: [ ] 각 영역 웹 컴포넌트로 구현 가능한 지 검토
  */
-var IS_TEMPLATE = true; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
+var IS_TEMPLATE = false; // template 사용을 위한 변수 실제 적용 시에는 false로 설정
 var TODAY = IS_TEMPLATE ? new Date("2024-01-11") : new Date();
 var NEW_MEASURE = 2; // 신규 파일 생성일 기준 일자
 var COLUMNS = []; // 테이블 컬럽 전역 설정
