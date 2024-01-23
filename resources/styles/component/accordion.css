@@ -48,7 +48,7 @@
   .accordion-content {
     padding: 0 var(--space-16);
     max-height: 0;
-    transition: max-height var(--trs-md), padding-top var(--trs-lg),
+    transition: max-height var(--trs-xs), padding-top var(--trs-lg),
       padding-bottom var(--trs-lg);
   }
 
