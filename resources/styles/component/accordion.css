@@ -87,6 +87,10 @@
         border-color: var(--gray-300);
       }
     }
+    .accordion-content {
+      background-color: var(--gray-100);
+      color: var(--gray-300);
+    }
     &:not(.accordion-flat):hover {
       box-shadow: var(--shadow-compact-xs);
     }
