@@ -1,9 +1,9 @@
 :root {
   /*  Base Values  */
-  /* --color-primary: hsl(272, 43%, 26%); */
+  /* --color-primary: hsl(272, 100%, 20%); */
   --primary-color-h: 272;
-  --primary-color-s: 43%;
-  --primary-color-l: 26%;
+  --primary-color-s: 100%;
+  --primary-color-l: 20%;
   --secondary-color-h: 180;
   --secondary-color-s: 99%;
   --secondary-color-l: 27%;

@@ -70,7 +70,43 @@
 
   /** Color
   ================================================== */
+  /* basic colors */
+  --white: #ffffff;
+  --black: #000000;
+  --pointColor: #360066;
 
+  /* main colors */
+  --primary: #6467f2;
+  --text-primary: #111927;
+  --text-sceondary: #6c737f;
+  --divider: #f2f4f7;
+
+  /* gray colors */
+  --gray-50: hsl(0, 0%, 97%);
+  --gray-100: hsl(0, 0%, 93%);
+  --gray-200: hsl(0, 0%, 87%);
+  --gray-300: hsl(0, 0%, 79%);
+  --gray-400: hsl(0, 0%, 65%);
+  --gray-500: hsl(0, 0%, 53%);
+  --gray-600: hsl(0, 0%, 42%);
+  --gray-700: hsl(0, 0%, 37%);
+  --gray-800: hsl(0, 0%, 29%);
+  --gray-900: hsl(0, 0%, 23%);
+
+  /* status color */
+  --critical: #bb251a; /* error */
+  --warning: #dc6803; /* warning */
+  --caution: #fce83a; /* error */
+  --normal: #039855; /* success */
+  --enabled: #1465b4; /* info */
+  --disabled: #a4abb6;
+
+  /* surface color */
+  --suface-primary: hsl(var(--primary-color-h) 10% 95%);
+
+  /* font color */
+  --text-primary-light: hsl(var(--primary-color-h) var(--color-primary-s) 10%);
+  --text-secondary-light: hsl(var(--primary-color-h) 30% 30%);
   /** shadow
   ================================================== */
 
@@ -91,36 +127,10 @@
   /** Transition
   ================================================== */
 
-  /* basic colors */
-  --white: #ffffff;
-  --black: #000000;
-  --pointColor: #44265f;
-
-  /* main colors */
-  --primary: #6366f1;
-  --text-primary: #111927;
-  --text-sceondary: #6c737f;
-  --divider: #f2f4f7;
-
-  /* gray colors */
-  --gray20: #e6e6e6;
-  --gray40: #b5b5b5;
-  --gray60: #868686;
-  --gray80: #5b5b5b;
-  --gray100: #323232;
-
-  /* status color */
-  --critical: #ff3838;
-  --warning: #ffb302;
-  --caution: #fce83a;
-  --normal: #56f000;
-  --enabled: #2dccff;
-  --disabled: #a4abb6;
-
   /* font size */
 
   /* border-radius */
-  --bdrxxs: 5px;
+  --bdrxxs: 2px;
   --bdrxs: 5px;
   --bdrmd: 10px;
   --bdrlg: 15px;
