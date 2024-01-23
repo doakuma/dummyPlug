@@ -1,0 +1,108 @@
+.accordion {
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+  box-shadow: var(--shadow-compact-xs);
+  background: var(--gray-50);
+  border-radius: var(--bdrmd);
+  transition: box-shadow var(--trs-md);
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-8) var(--space-16);
+    background: var(--gray-50);
+    transition: background var(--trs-md);
+
+    .accordion-header-title {
+      font-size: var(--font-size16);
+      color: var(--text-primary-light);
+      font-weight: 600;
+    }
+    .accordion-header-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      width: 24px;
+      height: 24px;
+      font-size: 0;
+      line-height: 0;
+      text-indent: -9999px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform var(--trs-md);
+    }
+    .accordion-header-button::after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-style: solid;
+      border-color: var(--gray-900);
+      border-width: 0 2px 2px 0;
+      box-sizing: border-box;
+      transform: rotate(45deg) translate(-2px, -2px);
+    }
+  }
+  .accordion-content {
+    padding: 0 var(--space-16);
+    max-height: 0;
+    transition: max-height, padding-top, padding-bottom var(--trs-md);
+    transition-behavior: allow-discrete;
+  }
+
+  /* accordion type flat */
+  &.accordion-flat {
+    border: none;
+    box-shadow: none;
+    border-radius: unset;
+    background: var(--white);
+  }
+
+  /* accordion when active */
+  &.is-expand {
+    border-color: var(--gray-500);
+    .accordion-header {
+      background: var(--gray-100);
+    }
+    .accordion-content {
+      max-height: 9999px;
+      padding: var(--space-16);
+    }
+    .accordion-header-button {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* accordion when disabled */
+  &.is-disabled {
+    border-color: var(--gray-100);
+    .accordion-header {
+      background: var(--gray-200);
+      .accordion-header-title {
+        color: var(--gray-300);
+      }
+      .accordion-header-button::after {
+        border-color: var(--gray-300);
+      }
+    }
+    &:not(.accordion-flat):hover {
+      box-shadow: var(--shadow-compact-xs);
+    }
+  }
+
+  /* accordion when hover */
+  &:not(.accordion-flat, .is-disabled):hover {
+    box-shadow: var(--shadow-wide-xs);
+
+    .accordion-header {
+      background-color: var(--gray-100);
+    }
+  }
+  &:not(.is-disabled):hover {
+    .accordion-header {
+      background-color: var(--gray-100);
+    }
+  }
+}

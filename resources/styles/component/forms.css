@@ -1,0 +1,36 @@
+/* form component 
+TODO: SELECT
+TODO: INPUT CHECKBOX
+TODO: INPUT RADIO
+TODO: INPUT TEXT
+*/
+.box-select {
+  overflow: hidden;
+  border: 1px solid var(--gray-400);
+  font-size: 12px;
+  border-radius: var(--bdrxs);
+}
+.box-select select {
+  padding: 4px 25px 4px 8px;
+  font-size: 12px;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gray-400) 50%),
+    /* left */ linear-gradient(135deg, var(--gray-400) 50%, transparent 50%),
+    /* right */ linear-gradient(to right, var(--gray-600), var(--gray-600)); /* vertical line */
+  background-position: calc(100% - 10px) 10px, calc(100% - 5px) 10px,
+    calc(100% - 20px) 4px;
+  background-size: 5px 5px, 5px 5px, 1px 16px;
+  background-repeat: no-repeat;
+}
+.box-select select:focus {
+  background-image: linear-gradient(45deg, var(--white) 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, var(--white) 50%),
+    linear-gradient(to right, var(--gray-400), var(--gray-400));
+  background-position: calc(100% - 5px) 10px, calc(100% - 10px) 10px, 100% 0;
+  background-size: 5px 5px, 5px 5px, 20px 100%;
+  background-repeat: no-repeat;
+  border-color: var(--gray-400);
+  outline: 0;
+}
