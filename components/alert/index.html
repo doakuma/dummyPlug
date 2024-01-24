@@ -19,12 +19,33 @@
         <h1 class="text-5xl content-title">Alerts</h1>
         <div class="box-wrapper" grid-xs="1">
           <h2 class="text-4xl box-section-title">Alert 호출 테스트</h2>
-          <div class="dp-button-group">
+          <div class="dp-button-group" gap="8">
             <button
+              type="button"
               class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft', 3)"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
               onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
             >
-              호출하기
+              호출하기 bottomRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
             </button>
           </div>
         </div>
