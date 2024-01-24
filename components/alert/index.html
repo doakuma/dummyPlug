@@ -157,9 +157,41 @@
           </div>
           <!--// Excute test Alert -->
         </div>
+        <div class="box-wrapper" grid-xs="3">
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Web Component Default</h2>
+            <div class="box-section-cont">
+              <dp-alert-sticky
+                alert-icon-type="rss-simple"
+                alert-text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                alert-variant="light"
+              >
+                <button
+                  slot="alert-button-secondary"
+                  type="button"
+                  class="dp-button"
+                  size="md"
+                  variant="outlined"
+                >
+                  Button
+                </button>
+                <button
+                  slot="alert-button-primary"
+                  type="button"
+                  class="dp-button"
+                  size="md"
+                  variant="contained"
+                >
+                  Button
+                </button>
+              </dp-alert-sticky>
+            </div>
+          </section>
+        </div>
       </main>
       <!--// content -->
     </div>
+    <script src="../../resources/js/components/alerts.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         handleAlert();
