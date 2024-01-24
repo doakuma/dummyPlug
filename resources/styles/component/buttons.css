@@ -1,0 +1,63 @@
+/* button
+* state
+* size
+* variant
+*/
+.dp-button {
+  border: unset;
+  background: unset;
+  cursor: pointer;
+  color: var(--text-primary-light);
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+
+  /* button size */
+  &[size="md"] {
+    padding: var(--space-8) var(--space-20);
+    font-size: var(--font-size-12);
+    border-radius: var(--bdrxs);
+
+    &.dp-button-icon {
+      width: 24px;
+      height: 24px;
+      background-size: 16px 16px;
+    }
+  }
+
+  /* button variant */
+  &[variant="text"] {
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+  &[variant="contained"] {
+    background-color: var(--suface-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  &[variant="outlined"] {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  /* button icons */
+  &.dp-button-icon {
+    padding: unset;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &.dp-close {
+      background-image: var(--button-icon-close);
+    }
+  }
+}
+
+/* button group */
+.dp-button-group {
+  display: flex;
+  align-items: center;
+  &[gap="8"] {
+    column-gap: var(--space-8);
+  }
+}

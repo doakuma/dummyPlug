@@ -3,8 +3,11 @@
 @import url(fonts.css);
 
 /* import components */
+@import url(component/icons.css);
+@import url(component/buttons.css);
 @import url(component/forms.css);
 @import url(component/accordion.css);
+@import url(component/alert.css);
 
 /* TODO: import layouts */
 .wrapper {
@@ -15,6 +18,11 @@
 }
 .content {
   padding: var(--space-12);
+
+  .content-title {
+    padding: var(--space-8) 0;
+    border-bottom: 2px solid var(--gray-900);
+  }
 }
 .txt-left {
   text-align: left;
@@ -25,6 +33,7 @@
   display: grid;
   align-items: start;
   gap: var(--space-8);
+  margin: var(--space-12) 0;
 
   /*TODO: [ ] grid 계산 필요 */
   &[grid-xs="2"] {

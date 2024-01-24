@@ -24,6 +24,8 @@
   --font-size-22: calc(var(--font-base-unit) * 5.5);
   --font-size-24: calc(var(--font-base-unit) * 6);
   --font-size-26: calc(var(--font-base-unit) * 6.5);
+  --font-size-30: calc(var(--font-base-unit) * 7);
+  --font-size-36: calc(var(--font-base-unit) * 7.5);
   --font-size-40: calc(var(--font-base-unit) * 10);
   --font-size-48: calc(var(--font-base-unit) * 12);
   --font-size-64: calc(var(--font-base-unit) * 16);
@@ -48,9 +50,9 @@
   --space-8: calc(var(--space-base-unit) * 2);
   --space-12: calc(var(--space-base-unit) * 3);
   --space-16: calc(var(--space-base-unit) * 4);
-  --space-20: calc(var(--space-base-unit) * 4);
+  --space-20: calc(var(--space-base-unit) * 5);
   --space-24: calc(var(--space-base-unit) * 6);
-  --space-28: calc(var(--space-base-unit) * 5);
+  --space-28: calc(var(--space-base-unit) * 7);
   --space-32: calc(var(--space-base-unit) * 8);
   --space-36: calc(var(--space-base-unit) * 9);
   --space-40: calc(var(--space-base-unit) * 10);
@@ -110,7 +112,10 @@
   --suface-primary: hsl(var(--primary-color-h) 10% 95%);
 
   /* font color */
-  --text-primary-light: hsl(var(--primary-color-h) var(--color-primary-s) 10%);
+  --text-primary-light: hsl(var(--primary-color-h) var(--primary-color-s) 10%);
+  --text-primary-invert: hsl(
+    var(--primary-color-h) var(--primary-color-s) 100%
+  );
   --text-secondary-light: hsl(var(--primary-color-h) 30% 30%);
 
   /** shadow

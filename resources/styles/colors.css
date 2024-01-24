@@ -38,7 +38,7 @@
   --color-primary-dark: hsl(
     var(--primary-color-h),
     var(--primary-color-s),
-    var(--primary-color-dark-l)
+    20%
   );
   --color-secondary-dark: hsl(
     var(--secondary-color-h),

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Alerts</h1>
+        <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Alert 호출 테스트</h2>
+          <div class="dp-button-group">
+            <button
+              class="dp-button"
+              onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
+            >
+              호출하기
+            </button>
+          </div>
+        </div>
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Alert Default</h2>
+            <div class="box-section-cont">
+              <div class="alert-sticky">
+                <i class="dp-icon icon-rss-simple"></i>
+                <p class="alert-sticky-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="dp-button-group" gap="8">
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="outlined"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="contained"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button dp-button-icon dp-close"
+                    size="md"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Alert Dark</h2>
+            <div class="box-section-cont">
+              <div class="alert-sticky" variant="dark">
+                <i class="dp-icon icon-rss-simple"></i>
+                <p class="alert-sticky-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="dp-button-group" gap="8">
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="text"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="outlined"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button dp-button-icon dp-close"
+                    size="md"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Alert Light</h2>
+            <div class="box-section-cont">
+              <div class="alert-sticky" variant="light">
+                <i class="dp-icon icon-rss-simple"></i>
+                <p class="alert-sticky-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="dp-button-group" gap="8">
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="text"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button"
+                    size="md"
+                    variant="contained"
+                  >
+                    Button
+                  </button>
+                  <button
+                    type="button"
+                    class="dp-button dp-button-icon dp-close"
+                    size="md"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--// defaults -->
+
+          <!-- Excute test Alert -->
+          <div
+            class="alert-sticky"
+            variant="dark"
+            type="snackbar"
+            origin="topRight"
+            id="test"
+          >
+            <i class="dp-icon icon-rss-simple"></i>
+            <p class="alert-sticky-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <div class="dp-button-group" gap="8">
+              <button
+                type="button"
+                class="dp-button dp-button-icon dp-close"
+                size="md"
+                onclick="handleAlert('#test', 'close')"
+              ></button>
+            </div>
+          </div>
+          <!--// Excute test Alert -->
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        handleAlert();
+      });
+    </script>
+    <script>
+      /**
+       * target: alert target ID
+       * handleType: open | close
+       * origin: topLeft | topCenter | topRight | bottomRight | bottomCenter | bottomLeft
+       */
+      function handleAlert(target, handleType, origin, autohide) {
+        if (!target) return;
+        var _target = document.querySelector(target);
+
+        // origin
+        if (origin) {
+          _target.setAttribute("origin", origin);
+        }
+        // handletype
+        if (handleType === "open") {
+          _target.classList.add("is-visible");
+        } else {
+          _target.classList.remove("is-visible");
+        }
+
+        // autohide : millisecond
+        if (autohide) {
+          setTimeout(function () {
+            _target.classList.remove("is-visible");
+          }, autohide * 1000);
+        }
+      }
+    </script>
+  </body>
+</html>

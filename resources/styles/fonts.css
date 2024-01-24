@@ -25,15 +25,19 @@ body {
   font-size: var(--font-size-18);
   line-height: var(--line-height-medium);
 }
-.text-2l {
+.text-2xl {
   font-size: var(--font-size-20);
   line-height: var(--line-height-large);
 }
-.text-x3l {
+.text-3xl {
   font-size: var(--font-size-22);
   line-height: var(--line-height-large);
 }
-.text-x4l {
+.text-4xl {
   font-size: var(--font-size-24);
+  line-height: var(--line-height-large);
+}
+.text-5xl {
+  font-size: var(--font-size-36);
   line-height: var(--line-height-large);
 }
