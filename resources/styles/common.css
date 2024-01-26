@@ -1,12 +1,86 @@
 @import url(normalize.css);
 @import url(variable.css);
-@import url(components.css);
+@import url(fonts.css);
+
+/* import components */
+@import url(component/icons.css);
+@import url(component/buttons.css);
+@import url(component/buttonGroups.css);
+@import url(component/forms.css);
+@import url(component/accordion.css);
+@import url(component/alert.css);
+
+/* TODO: import layouts */
 .wrapper {
-  background: var(--white);
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100dvh;
+  background: var(--suface-primary);
 }
 .content {
-  padding: 10px;
+  padding: var(--space-12);
+
+  .content-title {
+    padding: var(--space-8) 0;
+    border-bottom: 2px solid var(--gray-900);
+  }
 }
 .txt-left {
   text-align: left;
+}
+
+/* box componets */
+.box-wrapper {
+  display: grid;
+  align-items: start;
+  gap: var(--space-8);
+  margin: var(--space-12) 0;
+
+  /*TODO: [ ] grid 계산 필요 */
+  &[grid-xs="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &[grid-xs="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &[grid-xs="4"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &[grid-xs="5"] {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &[grid-xs="6"] {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  &[grid-xs="7"] {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  &[grid-xs="8"] {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  &[grid-xs="9"] {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  &[grid-xs="10"] {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  &[grid-xs="11"] {
+    grid-template-columns: repeat(11, 1fr);
+  }
+  &[grid-xs="12"] {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+.box-section {
+  .box-section-title {
+    border-bottom: 1px solid var(--gray-900);
+  }
+  .box-section-cont {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+    gap: var(--space-8);
+  }
 }

@@ -1,27 +1,152 @@
+@import url(colors.css);
 :root {
+  /** Core Units
+  ================================================== */
+  --base-unit: 0.25rem;
+  --base-half-unit: calc(var(--base-unit) / 2);
+
+  /** Typography
+  ================================================== */
+  /** Fonts */
+  --font-family-primary: "Noto Sans KR", sans-serif;
+  --font-base-unit: var(--base-unit);
+  --line-height-base-unit: 1;
+
+  /** Font Sizes  */
+  --font-size-4: calc(var(--font-base-unit) * 1);
+  --font-size-8: calc(var(--font-base-unit) * 2);
+  --font-size-10: calc(var(--font-base-unit) * 2.5);
+  --font-size-12: calc(var(--font-base-unit) * 3);
+  --font-size-14: calc(var(--font-base-unit) * 3.5);
+  --font-size-16: calc(var(--font-base-unit) * 4);
+  --font-size-18: calc(var(--font-base-unit) * 4.5);
+  --font-size-20: calc(var(--font-base-unit) * 5);
+  --font-size-22: calc(var(--font-base-unit) * 5.5);
+  --font-size-24: calc(var(--font-base-unit) * 6);
+  --font-size-26: calc(var(--font-base-unit) * 6.5);
+  --font-size-30: calc(var(--font-base-unit) * 7);
+  --font-size-36: calc(var(--font-base-unit) * 7.5);
+  --font-size-40: calc(var(--font-base-unit) * 10);
+  --font-size-48: calc(var(--font-base-unit) * 12);
+  --font-size-64: calc(var(--font-base-unit) * 16);
+
+  /** Line Heights */
+  --line-height-small: calc(var(--line-height-base-unit) * 1.1);
+  --line-height-medium: calc(var(--line-height-base-unit) * 1.3);
+  --line-height-large: calc(var(--line-height-base-unit) * 1.5);
+
+  /** Font Weights */
+  --font-weight-lighter: 100;
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-bolder: 900;
+
+  /** Space
+  ================================================== */
+  --space-base-unit: var(--base-unit);
+  /* Margin, Padding, Gap - 4x4 grid */
+  --space-4: calc(var(--space-base-unit) * 1);
+  --space-8: calc(var(--space-base-unit) * 2);
+  --space-12: calc(var(--space-base-unit) * 3);
+  --space-16: calc(var(--space-base-unit) * 4);
+  --space-20: calc(var(--space-base-unit) * 5);
+  --space-24: calc(var(--space-base-unit) * 6);
+  --space-28: calc(var(--space-base-unit) * 7);
+  --space-32: calc(var(--space-base-unit) * 8);
+  --space-36: calc(var(--space-base-unit) * 9);
+  --space-40: calc(var(--space-base-unit) * 10);
+  --space-44: calc(var(--space-base-unit) * 11);
+  --space-48: calc(var(--space-base-unit) * 12);
+  --space-52: calc(var(--space-base-unit) * 13);
+  --space-56: calc(var(--space-base-unit) * 14);
+  --space-60: calc(var(--space-base-unit) * 15);
+  --space-64: calc(var(--space-base-unit) * 16);
+
+  /** Size
+  ================================================== */
+
+  /** elevation
+  ================================================== */
+
+  /** Break Points
+  ================================================== */
+  --breakpoint-small: 544px;
+  --breakpoint-medium: 768px;
+  --breakpoint-large: 1012px;
+
+  /** Color
+  ================================================== */
   /* basic colors */
   --white: #ffffff;
   --black: #000000;
-  --pointColor: #44265f;
+  --pointColor: #360066;
+
+  /* main colors */
+  --primary: #6467f2;
+  --text-primary: #111927;
+  --text-sceondary: #6c737f;
+  --divider: #f2f4f7;
 
   /* gray colors */
-  --gray20: #e6e6e6;
-  --gray40: #b5b5b5;
-  --gray60: #868686;
-  --gray80: #5b5b5b;
-  --gray100: #323232;
+  --gray-50: hsl(0, 0%, 97%);
+  --gray-100: hsl(0, 0%, 93%);
+  --gray-200: hsl(0, 0%, 87%);
+  --gray-300: hsl(0, 0%, 79%);
+  --gray-400: hsl(0, 0%, 65%);
+  --gray-500: hsl(0, 0%, 53%);
+  --gray-600: hsl(0, 0%, 42%);
+  --gray-700: hsl(0, 0%, 37%);
+  --gray-800: hsl(0, 0%, 29%);
+  --gray-900: hsl(0, 0%, 23%);
 
   /* status color */
-  --critical: #ff3838;
-  --warning: #ffb302;
-  --caution: #fce83a;
-  --normal: #56f000;
-  --enabled: #2dccff;
+  --critical: #bb251a; /* error */
+  --warning: #dc6803; /* warning */
+  --caution: #fce83a; /* error */
+  --normal: #039855; /* success */
+  --enabled: #1465b4; /* info */
   --disabled: #a4abb6;
 
-  /* font size */
+  /* surface color */
+  --suface-primary: hsl(var(--primary-color-h) 10% 95%);
+
+  /* font color */
+  --text-primary-light: hsl(var(--primary-color-h) var(--primary-color-s) 10%);
+  --text-primary-invert: hsl(
+    var(--primary-color-h) var(--primary-color-s) 100%
+  );
+  --text-secondary-light: hsl(var(--primary-color-h) 30% 30%);
+
+  /** shadow
+  ================================================== */
+  --shadow-wide-xs: 0px 5px 15px 0px var(--gray-300);
+  --shadow-wide-md: 0px 10px 25px 0px var(--gray-300);
+  --shadow-compact-xs: 0px 1.25px 4px 0px var(--gray-300);
+  --shadow-compact-md: 0px 3px 12px 0px var(--gray-300);
+
+  /** Border
+  ================================================== */
+  /* Border color */
+  --border-color-lighter: var(--gray-2);
+  --border-color-light: var(--gray-3);
+  --border-color: var(--gray-5);
+  --border-color-dark: var(--gray-7);
+  --border-color-darker: var(--gray-9);
+
+  /* Border radius */
+  --border-radius-small: calc(var(--base-unit) * 1);
+  --border-radius-medium: calc(var(--base-unit) * 2);
+  --border-radius-large: calc(var(--base-unit) * 2);
+
+  /** Transition
+  ================================================== */
+  --trs-xs: 0.15s;
+  --trs-md: 0.35s;
+  --trs-lg: 0.5s;
 
   /* border-radius */
+  --bdrxxs: 2px;
   --bdrxs: 5px;
   --bdrmd: 10px;
   --bdrlg: 15px;

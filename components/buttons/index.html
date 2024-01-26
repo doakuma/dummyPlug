@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Buttons</h1>
+
+        <div class="box-wrapper" grid-xs="3">
+          <!-- default -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons contained</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnContaine" gap="8">
+                <!-- <button
+                  type="button"
+                  class="dp-button"
+                  size="xs"
+                  variant="contained"
+                >
+                  Button
+                </button>
+                <button
+                  type="button"
+                  class="dp-button"
+                  size="md"
+                  variant="contained"
+                >
+                  Button
+                </button>
+                <button
+                  type="button"
+                  class="dp-button"
+                  size="lg"
+                  variant="contained"
+                >
+                  Button
+                </button> -->
+              </div>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons outlined</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnOutline" gap="8"></div>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons text</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnText" gap="8"></div>
+            </div>
+          </section>
+          <!--// default -->
+          <!-- disabled -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons disabled</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnDiable" gap="8"></div>
+            </div>
+          </section>
+          <!--// disabled -->
+          <!-- with Icon -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons with Icons</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnWithIcon" gap="8"></div>
+            </div>
+          </section>
+          <!--// with Icon -->
+          <!-- only Icon -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons only Icon</h2>
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnOnlyIcon" gap="8"></div>
+            </div>
+          </section>
+          <!-- only Icon -->
+        </div>
+        <div class="box-wrapper" grid-xs="2">
+          <!-- Colors -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons Colors</h2>
+            <!-- primary -->
+            <div class="box-section-cont">
+              primary
+              <div class="dp-button-group" id="btnColorPrimary" gap="8"></div>
+            </div>
+            <!--// primary -->
+            <!-- secondary -->
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnColorSecondary" gap="8">
+                secondary
+              </div>
+            </div>
+            <!-- secondary -->
+            <!-- error -->
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnColorError" gap="8">
+                error
+              </div>
+            </div>
+            <!-- error -->
+            <!-- warning -->
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnColorWarning" gap="8">
+                warning
+              </div>
+            </div>
+            <!-- warning -->
+            <!-- info -->
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnColorInfo" gap="8">info</div>
+            </div>
+            <!-- info -->
+            <!-- success -->
+            <div class="box-section-cont">
+              <div class="dp-button-group" id="btnColorSuccess" gap="8">
+                success
+              </div>
+            </div>
+            <!-- success -->
+          </section>
+          <!-- Colors -->
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/compdata.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawButtons("#btnContaine", "contained");
+        DrawButtons("#btnOutline", "outlined");
+        DrawButtons("#btnText", "text");
+        DrawButtons("#btnDiable", "disabled");
+        DrawButtons("#btnWithIcon", "withIcons");
+        DrawButtons("#btnOnlyIcon", "onlyIcons");
+        DrawButtons("#btnColorPrimary", "colorsPrimary", "primary");
+        DrawButtons("#btnColorSecondary", "colorsPrimary", "secondary");
+        DrawButtons("#btnColorError", "colorsPrimary", "error");
+        DrawButtons("#btnColorWarning", "colorsPrimary", "warning");
+        DrawButtons("#btnColorInfo", "colorsPrimary", "info");
+        DrawButtons("#btnColorSuccess", "colorsPrimary", "success");
+      });
+    </script>
+    <script></script>
+  </body>
+</html>

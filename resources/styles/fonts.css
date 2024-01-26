@@ -1,0 +1,43 @@
+html,
+body {
+  font-family: var(--font-family-primary);
+  font-optical-sizing: auto;
+}
+
+/* font-size variation */
+.text-xs {
+  font-size: var(--font-size-10);
+  line-height: var(--line-height-small);
+}
+.text-sm {
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-small);
+}
+.text-base {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-small);
+}
+.text-lg {
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-medium);
+}
+.text-xl {
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-medium);
+}
+.text-2xl {
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-large);
+}
+.text-3xl {
+  font-size: var(--font-size-22);
+  line-height: var(--line-height-large);
+}
+.text-4xl {
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-large);
+}
+.text-5xl {
+  font-size: var(--font-size-36);
+  line-height: var(--line-height-large);
+}
