@@ -5,6 +5,7 @@
 /* import components */
 @import url(component/icons.css);
 @import url(component/buttons.css);
+@import url(component/buttonGroups.css);
 @import url(component/forms.css);
 @import url(component/accordion.css);
 @import url(component/alert.css);

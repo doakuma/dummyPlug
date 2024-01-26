@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Button Groups</h1>
+
+        <div class="box-wrapper" grid-xs="2">
+          <!-- Variants -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Buttons Variants</h2>
+            <div class="box-section-cont">
+              Contained
+              <div
+                class="dp-button-group"
+                variant="contained"
+                id="btnGroupContained"
+              >
+                <!-- <button type="button" class="dp-button">Button</button> -->
+              </div>
+            </div>
+            <div class="box-section-cont">
+              OutLined
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                id="btnGroupOutlined"
+              ></div>
+            </div>
+            <div class="box-section-cont">
+              Text
+              <div
+                class="dp-button-group"
+                variant="text"
+                id="btnGrouptext"
+              ></div>
+            </div>
+          </section>
+          <!--// Variants -->
+          <!-- Variants -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Groups Sizes</h2>
+            <div class="box-section-cont">
+              Small
+              <div
+                class="dp-button-group"
+                variant="contained"
+                size="xs"
+                id="btnGroupSmall"
+              ></div>
+            </div>
+            <div class="box-section-cont">
+              Medium
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                size="md"
+                id="btnGroupMedium"
+              ></div>
+            </div>
+            <div class="box-section-cont">
+              large
+              <div
+                class="dp-button-group"
+                variant="text"
+                size="lg"
+                id="btnGroupLarge"
+              ></div>
+            </div>
+          </section>
+          <!--// Variants -->
+          <!-- Orientations -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Groups Orientations</h2>
+            <div class="box-section-cont">
+              Default
+              <div
+                class="dp-button-group"
+                variant="contained"
+                orientation="default"
+                id="btnGrpDefContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                orientation="default"
+                id="btnGrpDefOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                orientation="default"
+                id="btnGrpDefText"
+              ></div>
+            </div>
+            <div class="box-section-cont">
+              Vertical
+              <div
+                class="dp-button-group"
+                variant="contained"
+                orientation="vertical"
+                id="btnGrpVtcContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                orientation="vertical"
+                id="btnGrpVtcOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                orientation="vertical"
+                id="btnGrpVtcText"
+              ></div>
+            </div>
+          </section>
+          <!--// Orientations -->
+          <!-- Colors -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Groups Colors</h2>
+            <!-- primary -->
+            <div class="box-section-cont">
+              primary
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="primary"
+                id="btnColorPriContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="primary"
+                id="btnColorPriOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="primary"
+                id="btnColorPriText"
+              ></div>
+            </div>
+            <!--// primary -->
+            <!-- secondary -->
+            <div class="box-section-cont">
+              secondary
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="secondary"
+                id="btnColorSecContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="secondary"
+                id="btnColorSecOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="secondary"
+                id="btnColorSecText"
+              ></div>
+            </div>
+            <!-- secondary -->
+            <!-- error -->
+            <div class="box-section-cont">
+              error
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="error"
+                id="btnColorErrContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="error"
+                id="btnColorErrOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="error"
+                id="btnColorErrText"
+              ></div>
+            </div>
+            <!-- error -->
+            <!-- warning -->
+            <div class="box-section-cont">
+              warning
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="warning"
+                id="btnColorWarContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="warning"
+                id="btnColorWarOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="warning"
+                id="btnColorWarText"
+              ></div>
+            </div>
+            <!-- warning -->
+            <!-- info -->
+            <div class="box-section-cont">
+              info
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="info"
+                id="btnColorInfContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="info"
+                id="btnColorInfOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="info"
+                id="btnColorInfText"
+              ></div>
+            </div>
+            <!-- info -->
+            <!-- success -->
+            <div class="box-section-cont">
+              success
+              <div
+                class="dp-button-group"
+                variant="contained"
+                color="success"
+                id="btnColorSccContained"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="outlined"
+                color="success"
+                id="btnColorSccOutlined"
+              ></div>
+              <div
+                class="dp-button-group"
+                variant="text"
+                color="success"
+                id="btnColorSccText"
+              ></div>
+            </div>
+            <!-- success -->
+          </section>
+          <!-- Colors -->
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/compdata.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawButtons("#btnGroupContained", "buttonGroup");
+        DrawButtons("#btnGroupOutlined", "buttonGroup");
+        DrawButtons("#btnGrouptext", "buttonGroup");
+        DrawButtons("#btnGroupSmall", "buttonGroup");
+        DrawButtons("#btnGroupMedium", "buttonGroup");
+        DrawButtons("#btnGroupLarge", "buttonGroup");
+        DrawButtons("#btnGrpDefContained", "buttonGroup");
+        DrawButtons("#btnGrpDefOutlined", "buttonGroup");
+        DrawButtons("#btnGrpDefText", "buttonGroup");
+
+        DrawButtons("#btnGrpVtcContained", "buttonGroup");
+        DrawButtons("#btnGrpVtcOutlined", "buttonGroup");
+        DrawButtons("#btnGrpVtcText", "buttonGroup");
+        DrawButtons("#btnColorPriContained", "buttonGroup");
+        DrawButtons("#btnColorPriOutlined", "buttonGroup");
+        DrawButtons("#btnColorPriText", "buttonGroup");
+        DrawButtons("#btnColorSecContained", "buttonGroup");
+        DrawButtons("#btnColorSecOutlined", "buttonGroup");
+        DrawButtons("#btnColorSecText", "buttonGroup");
+        DrawButtons("#btnColorErrContained", "buttonGroup");
+        DrawButtons("#btnColorErrOutlined", "buttonGroup");
+        DrawButtons("#btnColorErrText", "buttonGroup");
+        DrawButtons("#btnColorWarContained", "buttonGroup");
+        DrawButtons("#btnColorWarOutlined", "buttonGroup");
+        DrawButtons("#btnColorWarText", "buttonGroup");
+        DrawButtons("#btnColorInfContained", "buttonGroup");
+        DrawButtons("#btnColorInfOutlined", "buttonGroup");
+        DrawButtons("#btnColorInfText", "buttonGroup");
+        DrawButtons("#btnColorSccContained", "buttonGroup");
+        DrawButtons("#btnColorSccOutlined", "buttonGroup");
+        DrawButtons("#btnColorSccText", "buttonGroup");
+      });
+    </script>
+  </body>
+</html>

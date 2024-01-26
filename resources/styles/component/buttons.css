@@ -16,6 +16,11 @@
   --color: oklch(var(--lv) var(--c) var(--h) / var(--a));
   --boder-color: oklch(var(--lv) var(--c) var(--h));
   --color-text: oklch(var(--lv) var(--c) var(--h));
+  --bd-lv: var(--bd-l);
+  --bd-l: var(--p-dark-l);
+  --bd-c: var(--p-dark-c);
+  --bd-h: var(--p-main-h);
+  --group-border-color: oklch(var(--bd-lv) var(--bd-c) var(--bd-h));
   border: unset;
   background: unset;
   cursor: pointer;
@@ -25,6 +30,18 @@
   border-color: var(--boder-color);
   color: var(--color-btn);
   transition: background-color var(--trs-md);
+  padding: var(--space-8) var(--space-20);
+  font-size: var(--font-size-12);
+
+  &.dp-button-icon {
+    width: 24px;
+    height: 24px;
+    background-size: 16px 16px;
+  }
+  .dp-icon {
+    width: 16px;
+    height: 16px;
+  }
 
   /* button size */
   &[size="xs"] {
@@ -110,6 +127,14 @@
       filter: var(--icon-use-in-dark);
       background-color: var(--color-text);
     }
+    &[orientation="vertical"] {
+      .dp-button {
+        border-color: var(--group-border-color);
+        &:not(&:last-of-type) {
+          border-right-color: var(--group-border-color);
+        }
+      }
+    }
   }
 
   /* button colors */
@@ -169,14 +194,5 @@
     pointer-events: none;
     cursor: default;
     opacity: 0.26;
-  }
-}
-
-/* button group */
-.dp-button-group {
-  display: flex;
-  align-items: center;
-  &[gap="8"] {
-    column-gap: var(--space-8);
   }
 }

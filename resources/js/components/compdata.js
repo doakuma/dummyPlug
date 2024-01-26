@@ -198,6 +198,30 @@ var buttonData = {
       iconName: "rss-simple",
     },
   ],
+  // use in buttons
+  buttonGroup: [
+    {
+      className: "dp-button",
+      size: "",
+      variant: "",
+      color: "",
+      label: "Button",
+    },
+    {
+      className: "dp-button",
+      size: "",
+      variant: "",
+      color: "",
+      label: "Button",
+    },
+    {
+      className: "dp-button",
+      size: "",
+      variant: "",
+      color: "",
+      label: "Button",
+    },
+  ],
 };
 
 function DrawButtons(target, buttons, colors) {
@@ -218,8 +242,12 @@ function DrawButtons(target, buttons, colors) {
     } = item;
     console.debug("item", item);
     _btn.setAttribute("class", className);
-    _btn.setAttribute("size", size);
-    _btn.setAttribute("variant", variant);
+    if (size) {
+      _btn.setAttribute("size", size);
+    }
+    if (variant) {
+      _btn.setAttribute("variant", variant);
+    }
     if (color) {
       _btn.setAttribute("color", colors);
     }
