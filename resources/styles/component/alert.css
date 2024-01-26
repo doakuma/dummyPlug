@@ -67,7 +67,6 @@
     .alert-sticky-content {
       color: var(--gray-50);
     }
-    .dp-icon,
     .dp-button-icon {
       filter: var(--icon-use-in-dark);
     }
@@ -99,5 +98,8 @@
 
   .dp-button-group {
     margin-left: auto;
+  }
+  .dp-button-icon {
+    background-color: transparent;
   }
 }

@@ -1,3 +1,6 @@
+/**
+* TODO: color palette 참고하여 적용 from 'MUI'[https://mui.com/material-ui/customization/palette/#tonal-offset]
+*/
 :root {
   /*  Base Values  */
   /* --color-primary: hsl(272, 100%, 20%); */
@@ -8,6 +11,54 @@
   --secondary-color-s: 99%;
   --secondary-color-l: 27%;
   --contrastThreshold: 60%;
+  /* color palette by oklch --type-theme-lch */
+  --p-main-l: 0.52;
+  --p-main-h: 321;
+  --p-main-c: 0.22;
+  --p-light-l: 0.65;
+  --p-light-c: 0.16;
+  --p-dark-l: 0.45;
+  --p-dark-c: 0.2;
+
+  --s-main-l: 0.56;
+  --s-main-c: 0.16;
+  --s-main-h: 253;
+  --s-light-l: 0.64;
+  --s-light-c: 0.5;
+  --s-dark-l: 0.51;
+  --s-dark-c: 0.16;
+
+  --e-main-l: 0.57;
+  --e-main-c: 0.2;
+  --e-main-h: 26.4;
+  --e-light-l: 0.65;
+  --e-light-c: 0.19;
+  --e-dark-l: 0.54;
+  --e-dark-c: 0.19;
+
+  --w-main-l: 0.68;
+  --w-main-c: 0.18;
+  --w-main-h: 48.4;
+  --w-light-l: 0.77;
+  --w-light-c: 0.17;
+  --w-dark-l: 0.63;
+  --w-dark-c: 0.2;
+
+  --i-main-l: 0.6;
+  --i-main-c: 0.15;
+  --i-main-h: 243;
+  --i-light-l: 0.7;
+  --i-light-c: 0.16;
+  --i-dark-l: 0.45;
+  --i-dark-c: 0.13;
+
+  --sc-main-l: 0.52;
+  --sc-main-c: 0.13;
+  --sc-main-h: 144;
+  --sc-light-l: 0.67;
+  --sc-light-c: 0.16;
+  --sc-dark-l: 0.43;
+  --sc-dark-c: 0.12;
 
   /*  Calculations Based on Lightness  */
   --lightnessTransform: 10%;
@@ -55,4 +106,11 @@
     var(--secondary-color-s),
     var(--secondary-color-light-l)
   );
+
+  /* state color */
+  --hover-opacity: 0.04;
+  --selected-opacity: 0.08;
+  --disabled-opacity: 0.12;
+  --focus-opacity: 0.12;
+  --activated-opacity: 0.12;
 }

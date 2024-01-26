@@ -75,8 +75,11 @@
     border-bottom: 1px solid var(--gray-900);
   }
   .box-section-cont {
+    display: flex;
+    flex-wrap: wrap;
     padding: var(--space-8);
     margin: var(--space-8) 0;
+    gap: var(--space-8);
     /* background: var(--gray-200); */
   }
 }

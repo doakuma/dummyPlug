@@ -68,7 +68,7 @@
     <script src="resources/js/dashboard/module.function.js"></script>
     <script src="resources/js/dashboard/dashboard.js"></script>
     <script>
-      $(function () {
+      document.addEventListener("DOMContentLoaded", function () {
         var { columns, rows } = pageList;
         var COLUMNS = columns;
         drawTable(COLUMNS, rows);
@@ -76,6 +76,7 @@
         initUtilities(utilsInfo);
         initializeFilters(rows);
       });
+      $(function () {});
     </script>
     <script></script>
   </body>

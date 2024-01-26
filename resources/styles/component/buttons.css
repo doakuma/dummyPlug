@@ -1,18 +1,47 @@
+:root {
+  --color-btn: #fff;
+}
+
 /* button
 * state
 * size
 * variant
 */
 .dp-button {
+  --lv: var(--l);
+  --l: var(--p-main-l);
+  --c: var(--p-main-c);
+  --h: var(--p-main-h);
+  --a: 100%;
+  --color: oklch(var(--lv) var(--c) var(--h) / var(--a));
+  --boder-color: oklch(var(--lv) var(--c) var(--h));
+  --color-text: oklch(var(--lv) var(--c) var(--h));
   border: unset;
   background: unset;
   cursor: pointer;
-  color: var(--text-primary-light);
   border-style: solid;
   border-width: 1px;
-  border-color: transparent;
+  background-color: var(--color);
+  border-color: var(--boder-color);
+  color: var(--color-btn);
+  transition: background-color var(--trs-md);
 
   /* button size */
+  &[size="xs"] {
+    padding: var(--space-8) var(--space-20);
+    font-size: var(--font-size-10);
+    border-radius: var(--bdrxs);
+
+    &.dp-button-icon {
+      width: 20px;
+      height: 20px;
+      background-size: 12px 12px;
+    }
+    .dp-icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
   &[size="md"] {
     padding: var(--space-8) var(--space-20);
     font-size: var(--font-size-12);
@@ -23,33 +52,122 @@
       height: 24px;
       background-size: 16px 16px;
     }
+    .dp-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &[size="lg"] {
+    padding: var(--space-8) var(--space-20);
+    font-size: var(--font-size-16);
+    border-radius: var(--bdrxs);
+
+    &.dp-button-icon {
+      width: 28px;
+      height: 28px;
+      background-size: 20px 20px;
+    }
+    .dp-icon {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   /* button variant */
   &[variant="text"] {
-    background-color: transparent;
-    color: var(--color-primary);
+    --a: 0;
+    color: var(--color-text);
+    background-color: var(--color);
+    border-color: transparent;
+    &:hover,
+    &:focus {
+      --a: 15%;
+    }
   }
   &[variant="contained"] {
-    background-color: var(--suface-primary);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    &:hover,
+    &:focus {
+      --a: 100%;
+      --l: var(--p-dark-l);
+      --c: var(--p-dark-c);
+    }
+    .dp-icon {
+      background-color: var(--color-btn);
+    }
   }
   &[variant="outlined"] {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    --a: 0;
+    background-color: var(--color);
+    color: var(--color-text);
+    &:hover,
+    &:focus {
+      --a: 35%;
+    }
+    .dp-icon {
+      --fh: 321;
+      --fs: 0.9;
+      --fb: 1;
+      filter: var(--icon-use-in-dark);
+      background-color: var(--color-text);
+    }
+  }
+
+  /* button colors */
+  &[color="secondary"] {
+    --l: var(--s-main-l);
+    --c: var(--s-main-c);
+    --h: var(--s-main-h);
+  }
+  &[color="error"] {
+    --l: var(--e-main-l);
+    --c: var(--e-main-c);
+    --h: var(--e-main-h);
+  }
+  &[color="warning"] {
+    --l: var(--w-main-l);
+    --c: var(--w-main-c);
+    --h: var(--w-main-h);
+  }
+  &[color="info"] {
+    --l: var(--i-main-l);
+    --c: var(--i-main-c);
+    --h: var(--i-main-h);
+  }
+  &[color="success"] {
+    --l: var(--sc-main-l);
+    --c: var(--sc-main-c);
+    --h: var(--sc-main-h);
   }
 
   /* button icons */
   &.dp-button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: unset;
     background-repeat: no-repeat;
     background-position: center center;
 
     &.dp-close {
+      border-color: transparent;
       background-image: var(--button-icon-close);
     }
+  }
+
+  /* button with icons */
+  &.dp-button-icon-with {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-8) var(--space-16) var(--space-8) var(--space-8);
+  }
+
+  /* states */
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.26;
   }
 }
 

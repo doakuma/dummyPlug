@@ -36,10 +36,10 @@ var pageList = {
     //   key: "dueToDate",
     //   label: "완료예정일",
     // },
-    {
-      key: "completeDate",
-      label: "완료일",
-    },
+    // {
+    //   key: "completeDate",
+    //   label: "완료일",
+    // },
     {
       key: "comments",
       label: "비고",
@@ -94,6 +94,27 @@ var pageList = {
       menuCode: "MENU_CD001",
       pageNm: "Alerts",
       fileFolder: "components/alert",
+      fileName: "index.html",
+      author: "",
+      isComplete: 2,
+      completeDate: "2024-01-23",
+      dueToDate: "2024-01-11",
+      priority: 3,
+      // pageType: , // 페이지 형식 고민 후 재정의
+      modifyInfo: {
+        requestDate: "2024-01-15",
+        completeDate: "",
+        requestContent: "수정요청 사항입니다",
+        requestStatus: 0,
+      },
+      functionSpec: [],
+      comments: "",
+    },
+    {
+      menuNm: "Components",
+      menuCode: "MENU_CD001",
+      pageNm: "Buttons",
+      fileFolder: "components/buttons",
       fileName: "index.html",
       author: "",
       isComplete: 2,
