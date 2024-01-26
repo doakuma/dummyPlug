@@ -18,7 +18,7 @@ class DpAlertSticky extends HTMLElement {
     const shadow = this.shadowRoot;
     const linkStyle = document.createElement("link");
     const shadowStyle = document.createElement("style");
-    shadowStyle.textContent = slotStyle;
+    // shadowStyle.textContent = slotStyle;
     linkStyle.setAttribute("rel", "stylesheet");
     linkStyle.setAttribute("href", "../../resources/styles/common.css");
 

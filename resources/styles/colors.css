@@ -107,7 +107,9 @@
     var(--secondary-color-light-l)
   );
 
-  /* state color */
+  /* state color
+   * 2024-01-26: not uesed in buttons.css
+   */
   --hover-opacity: 0.04;
   --selected-opacity: 0.08;
   --disabled-opacity: 0.12;

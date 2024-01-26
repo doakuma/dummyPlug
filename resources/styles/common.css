@@ -77,9 +77,9 @@
   .box-section-cont {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     padding: var(--space-8);
     margin: var(--space-8) 0;
     gap: var(--space-8);
-    /* background: var(--gray-200); */
   }
 }

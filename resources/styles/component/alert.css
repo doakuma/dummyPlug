@@ -67,32 +67,11 @@
     .alert-sticky-content {
       color: var(--gray-50);
     }
-    .dp-button-icon {
-      filter: var(--icon-use-in-dark);
-    }
-    .dp-button[variant="text"] {
-      color: var(--suface-primary);
-    }
-    .dp-button[variant="outlined"] {
-      color: var(--suface-primary);
-      border-color: var(--suface-primary);
-    }
   }
   &[variant="light"] {
     background-color: var(--color-primary-light);
     .alert-sticky-content {
       color: var(--gray-50);
-    }
-    .dp-icon,
-    .dp-button-icon {
-      filter: var(--icon-use-in-dark);
-    }
-    .dp-button[variant="text"] {
-      color: var(--suface-primary);
-    }
-    .dp-button[variant="outlined"] {
-      color: var(--suface-primary);
-      border-color: var(--suface-primary);
     }
   }
 

@@ -150,7 +150,8 @@
 
     &.dp-close {
       border-color: transparent;
-      background-image: var(--button-icon-close);
+      mask: var(--button-icon-close);
+      background-color: var(--gray-900);
     }
   }
 
