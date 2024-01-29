@@ -17,7 +17,7 @@
       <!-- content -->
       <main class="content">
         <h1 class="text-5xl content-title">Callouts</h1>
-        <!-- <div class="box-wrapper" grid-xs="1">
+        <div class="box-wrapper" grid-xs="1">
           <h2 class="text-4xl box-section-title">Callouts 호출 테스트</h2>
           <div class="dp-button-group" gap="8">
             <button
@@ -48,7 +48,7 @@
               호출하기 bottomCenter
             </button>
           </div>
-        </div> -->
+        </div>
         <div class="box-wrapper" grid-xs="3">
           <!-- defaults -->
           <section class="box-section">
@@ -120,6 +120,29 @@
               </article>
             </div>
           </section>
+          <article
+            class="dp-callout"
+            variant="success"
+            type="snackbar"
+            origin="topRight"
+            id="test"
+          >
+            <i class="dp-icon icon-check-circle"></i>
+            <div class="dp-callout-content">
+              <h2 class="dp-callout-title">Callout title</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam deserunt voluptatem repellat fuga a. Adipisci neque
+                explicabo nihil tempora ut eveniet beatae, esse corporis
+                nesciunt ullam atque ipsa! Unde, autem.
+              </p>
+            </div>
+            <button
+              size="md"
+              class="dp-button dp-button-icon dp-close"
+              onclick="handleAlert('#test', 'close')"
+            ></button>
+          </article>
         </div>
       </main>
       <!--// content -->
