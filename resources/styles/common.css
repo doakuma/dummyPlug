@@ -9,6 +9,7 @@
 @import url(component/forms.css);
 @import url(component/accordion.css);
 @import url(component/alert.css);
+@import url(component/callout.css);
 
 /* TODO: import layouts */
 .wrapper {

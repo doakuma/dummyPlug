@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Callouts</h1>
+        <!-- <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Callouts 호출 테스트</h2>
+          <div class="dp-button-group" gap="8">
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft', 3)"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
+            >
+              호출하기 bottomRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
+            </button>
+          </div>
+        </div> -->
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Callouts Default</h2>
+            <div class="box-section-cont">
+              <article class="dp-callout" variant="success">
+                <i class="dp-icon icon-check-circle"></i>
+                <div class="dp-callout-content">
+                  <h2 class="dp-callout-title">Callout title</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="md"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+              <article class="dp-callout" variant="info">
+                <i class="dp-icon icon-information"></i>
+                <div class="dp-callout-content">
+                  <h2 class="dp-callout-title">Callout title</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="md"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+              <article class="dp-callout" variant="error">
+                <i class="dp-icon icon-information"></i>
+                <div class="dp-callout-content">
+                  <h2 class="dp-callout-title">Callout title</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="md"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+              <article class="dp-callout" variant="warning">
+                <i class="dp-icon icon-warning-triangle"></i>
+                <div class="dp-callout-content">
+                  <h2 class="dp-callout-title">Callout title</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="md"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/alerts.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        handleAlert();
+      });
+    </script>
+    <script>
+      /**
+       * target: alert target ID
+       * handleType: open | close
+       * origin: topLeft | topCenter | topRight | bottomRight | bottomCenter | bottomLeft
+       * autohide 초기화 필요
+       */
+      function handleAlert(target, handleType, origin, autohide) {
+        if (!target) return;
+        var _target = document.querySelector(target);
+
+        // origin
+        if (origin) {
+          _target.setAttribute("origin", origin);
+        }
+        // handletype
+        if (handleType === "open") {
+          _target.classList.add("is-visible");
+        } else {
+          _target.classList.remove("is-visible");
+        }
+
+        // autohide : millisecond
+        if (autohide) {
+          setTimeout(function () {
+            _target.classList.remove("is-visible");
+          }, autohide * 1000);
+        }
+      }
+    </script>
+  </body>
+</html>
