@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Badge</h1>
+        <!-- <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Alert 호출 테스트</h2>
+          <div class="dp-button-group" gap="8">
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft', 3)"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
+            >
+              호출하기 bottomRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
+            </button>
+          </div>
+        </div> -->
+        <div class="box-wrapper" grid-xs="3">
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Badge Size</h2>
+            <div class="box-section-cont">
+              <span class="dp-badge" size="xs">Badge xs</span>
+              <span class="dp-badge" size="md">Badge md</span>
+              <span class="dp-badge" size="lg">Badge lg</span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Badge Shade</h2>
+            <div class="box-section-cont">
+              Light
+              <span class="dp-badge" size="xs" shade="light">Badge xs</span>
+              <span class="dp-badge" size="md" shade="light">Badge md</span>
+              <span class="dp-badge" size="lg" shade="light">Badge lg</span>
+            </div>
+            <div class="box-section-cont">
+              Dark
+              <span class="dp-badge" size="xs" shade="dark">Badge xs</span>
+              <span class="dp-badge" size="md" shade="dark">Badge md</span>
+              <span class="dp-badge" size="lg" shade="dark">Badge lg</span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Badge Variant</h2>
+            <div class="box-section-cont">
+              Contained(Light)
+              <span
+                class="dp-badge"
+                size="md"
+                shade="light"
+                variant="contained"
+              >
+                Badge md</span
+              >
+              Contained(Dark)
+              <span class="dp-badge" size="md" shade="dark" variant="contained">
+                Badge md</span
+              >
+            </div>
+            <div class="box-section-cont">
+              Outlined(Light)
+              <span class="dp-badge" size="md" shade="light" variant="outlined">
+                Badge md</span
+              >
+              Outlined(Dark)
+              <span class="dp-badge" size="md" shade="dark" variant="outlined">
+                Badge md</span
+              >
+            </div>
+          </section>
+        </div>
+        <div class="box-wrapper" grid-xs="1">
+          <section class="box-section" id="badgeColor">
+            <h2 class="text-4xl box-section-title">Badge Color</h2>
+            <div class="box-section-cont">
+              Contained(Light)
+              <span
+                class="dp-badge"
+                size="md"
+                shade="light"
+                variant="contained"
+              >
+                Badge md</span
+              >
+              Contained(Dark)
+              <span class="dp-badge" size="md" shade="dark" variant="contained">
+                Badge md</span
+              >
+            </div>
+            <div class="box-section-cont">
+              Outlined(Light)
+              <span class="dp-badge" size="md" shade="light" variant="outlined">
+                Badge md</span
+              >
+              Outlined(Dark)
+              <span class="dp-badge" size="md" shade="dark" variant="outlined">
+                Badge md</span
+              >
+            </div>
+          </section>
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/compdata.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawBadges("#badgeColor");
+      });
+    </script>
+  </body>
+</html>

@@ -48,6 +48,7 @@
   /* Margin, Padding, Gap - 4x4 grid */
   --space-4: calc(var(--space-base-unit) * 1);
   --space-8: calc(var(--space-base-unit) * 2);
+  --space-10: calc(var(--space-base-unit) * 2.5);
   --space-12: calc(var(--space-base-unit) * 3);
   --space-16: calc(var(--space-base-unit) * 4);
   --space-20: calc(var(--space-base-unit) * 5);

@@ -10,6 +10,7 @@
 @import url(component/accordion.css);
 @import url(component/alert.css);
 @import url(component/callout.css);
+@import url(component/badge.css);
 
 /* TODO: import layouts */
 .wrapper {

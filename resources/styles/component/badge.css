@@ -1,0 +1,85 @@
+.dp-badge {
+  --lv: var(--l);
+  --a: 30%;
+  --l: var(--d-main-l);
+  --c: var(--d-main-c);
+  --h: var(--d-main-h);
+  --border-color: oklch(var(--lv) var(--c) var(--h));
+  --background-color: oklch(var(--lv) var(--c) var(--h) / var(--a));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-medium);
+  border-radius: 100px;
+  color: var(--border-color);
+  border-style: solid;
+  border-width: 1px;
+
+  /* size */
+  &[size="xs"] {
+    font-size: var(--font-size-10);
+    line-height: var(--line-height-medium);
+  }
+  &[size="md"] {
+    font-size: var(--font-size-12);
+    line-height: var(--line-height-medium);
+  }
+  &[size="lg"] {
+    font-size: var(--font-size-14);
+    line-height: var(--line-height-large);
+  }
+  /* shade */
+  &[shade="light"] {
+    --l: var(--d-light-l);
+    --c: var(--d-light-c);
+    background-color: var(--background-color);
+  }
+  &[shade="dark"] {
+    --l: var(--d-main-l);
+    --c: var(--d-main-c);
+    background-color: var(--background-color);
+  }
+  &[variant="contained"] {
+    --a: 100%;
+    background-color: var(--border-color);
+    border-color: var(--border-color);
+    color: var(--white);
+  }
+  &[variant="outlined"] {
+    --a: 0;
+    background-color: var(--background-color);
+  }
+  &[color="primary"] {
+    --l: var(--p-main-l);
+    --c: var(--p-main-c);
+    --h: var(--p-main-h);
+  }
+  &[color="secondary"] {
+    --l: var(--s-main-l);
+    --c: var(--s-main-c);
+    --h: var(--s-main-h);
+  }
+  &[color="error"] {
+    --l: var(--e-main-l);
+    --c: var(--e-main-c);
+    --h: var(--e-main-h);
+  }
+  &[color="warning"] {
+    --l: var(--w-main-l);
+    --c: var(--w-main-c);
+    --h: var(--w-main-h);
+  }
+  &[color="info"] {
+    --l: var(--i-main-l);
+    --c: var(--i-main-c);
+    --h: var(--i-main-h);
+  }
+  &[color="success"] {
+    --l: var(--sc-main-l);
+    --c: var(--sc-main-c);
+    --h: var(--sc-main-h);
+  }
+}
