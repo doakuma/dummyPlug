@@ -3,6 +3,7 @@
 @import url(fonts.css);
 
 /* import components */
+@import url(component/avatarr.css);
 @import url(component/icons.css);
 @import url(component/buttons.css);
 @import url(component/buttonGroups.css);

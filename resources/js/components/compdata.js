@@ -425,6 +425,49 @@ var badgeData = [
   },
 ];
 
+var avatarData = [
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+];
+
 function DrawButtons(target, buttons, colors) {
   var wrapper = document.querySelector(target);
   var data = buttonData[buttons];
@@ -493,4 +536,56 @@ function DrawBadges(target) {
     });
     _target.appendChild(wrapper);
   });
+}
+function DrawAvatarGroup(target, colors) {
+  var _target = document.querySelector(target);
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", "box-section-cont");
+  var groupMax = _target.getAttribute("max");
+  var groupTotal = _target.getAttribute("total");
+  var groupLength = groupMax
+    ? avatarData.length - groupMax
+    : groupTotal
+    ? groupTotal - avatarData.length
+    : avatarData.length;
+  var groups = groupMax ? avatarData.slice(groupLength) : avatarData;
+  var moreInfo = document.createElement("span");
+  moreInfo.setAttribute("class", "dp-avatar more");
+
+  if (groupMax) {
+    moreInfo.textContent = `+${groupLength}`;
+    _target.appendChild(moreInfo);
+  }
+  if (groupTotal) {
+    moreInfo.textContent = `+${groupLength}`;
+    _target.appendChild(moreInfo);
+  }
+
+  groups.forEach(function (item) {
+    var { avatarImg, avatarName, avatarSize } = item;
+    var avatar = document.createElement("span");
+    avatar.setAttribute("class", "dp-avatar");
+    avatar.setAttribute(
+      "style",
+      `--aw: ${avatarSize.aw}; --ah: ${avatarSize.ah}; `
+    );
+    moreInfo.setAttribute(
+      "style",
+      `--aw: ${avatarSize.aw}; --ah: ${avatarSize.ah}; `
+    );
+    if (colors) {
+      avatar.setAttribute("color", colors);
+    }
+
+    if (avatarImg) {
+      var avatarImgs = document.createElement("img");
+      avatarImgs.setAttribute("src", avatarImg);
+      avatarImgs.setAttribute("alt", avatarName);
+      avatar.appendChild(avatarImgs);
+    } else {
+      avatar.textContent = "JL";
+    }
+    _target.appendChild(avatar);
+  });
+  // _target.appendChild(wrapper);
 }
