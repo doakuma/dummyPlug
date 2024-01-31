@@ -71,6 +71,12 @@
       document.addEventListener("DOMContentLoaded", function () {
         var { columns, rows } = pageList;
         var COLUMNS = columns;
+        // data 정렬
+        rows.sort(function (a, b) {
+          if (a.pageNm > b.pageNm) return 1;
+          if (a.pageNm < b.pageNm) return -1;
+          if (a.pageNm === b.pageNm) return 0;
+        });
         drawTable(COLUMNS, rows);
         drawStatusInfo(rows);
         initUtilities(utilsInfo);

@@ -12,9 +12,15 @@
   --secondary-color-l: 27%;
   --contrastThreshold: 60%;
   /* color palette by oklch --type-theme-lch */
+  --d-main-l: 0.37;
+  --d-main-c: 0.04;
+  --d-main-h: 260;
+  --d-light-l: 0.54;
+  --d-light-c: 0.04;
+
   --p-main-l: 0.52;
-  --p-main-h: 321;
   --p-main-c: 0.22;
+  --p-main-h: 321;
   --p-light-l: 0.65;
   --p-light-c: 0.16;
   --p-dark-l: 0.45;
