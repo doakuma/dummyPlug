@@ -175,7 +175,9 @@
 
     &.dp-close {
       border-color: transparent;
-      mask: var(--button-icon-close);
+      mask-image: var(--button-icon-close);
+      mask-repeat: no-repeat;
+      mask-position: center center;
       background-color: var(--gray-900);
     }
   }

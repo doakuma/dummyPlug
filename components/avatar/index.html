@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Avatar</h1>
+        <!-- <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Alert 호출 테스트</h2>
+          <div class="dp-button-group" gap="8">
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft', 3)"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
+            >
+              호출하기 bottomRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
+            </button>
+          </div>
+        </div> -->
+        <div class="box-wrapper" grid-xs="3">
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Type</h2>
+            <div class="box-section-cont">
+              Image:
+              <span class="dp-avatar" style="--aw: 64; --ah: 64">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+              Letter:
+              <span class="dp-avatar" style="--aw: 64; --ah: 64"> JL </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Sizes</h2>
+            <div class="box-section-cont">
+              using variables in style attributes; just like
+              <strong> style="--aw: 24; --ah: 24"</strong>
+            </div>
+            <div class="box-section-cont">
+              <span class="dp-avatar" style="--aw: 24; --ah: 24">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+              <span class="dp-avatar" style="--aw: 32; --ah: 32">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+              <span class="dp-avatar" style="--aw: 40; --ah: 40">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+              <span class="dp-avatar" style="--aw: 48; --ah: 48">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Icon</h2>
+            <div class="box-section-cont">
+              <span
+                class="dp-avatar"
+                style="--aw: 40; --ah: 40"
+                color="primary"
+              >
+                <i class="dp-icon icon-avatar-default"></i>
+              </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Variant</h2>
+            <div class="box-section-cont">
+              Square:
+              <span
+                class="dp-avatar"
+                variant="square"
+                style="--aw: 64; --ah: 64"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+              Rounded:
+              <span
+                class="dp-avatar"
+                variant="rounded"
+                style="--aw: 64; --ah: 64"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Fallback</h2>
+            <p>TODO: setup after component created</p>
+            <div class="box-section-cont">
+              <span class="dp-avatar" style="--aw: 64; --ah: 64">
+                <img
+                  src="../../resources/images/@img_avtar.png"
+                  alt="Jenny Lane"
+                />
+              </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar with Badge</h2>
+            <div class="box-section-cont">
+              <span
+                class="dp-avatar"
+                style="--aw: 64; --ah: 64"
+                variant="square"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="error"></span>
+              </span>
+              <span
+                class="dp-avatar"
+                style="--aw: 64; --ah: 64"
+                variant="rounded"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="error"></span>
+              </span>
+              <span class="dp-avatar" style="--aw: 64; --ah: 64">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="error"></span>
+              </span>
+            </div>
+            <div class="box-section-cont">
+              <span
+                class="dp-avatar"
+                style="--aw: 64; --ah: 64"
+                variant="square"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="primary" origin="top">+99</span>
+              </span>
+              <span
+                class="dp-avatar"
+                style="--aw: 64; --ah: 64"
+                variant="rounded"
+              >
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="primary" origin="bottom"></span>
+              </span>
+              <span class="dp-avatar" style="--aw: 64; --ah: 64">
+                <img
+                  src="../../resources/images/@img_avatar.png"
+                  alt="Jenny Lane"
+                />
+                <span class="dp-badge" color="primary" origin="top"></span>
+              </span>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Group</h2>
+            Default
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarGroup"></div>
+            </div>
+            Group Max (max=3)
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarGroupMax" max="3"></div>
+            </div>
+            Group Total (total=24)
+            <div class="box-section-cont">
+              <div
+                class="dp-avatar-group"
+                id="avatarGroupTotal"
+                total="24"
+              ></div>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Avatar Colors</h2>
+            Primary
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorPrimary"></div>
+            </div>
+            Secondary
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorSecondary"></div>
+            </div>
+            Error
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorError"></div>
+            </div>
+            Warning
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorWarning"></div>
+            </div>
+            Info
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorInfo"></div>
+            </div>
+            Success
+            <div class="box-section-cont">
+              <div class="dp-avatar-group" id="avatarColorSuccess"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/compdata.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawAvatarGroup("#avatarGroup");
+        DrawAvatarGroup("#avatarGroupMax");
+        DrawAvatarGroup("#avatarGroupTotal");
+
+        DrawAvatarGroup("#avatarColorPrimary", "primary");
+        DrawAvatarGroup("#avatarColorSecondary", "secondary");
+        DrawAvatarGroup("#avatarColorError", "error");
+        DrawAvatarGroup("#avatarColorWarning", "warning");
+        DrawAvatarGroup("#avatarColorInfo", "info");
+        DrawAvatarGroup("#avatarColorSuccess", "success");
+      });
+    </script>
+  </body>
+</html>

@@ -224,6 +224,250 @@ var buttonData = {
   ],
 };
 
+var badgeData = [
+  {
+    colorName: "primary",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+  {
+    colorName: "secondary",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+  {
+    colorName: "error",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+  {
+    colorName: "warning",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+  {
+    colorName: "info",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+  {
+    colorName: "success",
+    badges: [
+      {
+        variant: "contained",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "contained",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "light",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+      {
+        variant: "outlined",
+        size: "md",
+        shade: "dark",
+        clssName: "dp-badge",
+        badgeText: "Badge",
+      },
+    ],
+  },
+];
+
+var avatarData = [
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+  {
+    avatarImg: "../../resources/images/@img_avatar.png",
+    avatarName: "Jenny Lane",
+    avatarSize: {
+      aw: 48,
+      ah: 48,
+    },
+  },
+];
+
 function DrawButtons(target, buttons, colors) {
   var wrapper = document.querySelector(target);
   var data = buttonData[buttons];
@@ -269,4 +513,79 @@ function DrawButtons(target, buttons, colors) {
     }
     wrapper.appendChild(_btn);
   });
+}
+
+function DrawBadges(target) {
+  var _target = document.querySelector(target);
+
+  badgeData.forEach(function (item) {
+    var { colorName, badges } = item;
+    var wrapper = document.createElement("div");
+    wrapper.textContent = colorName;
+    wrapper.setAttribute("class", "box-section-cont");
+    badges.forEach(function (badge) {
+      var { variant, size, shade, clssName, badgeText } = badge;
+      var _badge = document.createElement("span");
+      _badge.setAttribute("class", clssName);
+      _badge.setAttribute("size", size);
+      _badge.setAttribute("shade", shade);
+      _badge.setAttribute("variant", variant);
+      _badge.setAttribute("color", colorName);
+      _badge.textContent = badgeText;
+      wrapper.appendChild(_badge);
+    });
+    _target.appendChild(wrapper);
+  });
+}
+function DrawAvatarGroup(target, colors) {
+  var _target = document.querySelector(target);
+  var wrapper = document.createElement("div");
+  wrapper.setAttribute("class", "box-section-cont");
+  var groupMax = _target.getAttribute("max");
+  var groupTotal = _target.getAttribute("total");
+  var groupLength = groupMax
+    ? avatarData.length - groupMax
+    : groupTotal
+    ? groupTotal - avatarData.length
+    : avatarData.length;
+  var groups = groupMax ? avatarData.slice(groupLength) : avatarData;
+  var moreInfo = document.createElement("span");
+  moreInfo.setAttribute("class", "dp-avatar more");
+
+  if (groupMax) {
+    moreInfo.textContent = `+${groupLength}`;
+    _target.appendChild(moreInfo);
+  }
+  if (groupTotal) {
+    moreInfo.textContent = `+${groupLength}`;
+    _target.appendChild(moreInfo);
+  }
+
+  groups.forEach(function (item) {
+    var { avatarImg, avatarName, avatarSize } = item;
+    var avatar = document.createElement("span");
+    avatar.setAttribute("class", "dp-avatar");
+    avatar.setAttribute(
+      "style",
+      `--aw: ${avatarSize.aw}; --ah: ${avatarSize.ah}; `
+    );
+    moreInfo.setAttribute(
+      "style",
+      `--aw: ${avatarSize.aw}; --ah: ${avatarSize.ah}; `
+    );
+    if (colors) {
+      avatar.setAttribute("color", colors);
+    }
+
+    if (avatarImg) {
+      var avatarImgs = document.createElement("img");
+      avatarImgs.setAttribute("src", avatarImg);
+      avatarImgs.setAttribute("alt", avatarName);
+      avatar.appendChild(avatarImgs);
+    } else {
+      avatar.textContent = "JL";
+    }
+    _target.appendChild(avatar);
+  });
+  // _target.appendChild(wrapper);
 }
