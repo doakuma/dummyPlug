@@ -1,0 +1,125 @@
+.dp-chip {
+  --lv: var(--l);
+  --a: 30%;
+  --l: var(--d-main-l);
+  --c: var(--d-main-c);
+  --h: var(--d-main-h);
+  --bd-a: 100%;
+  --border-color: oklch(var(--lv) var(--c) var(--h) / var(--bd-a));
+  --background-color: oklch(var(--lv) var(--c) var(--h) / var(--a));
+  --ch-bdrs: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--ch-bdrs);
+  transition: all 0.15s;
+  color: var(--text-primary); /* size */
+  &[size="xs"] {
+    font-size: var(--font-size-10);
+    line-height: var(--line-height-small);
+  }
+  &[size="md"] {
+    font-size: var(--font-size-14);
+    line-height: var(--line-height-medium);
+  }
+  &[size="lg"] {
+    font-size: var(--font-size-18);
+    line-height: var(--line-height-large);
+  }
+
+  /* variant */
+  &[variant="outlined"] {
+    --bd-a: 30%;
+  }
+  &[variant="contained"] {
+    --bd-a: 0%;
+  }
+
+  /* actions */
+  &:is(button:not([deletable])) {
+    &:not(:disabled) {
+      cursor: pointer;
+      &:hover {
+        --a: 60%;
+      }
+    }
+  }
+  &:is(a) {
+    text-decoration: none;
+  }
+  &[deletable="true"] {
+    --size: 24;
+    .dp-icon {
+      width: calc(var(--size) * 1px);
+      height: calc(var(--size) * 1px);
+    }
+    &:not(:disabled) {
+      .dp-icon {
+        cursor: pointer;
+      }
+    }
+    &[size="xs"] {
+      .dp-icon {
+        --size: 10;
+      }
+    }
+    &[size="md"] {
+      .dp-icon {
+        --size: 12;
+      }
+    }
+    &[size="lg"] {
+      .dp-icon {
+        --size: 13;
+      }
+    }
+  }
+
+  &:disabled {
+    --a: 50%;
+  }
+  &[color] {
+    --a: 70%;
+    color: var(--white);
+    &:disabled {
+      --a: 50%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  &[color="primary"] {
+    --l: var(--p-main-l);
+    --c: var(--p-main-c);
+    --h: var(--p-main-h);
+  }
+  &[color="secondary"] {
+    --l: var(--s-main-l);
+    --c: var(--s-main-c);
+    --h: var(--s-main-h);
+  }
+  &[color="error"] {
+    --l: var(--e-main-l);
+    --c: var(--e-main-c);
+    --h: var(--e-main-h);
+  }
+  &[color="warning"] {
+    --l: var(--w-main-l);
+    --c: var(--w-main-c);
+    --h: var(--w-main-h);
+  }
+  &[color="info"] {
+    --l: var(--i-main-l);
+    --c: var(--i-main-c);
+    --h: var(--i-main-h);
+  }
+  &[color="success"] {
+    --l: var(--sc-main-l);
+    --c: var(--sc-main-c);
+    --h: var(--sc-main-h);
+  }
+}

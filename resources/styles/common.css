@@ -12,6 +12,7 @@
 @import url(component/alert.css);
 @import url(component/callout.css);
 @import url(component/badge.css);
+@import url(component/chip.css);
 
 /* TODO: import layouts */
 .wrapper {
