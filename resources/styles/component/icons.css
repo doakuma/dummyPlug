@@ -43,6 +43,9 @@
   &.icon-avatar-default {
     mask-image: var(--icon-avatar-default);
   }
+  &.icon-close {
+    mask-image: var(--button-icon-close);
+  }
 }
 .alert-sticky {
   &[variant="dark"],

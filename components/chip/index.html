@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Chip</h1>
+        <!-- <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Alert 호출 테스트</h2>
+          <div class="dp-button-group" gap="8">
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft', 3)"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomRight', 3)"
+            >
+              호출하기 bottomRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
+            </button>
+          </div>
+        </div> -->
+        <div class="box-wrapper" grid-xs="3">
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Chip Size</h2>
+            <div class="box-section-cont">
+              <dp-chip label="Chips xs" size="xs" variant="contained"></dp-chip>
+              <dp-chip label="Chips md" size="md" variant="contained"></dp-chip>
+              <dp-chip label="Chips lg" size="lg" variant="contained"></dp-chip>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Chip Variant</h2>
+            <div class="box-section-cont">
+              <dp-chip label="Chips xs" size="xs" variant="contained"></dp-chip>
+              <dp-chip label="Chips md" size="md" variant="contained"></dp-chip>
+              <dp-chip label="Chips lg" size="lg" variant="contained"></dp-chip>
+            </div>
+            <div class="box-section-cont">
+              <dp-chip label="Chips xs" size="xs" variant="outlined"></dp-chip>
+              <dp-chip label="Chips md" size="md" variant="outlined"></dp-chip>
+              <dp-chip label="Chips lg" size="lg" variant="outlined"></dp-chip>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Chip Actions</h2>
+            <div class="box-section-cont">
+              <dp-chip label="default" size="md" variant="contained"></dp-chip>
+              <dp-chip
+                label="clickable"
+                size="md"
+                variant="outlined"
+                oncustomclick="handleClick()"
+              ></dp-chip>
+              <dp-chip
+                label="link"
+                size="md"
+                variant="outlined"
+                href="#"
+              ></dp-chip>
+              <dp-chip
+                label="clickable disabled"
+                size="md"
+                variant="outlined"
+                oncustomclick="handleClick()"
+                disabled
+              ></dp-chip>
+              <dp-chip
+                label="deletable"
+                size="md"
+                variant="outlined"
+                deletable="true"
+                oncustomclick="handleDelete()"
+              ></dp-chip>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Chip Adornment</h2>
+            <div class="box-section-cont">
+              <dp-chip
+                label="Chips md"
+                size="md"
+                variant="contained"
+                avatar-size="24"
+                avatar-img="../../resources/images/@img_avatar.png"
+                avatar-alt="Jenny Lane"
+              ></dp-chip>
+            </div>
+            <div class="box-section-cont">
+              <dp-chip
+                label="Chips md"
+                size="md"
+                variant="contained"
+                icon="check-circle"
+              ></dp-chip>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Chip Colors</h2>
+            <div class="box-section-cont" id="chipColorsPrimary"></div>
+            <div class="box-section-cont" id="chipColorsSecondary"></div>
+            <div class="box-section-cont" id="chipColorsError"></div>
+            <div class="box-section-cont" id="chipColorsWarning"></div>
+            <div class="box-section-cont" id="chipColorsInfo"></div>
+            <div class="box-section-cont" id="chipColorsSuccess"></div>
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/chip.js"></script>
+    <script src="../../resources/js/components/compdata.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawChips('#chipColorsPrimary','primary')
+        DrawChips('#chipColorsSecondary','secondary')
+        DrawChips('#chipColorsError','error')
+        DrawChips('#chipColorsWarning','warning')
+        DrawChips('#chipColorsInfo','info')
+        DrawChips('#chipColorsSuccess','success')
+      });
+      function handleClick(e) {
+        console.debug("chip click", e);
+      }
+      function handleDelete() {
+        console.debug("chip delete");
+      }
+    </script>
+  </body>
+</html>
