@@ -468,6 +468,116 @@ var avatarData = [
   },
 ];
 
+var chipsData = [
+  // {
+  //   label: "chip",
+  //   size: "md",
+  //   variant: "contained",
+  //   color: "secondary",
+  //   oncustomclick: () => handleClick(),
+  //   deletable: true,
+  //   href: "#",
+  //   disabled: false,
+  //   icon: "check-circle",
+  //   avatar: {
+  //   img: "../../resources/images/@img_avatar.png",
+  //   size: "24",
+  //   alt: "Jenny Lane",
+  //   },
+  // },
+  {
+    label: "with Avatar",
+    size: "md",
+    variant: "contained",
+    color: "primary",
+    oncustomclick: () => handleClick(),
+    href: "",
+    disabled: false,
+    icon: "",
+    avatar: {
+      img: "../../resources/images/@img_avatar.png",
+      size: "24",
+      alt: "Jenny Lane",
+    },
+  },
+  {
+    label: "Deletable",
+    size: "md",
+    variant: "contained",
+    color: "secondary",
+    oncustomclick: () => handleClick(),
+    deletable: true,
+    // href: "#",
+    // disabled: false,
+    // icon: "check-circle",
+    // avatar: {
+    // img: "../../resources/images/@img_avatar.png",
+    // size: "24",
+    // alt: "Jenny Lane",
+    // },
+  },
+  {
+    label: "Linkable",
+    size: "md",
+    variant: "outlined",
+    color: "error",
+    // oncustomclick: () => handleClick(),
+    href: "#",
+    // disabled: false,
+    // icon: "check-circle",
+    // avatar: {
+    //   img: "../../resources/images/@img_avatar.png",
+    //   size: "24",
+    //   alt: "Jenny Lane",
+    // },
+  },
+  {
+    label: "Disabled",
+    size: "md",
+    variant: "contained",
+    color: "warning",
+    oncustomclick: () => handleClick(),
+    // href: "#",
+    disabled: true,
+    // icon: "check-circle",
+    // avatar: {
+    //   img: "../../resources/images/@img_avatar.png",
+    //   size: "24",
+    //   alt: "Jenny Lane",
+    // },
+  },
+  {
+    label: "With Icon",
+    size: "md",
+    variant: "contained",
+    color: "info",
+    // oncustomclick: () => handleClick(),
+    // href: "#",
+    // disabled: false,
+    icon: "check-circle",
+    // avatar: {
+    //   img: "../../resources/images/@img_avatar.png",
+    //   size: "24",
+    //   alt: "Jenny Lane",
+    // },
+  },
+  {
+    label: "Default",
+    size: "md",
+    variant: "contained",
+    color: "success",
+    // oncustomclick: () => handleClick(),
+    // href: "#",
+    // disabled: false,
+    // icon: "check-circle",
+    // avatar: {
+    //   img: "../../resources/images/@img_avatar.png",
+    //   size: "24",
+    //   alt: "Jenny Lane",
+    // },
+  },
+];
+
 function DrawButtons(target, buttons, colors) {
   var wrapper = document.querySelector(target);
   var data = buttonData[buttons];
@@ -588,4 +698,49 @@ function DrawAvatarGroup(target, colors) {
     _target.appendChild(avatar);
   });
   // _target.appendChild(wrapper);
+}
+function DrawChips(target, colors) {
+  var _target = document.querySelector(target);
+
+  chipsData.forEach(function (item) {
+    var {
+      label,
+      size,
+      variant,
+      color,
+      oncustomclick,
+      href,
+      disabled,
+      icon,
+      avatar,
+      deletable,
+    } = item;
+    var wrapper = document.createElement("dp-chip");
+    wrapper.setAttribute("label", label);
+    wrapper.setAttribute("size", size);
+    wrapper.setAttribute("variant", variant);
+    wrapper.setAttribute("color", colors);
+    if (oncustomclick) {
+      wrapper.setAttribute("oncustomclick", oncustomclick);
+    }
+    if (href) {
+      wrapper.setAttribute("href", href);
+    }
+    if (deletable) {
+      wrapper.setAttribute("deletable", deletable);
+    }
+    if (disabled) {
+      wrapper.setAttribute("disabled", disabled);
+    }
+    if (icon) {
+      wrapper.setAttribute("icon", icon);
+    }
+    if (avatar) {
+      var { img, size, alt } = avatar;
+      wrapper.setAttribute("avatar-img", img);
+      wrapper.setAttribute("avatar-size", size);
+      wrapper.setAttribute("avatar-alt", alt);
+    }
+    _target.appendChild(wrapper);
+  });
 }
