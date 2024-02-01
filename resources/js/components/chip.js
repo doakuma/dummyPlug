@@ -56,24 +56,33 @@ class DpChip extends HTMLElement {
     avatarWrapper.setAttribute("class", "dp-avatar");
     icon.setAttribute("class", "dp-icon");
     Object.entries(attrs).forEach(function ([key, value]) {
-      if (key === "label") {
-        wrapper.textContent = value;
-      }
-      if (key === "oncustomclick") {
-        wrapper.setAttribute("onclick", value);
-      }
       if (key === "deletable") {
         icon.classList.add("icon-close");
         wrapper.appendChild(icon);
+      }
+      wrapper.setAttribute(key, value);
+      if (key === "label") {
+        wrapper.textContent = value;
       }
       if (key === "icon") {
         icon.classList.add("icon-check-circle");
         wrapper.insertBefore(icon, wrapper.firstChild);
       }
-      wrapper.setAttribute(key, value);
+      if (key === "oncustomclick") {
+        wrapper.setAttribute("onclick", value);
+      }
       if (key.includes("avatar")) {
         createAvatar(key, value);
-        wrapper.removeAttribute(key);
+      }
+      switch (key) {
+        case "label":
+        case "icon":
+        case "oncustomclick":
+        case "avatar":
+          wrapper.removeAttribute(key);
+          break;
+        default:
+          break;
       }
       wrapper.setAttribute("class", "dp-chip");
     });
@@ -89,7 +98,7 @@ class DpChip extends HTMLElement {
           avatarImg.setAttribute("src", value);
           break;
         case "avatar-alt":
-          avatarWrapper.setAttribute("alt", value);
+          avatarImg.setAttribute("alt", value);
           break;
         default:
           break;
