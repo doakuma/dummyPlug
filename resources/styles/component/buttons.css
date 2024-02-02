@@ -52,7 +52,7 @@
     &.dp-button-icon {
       width: 20px;
       height: 20px;
-      background-size: 12px 12px;
+      mask-size: 65%;
     }
     .dp-icon {
       width: 12px;

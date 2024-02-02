@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Toast</h1>
+        <div class="box-wrapper" grid-xs="1">
+          <h2 class="text-4xl box-section-title">Toasts 호출 테스트</h2>
+          <div class="dp-button-group" gap="8">
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topLeft')"
+            >
+              호출하기 topLeft
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'topRight', 5)"
+            >
+              호출하기 topRight
+            </button>
+            <button
+              type="button"
+              class="dp-button"
+              size="md"
+              variant="outlined"
+              onclick="handleAlert('#test', 'open', 'bottomCenter')"
+            >
+              호출하기 bottomCenter
+            </button>
+          </div>
+        </div>
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toast Default</h2>
+            <div class="box-section-cont">
+              <article class="dp-toast" variant="success">
+                <i class="dp-icon icon-check-circle"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Success</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+              </article>
+              <article class="dp-toast" variant="info">
+                <i class="dp-icon icon-information"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Info</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+              </article>
+              <article class="dp-toast" variant="error">
+                <i class="dp-icon icon-information"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Error</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+              </article>
+              <article class="dp-toast" variant="warning">
+                <i class="dp-icon icon-warning-triangle"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Warning</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toast Actions</h2>
+            <div class="box-section-cont">
+              <article
+                class="dp-toast"
+                variant="error"
+                isCountDown="true"
+                countDown="5"
+              >
+                <i class="dp-icon icon-check-circle"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast CountDown</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="xs"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+                <div class="dp-toast-progress">
+                  <div
+                    class="dp-tost-progress-indicatior"
+                    style="--pg-w: 65"
+                  ></div>
+                </div>
+              </article>
+              <article class="dp-toast" variant="error" isClosable="true">
+                <i class="dp-icon icon-check-circle"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Closable</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                </div>
+                <button
+                  size="xs"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+              <article class="dp-toast" variant="info" isClosable="true">
+                <i class="dp-icon icon-check-circle"></i>
+                <div class="dp-toast-content">
+                  <h2 class="dp-toast-title">Toast Button Actions</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam deserunt voluptatem repellat fuga a. Adipisci
+                    neque explicabo nihil tempora ut eveniet beatae, esse
+                    corporis nesciunt ullam atque ipsa! Unde, autem.
+                  </p>
+                  <div
+                    class="dp-button-group"
+                    variant="outlined"
+                    size="xs"
+                    orientation="default"
+                    position="right"
+                    color="info"
+                  >
+                    <button class="dp-button">Button</button
+                    ><button class="dp-button">Button</button
+                    ><button class="dp-button">Button</button>
+                  </div>
+                </div>
+                <button
+                  size="xs"
+                  class="dp-button dp-button-icon dp-close"
+                ></button>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+      <!--// content -->
+      <!-- test excute -->
+      <article
+        class="dp-toast"
+        variant="info"
+        isCountDown="true"
+        countDown="5"
+        type="snackbar"
+        id="test"
+      >
+        <i class="dp-icon icon-check-circle"></i>
+        <div class="dp-toast-content">
+          <h2 class="dp-toast-title">Toast CountDown</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            deserunt voluptatem repellat fuga a. Adipisci neque explicabo nihil
+            tempora ut eveniet beatae, esse corporis nesciunt ullam atque ipsa!
+            Unde, autem.
+          </p>
+        </div>
+        <button
+          size="xs"
+          class="dp-button dp-button-icon dp-close"
+          onclick="handleAlert('#test', 'close')"
+        ></button>
+        <div class="dp-toast-progress">
+          <div class="dp-tost-progress-indicatior"></div>
+        </div>
+      </article>
+    </div>
+    <script src="../../resources/js/components/alerts.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        handleAlert();
+      });
+    </script>
+    <script>
+      /**
+       * target: alert target ID
+       * handleType: open | close
+       * origin: topLeft | topCenter | topRight | bottomRight | bottomCenter | bottomLeft
+       * autohide 초기화 필요
+       */
+      function handleAlert(target, handleType, origin, autohide) {
+        if (!target) return;
+        var alertElement = document.querySelector(target);
+        var progressElement = alertElement.querySelector(
+          ".dp-tost-progress-indicatior"
+        );
+        var progressTime = autohide * 1000;
+
+        // origin
+        if (origin) {
+          alertElement.setAttribute("origin", origin);
+        }
+        // handletype
+        if (handleType === "open") {
+          alertElement.classList.add("is-visible");
+        } else {
+          alertElement.classList.remove("is-visible");
+          _progress.setAttribute("style", ``);
+          clearInterval(progress);
+        }
+
+        // autohide : millisecond
+        if (autohide) {
+          var width = alertElement.clientWidth;
+          var progressWidth = Math.floor((width / progressTime) * 100);
+
+          let progressInterval;
+
+          const startProgress = () => {
+            progressInterval = setInterval(() => {
+              progressTime -= 100;
+              width -= progressWidth;
+              const percentage = Math.floor(
+                (width / alertElement.clientWidth) * 100
+              );
+              progressElement.style.setProperty("--pg-w", `${percentage}`);
+
+              if (progressTime <= 0) {
+                alertElement.classList.remove("is-visible");
+                clearInterval(progressInterval);
+                resetProgress(progressElement);
+              }
+            }, 100);
+          };
+
+          startProgress();
+
+          // 알림 닫을 때 자동 숨김 중단
+          alertElement.addEventListener("click", () => {
+            clearInterval(progressInterval);
+            resetProgress(progressElement);
+          });
+        }
+      }
+      function resetProgress(progressElement) {
+        progressElement.style.removeProperty("--pg-w");
+      }
+    </script>
+  </body>
+</html>

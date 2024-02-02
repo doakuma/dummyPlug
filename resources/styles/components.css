@@ -35,3 +35,15 @@ TODO: [ ] Skeleton loader
 TODO: [ ] Table
 TODO: [ ] Templates
 */
+
+@import url(component/avatarr.css);
+@import url(component/icons.css);
+@import url(component/buttons.css);
+@import url(component/buttonGroups.css);
+@import url(component/forms.css);
+@import url(component/accordion.css);
+@import url(component/alert.css);
+@import url(component/callout.css);
+@import url(component/badge.css);
+@import url(component/chip.css);
+@import url(component/toast.css);
