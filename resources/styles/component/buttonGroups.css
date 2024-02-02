@@ -224,4 +224,12 @@
   &[gap="8"] {
     column-gap: var(--space-8);
   }
+
+  /* position */
+  &[position="center"] {
+    justify-content: center;
+  }
+  &[position="right"] {
+    justify-content: flex-end;
+  }
 }
