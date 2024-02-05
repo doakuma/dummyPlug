@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Toggle</h1>
+
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toggle Default</h2>
+            <div class="box-section-cont">
+              <span class="dp-toggle">
+                <input type="checkbox" id="dpTg01" />
+                <label for="dpTg01">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle
+                </label>
+              </span>
+            </div>
+          </section>
+          <!--// defaults -->
+          <!-- Sizes -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toggle Sizes</h2>
+            <div class="box-section-cont">
+              <span class="dp-toggle" size="xs">
+                <input type="checkbox" name="dpTgSize" id="dpTgSize01" />
+                <label for="dpTgSize01">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle xs
+                </label>
+              </span>
+              <span class="dp-toggle" size="md">
+                <input type="checkbox" name="dpTgSize" id="dpTgSize02" />
+                <label for="dpTgSize02">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle md
+                </label>
+              </span>
+              <span class="dp-toggle" size="lg">
+                <input type="checkbox" name="dpTgSize" id="dpTgSize03" />
+                <label for="dpTgSize03">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle lg
+                </label>
+              </span>
+            </div>
+          </section>
+          <!--// Sizes -->
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toggle State</h2>
+            <div class="box-section-cont">
+              <span class="dp-toggle">
+                <input type="checkbox" name="dpTgState" id="dpTgState01" />
+                <label for="dpTgState01">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle
+                </label>
+              </span>
+              <span class="dp-toggle" isDisabled="true">
+                <input
+                  type="checkbox"
+                  name="dpTgState"
+                  id="dpTgState02"
+                  disabled
+                />
+                <label for="dpTgState02">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle Disabled
+                </label>
+              </span>
+            </div>
+          </section>
+          <!--// defaults -->
+        </div>
+
+        <div class="box-wrapper" grid-xs="3">
+          <!-- Icons -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toggle Icons</h2>
+            <div class="box-section-cont">
+              <span class="dp-toggle">
+                <input type="checkbox" id="dpTgIcon01" />
+                <label for="dpTgIcon01">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"
+                      ><i class="dp-icon icon-toggle"></i
+                    ></span>
+                  </span>
+                  Toggle
+                </label>
+              </span>
+            </div>
+          </section>
+          <!--// Icons -->
+          <!-- Colors -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Toggle Colors</h2>
+            <div class="box-section-cont">
+              <span class="dp-toggle" color="primary">
+                <input type="checkbox" id="dpTgColor01" name="dpTgColor" />
+                <label for="dpTgColor01">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle primary
+                </label>
+              </span>
+              <span class="dp-toggle" color="secondary">
+                <input type="checkbox" id="dpTgColor02" name="dpTgColor" />
+                <label for="dpTgColor02">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle secondary
+                </label>
+              </span>
+              <span class="dp-toggle" color="error">
+                <input type="checkbox" id="dpTgColor03" name="dpTgColor" />
+                <label for="dpTgColor03">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle error
+                </label>
+              </span>
+              <span class="dp-toggle" color="warning">
+                <input type="checkbox" id="dpTgColor04" name="dpTgColor" />
+                <label for="dpTgColor04">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle warning
+                </label>
+              </span>
+              <span class="dp-toggle" color="info">
+                <input type="checkbox" id="dpTgColor05" name="dpTgColor" />
+                <label for="dpTgColor05">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle info
+                </label>
+              </span>
+              <span class="dp-toggle" color="success">
+                <input type="checkbox" id="dpTgColor06" name="dpTgColor" />
+                <label for="dpTgColor06">
+                  <span class="dp-toggle-track">
+                    <span class="dp-toggle-handle"></span>
+                  </span>
+                  Toggle success
+                </label>
+              </span>
+            </div>
+          </section>
+          <!--// Colors -->
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {});
+    </script>
+  </body>
+</html>
