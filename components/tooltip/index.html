@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Tooltip</h1>
+
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Tooltip Default</h2>
+            <div class="box-section-cont">
+              <button class="dp-button" size="md" variant="contained">
+                Tooltip
+              </button>
+              <!-- tooltip -->
+              <div
+                class="dp-tooltip dp-tooltip-container use-in-guide"
+                variant="plain"
+              >
+                Plain tooltip
+              </div>
+              <!--// tooltip -->
+              <!-- tooltip -->
+              <div
+                class="dp-tooltip dp-tooltip-container use-in-guide"
+                variant="rich"
+              >
+                <h3 class="dp-tooltip-subhead">Tooltip sub head</h3>
+                <p class="dp-tooltip-cont">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  et praesentium ut dolore sapiente? Enim quisquam
+                  necessitatibus eaque tempora, sapiente consequatur, alias in
+                  dolorum quo ea vel consequuntur est repudiandae?
+                </p>
+                <button class="dp-button" size="xs" variant="text">
+                  button
+                </button>
+              </div>
+              <!--// tooltip -->
+            </div>
+          </section>
+          <!--// defaults -->
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Tooltip Show / Hide</h2>
+            <div class="box-section-cont">
+              <!-- <button
+                class="dp-button"
+                size="md"
+                variant="contained"
+                onmouseenter="handleUseTooltip(this, 'tooltipPlain', 'show')"
+                onmouseleave="handleUseTooltip(this, 'tooltipPlain', 'hide')"
+              >
+                Show on Hover Plain
+              </button>
+              <button
+                class="dp-button"
+                size="md"
+                variant="contained"
+                onmouseenter="handleUseTooltip(this, 'tooltipRich', 'show')"
+                onmouseleave="handleUseTooltip(this, 'tooltipRich', 'hide')"
+              >
+                Show on Hover Rich
+              </button>
+              <button
+                class="dp-button"
+                size="md"
+                variant="contained"
+                onclick="handleUseTooltip(this, 'tooltipPlain', 'show')"
+              >
+                Show on Click Plain
+              </button>
+              <button
+                class="dp-button"
+                size="md"
+                variant="contained"
+                onclick="handleUseTooltip(this, 'tooltipRich', 'show')"
+              >
+                Show on Click Rich
+              </button> -->
+              <dp-tooltip
+                size="md"
+                label="Tooltip"
+                isRich="true"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+                isclickable="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip plain"
+                title="Tooltip"
+                isclickable="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip plain"
+                title="Tooltip"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip Rich"
+                isRich="true"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+            </div>
+          </section>
+          <!--// defaults -->
+        </div>
+      </main>
+      <!--// content -->
+      <!-- <div
+        class="dp-tooltip dp-tooltip-container"
+        variant="plain"
+        id="tooltipPlain"
+        isvisible="false"
+      >
+        Plain tooltip
+      </div> -->
+      <!--// tooltip -->
+      <!-- tooltip -->
+      <!-- <div
+        class="dp-tooltip dp-tooltip-container"
+        variant="rich"
+        id="tooltipRich"
+        isvisible="false"
+      >
+        <h3 class="dp-tooltip-subhead">Tooltip sub head</h3>
+        <p class="dp-tooltip-cont">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt et
+          praesentium ut dolore sapiente? Enim quisquam necessitatibus eaque
+          tempora, sapiente consequatur, alias in dolorum quo ea vel
+          consequuntur est repudiandae?
+        </p>
+        <button
+          class="dp-button"
+          size="xs"
+          variant="text"
+          onclick="handleUseTooltip(this, 'tooltipRich', 'hide')"
+        >
+          button
+        </button>
+      </div> -->
+      <!--// tooltip -->
+    </div>
+    <script src="../../resources/js/components/tooltip.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {});
+      /**
+       * target : tooltip target id
+       * type : show | hide
+       * origin: origin series
+       */
+      function handleUseTooltip(trigger, target, type, origin) {
+        var _target = document.querySelector(`#${target}`);
+        var _tirgger = trigger.getBoundingClientRect();
+        var _targetRect = _target.getBoundingClientRect();
+        var _clientX = _tirgger.x - (_targetRect.width - _tirgger.width) / 2;
+        var _clientY = _tirgger.y + _tirgger.height + 4;
+
+        var targetStyle = {
+          left: `${_clientX}px`,
+          top: `${_clientY}px`,
+        };
+
+        if (type) {
+          if (type === "show") {
+            _target.style.left = `${_clientX}px`;
+            _target.style.top = `${_clientY}px`;
+            _target.setAttribute("isVisible", "true");
+          } else {
+            _target.setAttribute("isVisible", "false");
+            _target.removeAttribute("style");
+          }
+        }
+
+        // console.debug("event", _tirgger, _target.getBoundingClientRect());
+      }
+    </script>
+  </body>
+</html>

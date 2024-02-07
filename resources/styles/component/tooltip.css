@@ -1,0 +1,43 @@
+.dp-tooltip {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  padding: var(--space-8);
+  background-color: var(--gray-900);
+  color: var(--gray-50);
+  border-radius: var(--bdrxs);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-medium);
+  max-width: 250px;
+  box-shadow: var(--shadow-wide-md);
+  transition: opacity var(--trs-md);
+  .dp-tooltip-subhead {
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &[variant="rich"] {
+    padding: var(--space-12) var(--space-16) var(--space-8);
+    background-color: var(--gray-50);
+    color: var(--text-primary-light);
+
+    .dp-tooltip-cont {
+      margin: var(--space-4) 0 var(--space-12);
+    }
+  }
+  &[isvisible="true"] {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1500;
+  }
+
+  /* just use at guide page */
+  &.use-in-guide {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    z-index: unset;
+  }
+}
