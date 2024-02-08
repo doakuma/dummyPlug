@@ -1,10 +1,11 @@
 .dp-tooltip {
+  --tooltip-background: var(--gray-900);
   position: fixed;
   visibility: hidden;
   opacity: 0;
   z-index: -1;
   padding: var(--space-8);
-  background-color: var(--gray-900);
+  background-color: var(--tooltip-background);
   color: var(--gray-50);
   border-radius: var(--bdrxs);
   font-size: var(--font-size-12);
@@ -17,10 +18,66 @@
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-semibold);
   }
+  .dp-tooltip-arrow {
+    position: absolute;
+    /* top: -8px;
+    left: 0; 
+    right: 0; */
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent var(--tooltip-background) transparent;
+
+    &[origin="top"] {
+      top: -8px;
+      left: 0;
+      right: 0;
+    }
+    &[origin="right"] {
+      top: 0;
+      bottom: 0;
+      left: -12px;
+      transform: rotate(-90deg);
+    }
+    &[origin="bottom"] {
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      transform: rotate(180deg);
+    }
+    &[origin="left"] {
+      top: 0;
+      bottom: 0;
+      right: -12px;
+      transform: rotate(90deg);
+    }
+    &[origin="topLeft"] {
+      right: -12px;
+      bottom: 8px;
+      transform: rotate(90deg);
+    }
+    &[origin="bottomLeft"] {
+      right: -12px;
+      top: 8px;
+      transform: rotate(90deg);
+    }
+    &[origin="topRight"] {
+      left: -12px;
+      bottom: 8px;
+      transform: rotate(-90deg);
+    }
+    &[origin="bottomRight"] {
+      left: -12px;
+      top: 8px;
+      transform: rotate(-90deg);
+    }
+  }
 
   &[variant="rich"] {
+    --tooltip-background: var(--gray-50);
     padding: var(--space-12) var(--space-16) var(--space-8);
-    background-color: var(--gray-50);
     color: var(--text-primary-light);
 
     .dp-tooltip-cont {

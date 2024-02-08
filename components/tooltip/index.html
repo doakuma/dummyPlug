@@ -54,44 +54,10 @@
             </div>
           </section>
           <!--// defaults -->
-          <!-- defaults -->
+          <!-- Show / Hide -->
           <section class="box-section">
             <h2 class="text-4xl box-section-title">Tooltip Show / Hide</h2>
             <div class="box-section-cont">
-              <!-- <button
-                class="dp-button"
-                size="md"
-                variant="contained"
-                onmouseenter="handleUseTooltip(this, 'tooltipPlain', 'show')"
-                onmouseleave="handleUseTooltip(this, 'tooltipPlain', 'hide')"
-              >
-                Show on Hover Plain
-              </button>
-              <button
-                class="dp-button"
-                size="md"
-                variant="contained"
-                onmouseenter="handleUseTooltip(this, 'tooltipRich', 'show')"
-                onmouseleave="handleUseTooltip(this, 'tooltipRich', 'hide')"
-              >
-                Show on Hover Rich
-              </button>
-              <button
-                class="dp-button"
-                size="md"
-                variant="contained"
-                onclick="handleUseTooltip(this, 'tooltipPlain', 'show')"
-              >
-                Show on Click Plain
-              </button>
-              <button
-                class="dp-button"
-                size="md"
-                variant="contained"
-                onclick="handleUseTooltip(this, 'tooltipRich', 'show')"
-              >
-                Show on Click Rich
-              </button> -->
               <dp-tooltip
                 size="md"
                 label="Tooltip"
@@ -120,77 +86,151 @@
               ></dp-tooltip>
             </div>
           </section>
-          <!--// defaults -->
+          <!--// Show / Hide -->
+          <!-- Show / Hide -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Tooltip Arrow / Origin</h2>
+            <div class="box-section-cont">
+              <dp-tooltip
+                size="md"
+                label="Tooltip top"
+                title="Tooltip top"
+                origin="top"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip right"
+                title="Tooltip right"
+                origin="right"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip bottom "
+                title="Tooltip bottom"
+                origin="bottom"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip left "
+                title="Tooltip left"
+                origin="left"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip topLeft "
+                title="Tooltip topLeft"
+                origin="topLeft"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip topRight "
+                title="Tooltip topRight"
+                origin="topRight"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip bottomRight "
+                title="Tooltip bottomRight"
+                origin="bottomRight"
+                isarrow="true"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Tooltip bottomLeft "
+                title="Tooltip bottomLeft"
+                origin="bottomLeft"
+                isarrow="true"
+              ></dp-tooltip>
+            </div>
+            <div class="box-section-cont">
+              <dp-tooltip
+                size="md"
+                label="Rich top"
+                isRich="true"
+                isarrow="true"
+                origin="top"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich right"
+                isRich="true"
+                isarrow="true"
+                origin="right"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich bottom"
+                isRich="true"
+                isarrow="true"
+                origin="bottom"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich left"
+                isRich="true"
+                isarrow="true"
+                origin="left"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich topLeft"
+                isRich="true"
+                isarrow="true"
+                origin="topLeft"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich topRight"
+                isRich="true"
+                isarrow="true"
+                origin="topRight"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich bottomRight"
+                isRich="true"
+                isarrow="true"
+                origin="bottomRight"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+              <dp-tooltip
+                size="md"
+                label="Rich bottomLeft"
+                isRich="true"
+                isarrow="true"
+                origin="bottomLeft"
+                title="Tooltip Component"
+                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
+              ></dp-tooltip>
+            </div>
+          </section>
+          <!--// Show / Hide -->
         </div>
       </main>
       <!--// content -->
-      <!-- <div
-        class="dp-tooltip dp-tooltip-container"
-        variant="plain"
-        id="tooltipPlain"
-        isvisible="false"
-      >
-        Plain tooltip
-      </div> -->
-      <!--// tooltip -->
-      <!-- tooltip -->
-      <!-- <div
-        class="dp-tooltip dp-tooltip-container"
-        variant="rich"
-        id="tooltipRich"
-        isvisible="false"
-      >
-        <h3 class="dp-tooltip-subhead">Tooltip sub head</h3>
-        <p class="dp-tooltip-cont">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt et
-          praesentium ut dolore sapiente? Enim quisquam necessitatibus eaque
-          tempora, sapiente consequatur, alias in dolorum quo ea vel
-          consequuntur est repudiandae?
-        </p>
-        <button
-          class="dp-button"
-          size="xs"
-          variant="text"
-          onclick="handleUseTooltip(this, 'tooltipRich', 'hide')"
-        >
-          button
-        </button>
-      </div> -->
-      <!--// tooltip -->
     </div>
     <script src="../../resources/js/components/tooltip.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {});
-      /**
-       * target : tooltip target id
-       * type : show | hide
-       * origin: origin series
-       */
-      function handleUseTooltip(trigger, target, type, origin) {
-        var _target = document.querySelector(`#${target}`);
-        var _tirgger = trigger.getBoundingClientRect();
-        var _targetRect = _target.getBoundingClientRect();
-        var _clientX = _tirgger.x - (_targetRect.width - _tirgger.width) / 2;
-        var _clientY = _tirgger.y + _tirgger.height + 4;
-
-        var targetStyle = {
-          left: `${_clientX}px`,
-          top: `${_clientY}px`,
-        };
-
-        if (type) {
-          if (type === "show") {
-            _target.style.left = `${_clientX}px`;
-            _target.style.top = `${_clientY}px`;
-            _target.setAttribute("isVisible", "true");
-          } else {
-            _target.setAttribute("isVisible", "false");
-            _target.removeAttribute("style");
-          }
-        }
-
-        // console.debug("event", _tirgger, _target.getBoundingClientRect());
-      }
     </script>
   </body>
 </html>

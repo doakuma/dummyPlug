@@ -14,7 +14,7 @@ class DpTooltip extends HTMLElement {
       return attrs;
     }, {});
 
-    console.debug("this.state", this.state, this.state.isclickable);
+    console.debug("this.state", this.state.isarrow);
 
     // clickable 일 때 클릭 이벤트 등록 아니면 mouseenter / mouseleave 이벤트 등록
     if (this.state.isclickable === "true") {
@@ -49,13 +49,51 @@ class DpTooltip extends HTMLElement {
   }
   // tooltip position
   setPosition() {
+    const { origin } = this.state;
     const { top, left, height } = this.tooltipButton.getBoundingClientRect();
+    let x = 0;
+    let y = 0;
     const tooltipWidth = this.tooltipWrap.offsetWidth;
     const tooltipHeight = this.tooltipWrap.offsetHeight;
+    const tooltipButtonWidth = this.tooltipButton.offsetWidth;
+    const tooltipButtonHeight = this.tooltipButton.offsetHeight;
 
     // 툴팁 위치 계산
-    const x = left + (this.tooltipButton.offsetWidth - tooltipWidth) / 2;
-    const y = top + height + 10;
+    switch (origin) {
+      case "right":
+        x = left + tooltipButtonWidth + 10;
+        y = top + tooltipButtonHeight / 2 - tooltipHeight / 2;
+        break;
+      case "bottom":
+        x = left + (tooltipButtonWidth - tooltipWidth) / 2;
+        y = top - tooltipHeight - 10;
+        break;
+      case "left":
+        x = left - tooltipWidth - 10;
+        y = top + tooltipButtonHeight / 2 - tooltipHeight / 2;
+        break;
+      case "topLeft":
+        x = left - tooltipWidth - 10;
+        y = top - tooltipHeight + tooltipButtonHeight / 2;
+        break;
+      case "topRight":
+        x = left + tooltipButtonWidth + 10;
+        y = top - tooltipHeight + tooltipButtonHeight / 2;
+        break;
+      case "bottomRight":
+        x = left + tooltipButtonWidth + 10;
+        y = top + tooltipButtonHeight / 2;
+        break;
+      case "bottomLeft":
+        x = left - tooltipWidth - 10;
+        y = top + tooltipButtonHeight / 2;
+        break;
+      default:
+        x = left + (tooltipButtonWidth - tooltipWidth) / 2;
+        y = top + height + 10;
+        break;
+    }
+
     // 툴팁 위치 설정
     this.tooltipWrap.style.left = `${x}px`;
     this.tooltipWrap.style.top = `${y}px`;
@@ -77,7 +115,7 @@ class DpTooltip extends HTMLElement {
   createTooltip() {
     this.tooltipWrap.setAttribute("class", "dp-tooltip");
     this.tooltipWrap.setAttribute("isVisible", this.visible);
-    const { title, content, isrich } = this.state;
+    const { title, content, isrich, isarrow } = this.state;
     isrich && this.tooltipWrap.setAttribute("variant", "rich");
     this.tooltipTitle.setAttribute("class", "dp-tooltip-subhead");
     this.tooltipContent.setAttribute("class", "dp-tooltip-cont");
@@ -89,7 +127,15 @@ class DpTooltip extends HTMLElement {
     }
     this.tooltipWrap.appendChild(this.tooltipTitle);
     this.tooltipWrap.appendChild(this.tooltipContent);
+    isarrow && this.createArrow();
     document.body.appendChild(this.tooltipWrap);
+  }
+  createArrow() {
+    const { origin } = this.state;
+    const arrow = document.createElement("span");
+    arrow.setAttribute("origin", origin);
+    arrow.setAttribute("class", "dp-tooltip-arrow");
+    this.tooltipWrap.appendChild(arrow);
   }
   // remove tooltip
   removeTooltip() {
