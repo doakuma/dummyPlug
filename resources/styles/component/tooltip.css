@@ -31,9 +31,10 @@
     border-color: transparent transparent var(--tooltip-background) transparent;
 
     &[origin="top"] {
-      top: -8px;
+      bottom: -8px;
       left: 0;
       right: 0;
+      transform: rotate(180deg);
     }
     &[origin="right"] {
       top: 0;
@@ -42,10 +43,9 @@
       transform: rotate(-90deg);
     }
     &[origin="bottom"] {
-      bottom: -8px;
+      top: -8px;
       left: 0;
       right: 0;
-      transform: rotate(180deg);
     }
     &[origin="left"] {
       top: 0;

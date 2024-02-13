@@ -8,27 +8,16 @@ class DpTooltip extends HTMLElement {
     this.tooltipContent = document.createElement("div");
     this.visible = false;
 
-    const attributeNodeArray = [...this.attributes];
-    this.state = attributeNodeArray.reduce(function (attrs, attribute) {
-      attrs[attribute.name] = attribute.value;
-      return attrs;
-    }, {});
-
-    console.debug("this.state", this.state.isarrow);
-
-    // clickable 일 때 클릭 이벤트 등록 아니면 mouseenter / mouseleave 이벤트 등록
-    if (this.state.isclickable === "true") {
-      this.tooltipButton.addEventListener("click", this.handleClick.bind(this));
-    } else {
-      this.tooltipButton.addEventListener(
-        "mouseenter",
-        this.showTooltip.bind(this)
-      );
-      this.tooltipButton.addEventListener(
-        "mouseleave",
-        this.hideTooltip.bind(this)
-      );
-    }
+    this.state = {
+      size: "",
+      label: "",
+      origin: "",
+      isarrow: "",
+      title: "",
+      content: "",
+      isclickable: "",
+      isrich: "",
+    };
 
     // regist document clck event
     document.addEventListener("click", this.onDocumentclick.bind(this));
@@ -66,7 +55,7 @@ class DpTooltip extends HTMLElement {
         break;
       case "bottom":
         x = left + (tooltipButtonWidth - tooltipWidth) / 2;
-        y = top - tooltipHeight - 10;
+        y = top + height + 10;
         break;
       case "left":
         x = left - tooltipWidth - 10;
@@ -90,7 +79,7 @@ class DpTooltip extends HTMLElement {
         break;
       default:
         x = left + (tooltipButtonWidth - tooltipWidth) / 2;
-        y = top + height + 10;
+        y = top - tooltipHeight - 10;
         break;
     }
 
@@ -104,6 +93,29 @@ class DpTooltip extends HTMLElement {
     const linkStyle = document.createElement("link");
     linkStyle.setAttribute("rel", "stylesheet");
     linkStyle.setAttribute("href", "../../resources/styles/common.css");
+    const attributeNodeArray = [...this.attributes];
+    const attrs = attributeNodeArray.reduce(function (attrs, attribute) {
+      attrs[attribute.name] = attribute.value;
+      return attrs;
+    }, {});
+
+    if (attrs) {
+      this.state = { ...attrs };
+    }
+    // clickable 일 때 클릭 이벤트 등록 아니면 mouseenter / mouseleave 이벤트 등록
+    if (this.state.isclickable === "true") {
+      this.tooltipButton.addEventListener("click", this.handleClick.bind(this));
+    } else {
+      this.tooltipButton.addEventListener(
+        "mouseenter",
+        this.showTooltip.bind(this)
+      );
+      this.tooltipButton.addEventListener(
+        "mouseleave",
+        this.hideTooltip.bind(this)
+      );
+    }
+
     this.tooltipButton.setAttribute("class", "dp-button");
     this.tooltipButton.textContent = this.state.label;
     this.tooltipButton.setAttribute("size", this.state.size);
@@ -116,7 +128,7 @@ class DpTooltip extends HTMLElement {
     this.tooltipWrap.setAttribute("class", "dp-tooltip");
     this.tooltipWrap.setAttribute("isVisible", this.visible);
     const { title, content, isrich, isarrow } = this.state;
-    isrich && this.tooltipWrap.setAttribute("variant", "rich");
+    isrich === "true" && this.tooltipWrap.setAttribute("variant", "rich");
     this.tooltipTitle.setAttribute("class", "dp-tooltip-subhead");
     this.tooltipContent.setAttribute("class", "dp-tooltip-cont");
     if (isrich === "true") {

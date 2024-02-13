@@ -61,7 +61,7 @@
               <dp-tooltip
                 size="md"
                 label="Tooltip"
-                isRich="true"
+                isrich="true"
                 title="Tooltip Component"
                 content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
                 isclickable="true"
@@ -80,7 +80,7 @@
               <dp-tooltip
                 size="md"
                 label="Tooltip Rich"
-                isRich="true"
+                isrich="true"
                 title="Tooltip Component"
                 content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
               ></dp-tooltip>
@@ -90,138 +90,8 @@
           <!-- Show / Hide -->
           <section class="box-section">
             <h2 class="text-4xl box-section-title">Tooltip Arrow / Origin</h2>
-            <div class="box-section-cont">
-              <dp-tooltip
-                size="md"
-                label="Tooltip top"
-                title="Tooltip top"
-                origin="top"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip right"
-                title="Tooltip right"
-                origin="right"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip bottom "
-                title="Tooltip bottom"
-                origin="bottom"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip left "
-                title="Tooltip left"
-                origin="left"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip topLeft "
-                title="Tooltip topLeft"
-                origin="topLeft"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip topRight "
-                title="Tooltip topRight"
-                origin="topRight"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip bottomRight "
-                title="Tooltip bottomRight"
-                origin="bottomRight"
-                isarrow="true"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Tooltip bottomLeft "
-                title="Tooltip bottomLeft"
-                origin="bottomLeft"
-                isarrow="true"
-              ></dp-tooltip>
-            </div>
-            <div class="box-section-cont">
-              <dp-tooltip
-                size="md"
-                label="Rich top"
-                isRich="true"
-                isarrow="true"
-                origin="top"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich right"
-                isRich="true"
-                isarrow="true"
-                origin="right"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich bottom"
-                isRich="true"
-                isarrow="true"
-                origin="bottom"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich left"
-                isRich="true"
-                isarrow="true"
-                origin="left"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich topLeft"
-                isRich="true"
-                isarrow="true"
-                origin="topLeft"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich topRight"
-                isRich="true"
-                isarrow="true"
-                origin="topRight"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich bottomRight"
-                isRich="true"
-                isarrow="true"
-                origin="bottomRight"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-              <dp-tooltip
-                size="md"
-                label="Rich bottomLeft"
-                isRich="true"
-                isarrow="true"
-                origin="bottomLeft"
-                title="Tooltip Component"
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!"
-              ></dp-tooltip>
-            </div>
+            <div class="box-section-cont" id="plain"></div>
+            <div class="box-section-cont" id="rich"></div>
           </section>
           <!--// Show / Hide -->
         </div>
@@ -229,8 +99,12 @@
       <!--// content -->
     </div>
     <script src="../../resources/js/components/tooltip.js"></script>
+    <script src="../../resources/js/components/compdata.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {});
+      document.addEventListener("DOMContentLoaded", function () {
+        DrawTooltip("plain");
+        DrawTooltip("rich", true);
+      });
     </script>
   </body>
 </html>
