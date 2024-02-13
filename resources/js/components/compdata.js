@@ -578,6 +578,111 @@ var chipsData = [
   },
 ];
 
+var tooltipData = [
+  {
+    size: "md",
+    label: "Tooltip top",
+    origin: "top",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip topRight",
+    origin: "topRight",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip right",
+    origin: "right",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip bottomRight",
+    origin: "bottomRight",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip bottom",
+    origin: "bottom",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip bottomLeft",
+    origin: "bottomLeft",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip left",
+    origin: "left",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "false",
+    isrich: "false",
+  },
+  {
+    size: "md",
+    label: "Tooltip topleft",
+    origin: "topLeft",
+    isarrow: "true",
+    title: "Tooltip Component",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis reprehenderit eveniet excepturi, nulla obcaecati cumque quibusdam earum! Odit quasi accusantium placeat accusamus natus iure eius labore quaerat ducimus sed!",
+    isclickable: "true",
+    isrich: "false",
+  },
+];
+
+function DrawTooltip(target, rich) {
+  var wrapper = document.querySelector(`#${target}`);
+  tooltipData.forEach(function (item, idx) {
+    var _tooltip = document.createElement("dp-tooltip");
+    Object.entries(item).forEach(function ([key, value]) {
+      _tooltip.setAttribute(key, value);
+      if (rich) {
+        _tooltip.setAttribute("isrich", rich);
+      }
+    });
+    wrapper.appendChild(_tooltip);
+  });
+}
+
 function DrawButtons(target, buttons, colors) {
   var wrapper = document.querySelector(target);
   var data = buttonData[buttons];

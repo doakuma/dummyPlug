@@ -1,0 +1,100 @@
+.dp-tooltip {
+  --tooltip-background: var(--gray-900);
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  padding: var(--space-8);
+  background-color: var(--tooltip-background);
+  color: var(--gray-50);
+  border-radius: var(--bdrxs);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-medium);
+  max-width: 250px;
+  box-shadow: var(--shadow-wide-md);
+  transition: opacity var(--trs-md);
+  .dp-tooltip-subhead {
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-semibold);
+  }
+  .dp-tooltip-arrow {
+    position: absolute;
+    /* top: -8px;
+    left: 0; 
+    right: 0; */
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent var(--tooltip-background) transparent;
+
+    &[origin="top"] {
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      transform: rotate(180deg);
+    }
+    &[origin="right"] {
+      top: 0;
+      bottom: 0;
+      left: -12px;
+      transform: rotate(-90deg);
+    }
+    &[origin="bottom"] {
+      top: -8px;
+      left: 0;
+      right: 0;
+    }
+    &[origin="left"] {
+      top: 0;
+      bottom: 0;
+      right: -12px;
+      transform: rotate(90deg);
+    }
+    &[origin="topLeft"] {
+      right: -12px;
+      bottom: 8px;
+      transform: rotate(90deg);
+    }
+    &[origin="bottomLeft"] {
+      right: -12px;
+      top: 8px;
+      transform: rotate(90deg);
+    }
+    &[origin="topRight"] {
+      left: -12px;
+      bottom: 8px;
+      transform: rotate(-90deg);
+    }
+    &[origin="bottomRight"] {
+      left: -12px;
+      top: 8px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &[variant="rich"] {
+    --tooltip-background: var(--gray-50);
+    padding: var(--space-12) var(--space-16) var(--space-8);
+    color: var(--text-primary-light);
+
+    .dp-tooltip-cont {
+      margin: var(--space-4) 0 var(--space-12);
+    }
+  }
+  &[isvisible="true"] {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1500;
+  }
+
+  /* just use at guide page */
+  &.use-in-guide {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    z-index: unset;
+  }
+}
