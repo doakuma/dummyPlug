@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resources/styles/common.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- content -->
+      <main class="content">
+        <h1 class="text-5xl content-title">Slider</h1>
+
+        <div class="box-wrapper" grid-xs="3">
+          <!-- defaults -->
+          <section class="box-section">
+            <h2 class="text-4xl box-section-title">Slider Default</h2>
+            <div class="box-section-cont">
+              <div class="dp-slider">
+                <div class="dp-slider-control">
+                  <input
+                    id="fromSlider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                  />
+                  <input
+                    id="toSlider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="40"
+                  />
+                </div>
+              </div>
+
+              <dp-slider multiple="true" min="0" max="100"></dp-slider>
+            </div>
+          </section>
+          <!--// defaults -->
+        </div>
+      </main>
+      <!--// content -->
+    </div>
+    <script src="../../resources/js/components/slider.js"></script>
+    <!-- <script src="../../resources/js/components/compdata.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var slider = new DpSlider("test", {
+          multiple: true,
+          min: 0,
+          max: 100,
+        });
+      });
+    </script>
+  </body>
+</html>
