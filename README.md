@@ -1,6 +1,5 @@
 # dummyPlug for HTML
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](Link)[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](Link)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](Link)
 
 화면 개발을 위한 초기 템플릿으로 다음과 같은 내용을 담고 있습니다
 
